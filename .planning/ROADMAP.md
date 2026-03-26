@@ -30,7 +30,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A page layout responds correctly across mobile (<640px), tablet (640-1023px), and desktop (>=1024px) breakpoints
   4. lib/systems.ts exports all 15 system entries with name, one-liner, problem, solution, tech badge, isPublic, and githubUrl fields
   5. Keyboard focus rings (2px), ARIA landmarks, 44px touch targets, and prefers-reduced-motion support are present in the base layout
-**Plans**: TBD
+**Plans:** 3 plans
+Plans:
+- [ ] 01-01-PLAN.md -- Project scaffold + design token system (fonts, colors, dark mode)
+- [ ] 01-02-PLAN.md -- Systems data layer + test infrastructure (lib/systems.ts, vitest)
+- [ ] 01-03-PLAN.md -- Responsive layout, accessibility tests, visual verification
 **UI hint**: yes
 
 ### Phase 2: Static Narrative Content
@@ -90,7 +94,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + Design System | 0/TBD | Not started | - |
+| 1. Foundation + Design System | 0/3 | Planning complete | - |
 | 2. Static Narrative Content | 0/TBD | Not started | - |
 | 3. Chat System | 0/TBD | Not started | - |
 | 4. Engagement Intelligence | 0/TBD | Not started | - |
