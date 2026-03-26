@@ -96,13 +96,48 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (populated by roadmapper) | | |
+| FOUND-01 | Phase 1: Foundation + Design System | Pending |
+| FOUND-02 | Phase 1: Foundation + Design System | Pending |
+| FOUND-03 | Phase 1: Foundation + Design System | Pending |
+| FOUND-04 | Phase 1: Foundation + Design System | Pending |
+| FOUND-05 | Phase 1: Foundation + Design System | Pending |
+| FOUND-06 | Phase 1: Foundation + Design System | Pending |
+| NAR-01 | Phase 2: Static Narrative Content | Pending |
+| NAR-02 | Phase 2: Static Narrative Content | Pending |
+| NAR-03 | Phase 2: Static Narrative Content | Pending |
+| NAR-04 | Phase 2: Static Narrative Content | Pending |
+| NAR-05 | Phase 2: Static Narrative Content | Pending |
+| NAR-06 | Phase 2: Static Narrative Content | Pending |
+| NAR-07 | Phase 2: Static Narrative Content | Pending |
+| NAR-08 | Phase 2: Static Narrative Content | Pending |
+| CHAT-01 | Phase 3: Chat System | Pending |
+| CHAT-02 | Phase 3: Chat System | Pending |
+| CHAT-03 | Phase 3: Chat System | Pending |
+| CHAT-04 | Phase 3: Chat System | Pending |
+| CHAT-05 | Phase 3: Chat System | Pending |
+| CHAT-06 | Phase 3: Chat System | Pending |
+| INV-01 | Phase 2: Static Narrative Content | Pending |
+| INV-02 | Phase 4: Engagement Intelligence | Pending |
+| INV-03 | Phase 2: Static Narrative Content | Pending |
+| ENG-01 | Phase 3: Chat System | Pending |
+| ENG-02 | Phase 4: Engagement Intelligence | Pending |
+| ENG-03 | Phase 2: Static Narrative Content | Pending |
+| ENG-04 | Phase 2: Static Narrative Content | Pending |
+| ENG-05 | Phase 4: Engagement Intelligence | Pending |
+| ENG-06 | Phase 5: Operations + Go-Live | Pending |
+| INT-01 | Phase 4: Engagement Intelligence | Pending |
+| INT-02 | Phase 4: Engagement Intelligence | Pending |
+| OPS-01 | Phase 5: Operations + Go-Live | Pending |
+| OPS-02 | Phase 2: Static Narrative Content | Pending |
+| OPS-03 | Phase 5: Operations + Go-Live | Pending |
+| OPS-04 | Phase 2: Static Narrative Content | Pending |
+| OPS-05 | Phase 5: Operations + Go-Live | Pending |
 
 **Coverage:**
-- v1 requirements: 32 total
-- Mapped to phases: 0
-- Unmapped: 32
+- v1 requirements: 36 total
+- Mapped to phases: 36
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-26*
-*Last updated: 2026-03-26 after initial definition*
+*Last updated: 2026-03-26 after roadmap creation*
