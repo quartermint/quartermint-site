@@ -5,6 +5,7 @@ status: draft
 shadcn_initialized: false
 preset: none
 created: 2026-03-26
+revised: 2026-03-26
 ---
 
 # Phase 1 — UI Design Contract
@@ -36,18 +37,19 @@ Declared values (must be multiples of 4):
 | xs | 4px | Inline icon gaps, badge letter-spacing (1px is an exception for letter-spacing only) |
 | sm | 8px | Compact element spacing, chip horizontal padding, section entrance translateY |
 | md | 16px | Default element spacing, component vertical gap, chip horizontal padding, shelf gap |
-| lg | 24px | Card padding, card gap (featured grid), chat heading-to-chips gap |
-| xl | 28px | Major element vertical gap (between major content blocks within sections) |
+| lg | 24px | Card padding, card gap (featured grid), chat heading-to-chips gap, major element vertical gap (between major content blocks within sections) |
 | 2xl | 32px | Featured system row gap, layout-level spacing |
 | 3xl | 48px | Section vertical padding (mobile), nav height, chat input height, touch target min |
-| 4xl | 80px | Section vertical padding (desktop) |
+| 4xl | 64px | Large layout-level spacing |
 
 Exceptions:
 - **44px** minimum touch target (WCAG requirement, not a spacing token — applied as `min-width`/`min-height` on interactive elements)
-- **28px** is not a multiple of 8 but IS a multiple of 4 — used specifically for "between major elements" vertical gap per design doc
 - **6px** border-radius on buttons, chip border-radius — design doc spec, used as component property not spacing token
 - **8px** border-radius on cards and containers — component property
 - **2px** focus ring width + offset — accessibility property
+
+Layout constants (not part of spacing scale — declared as named CSS custom properties):
+- **`--spacing-section-desktop: 80px`** — Desktop section vertical padding. This is a layout-level constant, not a spacing increment. It does not participate in the spacing token scale.
 
 ---
 
@@ -58,30 +60,28 @@ Exceptions:
 | Font | Variants | Loading |
 |------|----------|---------|
 | Instrument Serif | Regular (400), Italic (400i) | `next/font/google`, self-hosted at build time |
-| DM Sans | 400, 500, 600, 700 | `next/font/google`, self-hosted at build time |
+| DM Sans | 400, 600 | `next/font/google`, self-hosted at build time |
 
-**Excluded:** DM Sans 300 — unused in any component spec, saves load time (per design doc D-05 specific).
+**Excluded:** DM Sans 300 — unused in any component spec, saves load time (per design doc D-05 specific). DM Sans 500 — consolidated into 400 for body or 600 for emphasis. DM Sans 700 — consolidated into 600 for all bold/emphasis use cases.
 
-### Type Scale
+### Type Scale (4 sizes)
 
 | Role | Size | Font | Weight | Line Height | Usage |
 |------|------|------|--------|-------------|-------|
-| Display (h1) | 48px | Instrument Serif | 400 | 1.1 | Hero name "Ryan Stern" only |
-| Heading (h2) | 32px | Instrument Serif | 400 | 1.2 | Section headings |
-| Title (h3) | 20px | Instrument Serif | 400 | 1.3 | Card/system titles, keyboard shortcuts modal heading |
-| Subtitle | 20px | Instrument Serif Italic | 400 | 1.4 | Hero subtitle "Builder. Operator.", pull quotes on /invest |
-| Body Large | 18px | DM Sans | 400 | 1.7 | Hero paragraph text |
-| Body | 16px | DM Sans | 400 | 1.7 | All body text, card descriptions, chat messages |
-| Caption | 13px | DM Sans | 500 | 1.4 | Living signal, footer stats, labels, privacy notice (12px exception below) |
-| Badge | 12px | DM Sans | 600 | 1.4 | Tech badges — uppercase, letter-spacing 1px |
+| Heading | 32px | Instrument Serif | 400 | 1.2 | Hero name "Ryan Stern" (h1), section headings (h2), chat container heading |
+| Title | 20px | Instrument Serif | 400 | 1.3 | Card/system titles (h3), keyboard shortcuts modal heading. Italic variant (Instrument Serif Italic 400) for hero subtitle "Builder. Operator." and /invest pull quotes. |
+| Body | 16px | DM Sans | 400 | 1.7 | All body text, hero paragraph text, card descriptions, chat messages, card problem/solution text |
+| Caption | 14px | DM Sans | 600 | 1.4 | Nav items, tech badges (uppercase, letter-spacing 1px), living signal text, footer stats, labels, privacy notice, chat starter chips (400 weight exception — see below) |
 
-**Exceptions:**
-- Privacy notice below chat input: 12px / DM Sans / 400 / `var(--color-text-faint)` — smaller than caption, not a reusable token
-- Nav text: 14px / DM Sans / 600 — one-off for nav bar items
-- Featured system problem text: 14px / DM Sans / 400 — smaller body for card problem framing
-- Featured system solution text: 14px / DM Sans / 500 — differentiated weight from problem text
-- Chat starter chips: 14px / DM Sans / 400 — matches small body
-- Chat heading: 24px / Instrument Serif / 400 — between h2 and h3, one-off for chat container
+**Weight usage:**
+- **400 (Regular):** All body text, card descriptions, chat messages, hero paragraphs, chat starter chips, privacy notice
+- **600 (Semibold):** Nav items, tech badges, section labels, emphasis text, featured system solution text differentiation
+
+**Caption weight exceptions (still within the 2-weight system):**
+- Chat starter chips: 14px / DM Sans / 400 — uses the regular weight at caption size
+- Privacy notice: 14px / DM Sans / 400 / `var(--color-text-faint)` — distinguished by color, not size
+- Card problem text: 16px body / DM Sans / 400 — uses body size
+- Card solution text: 16px body / DM Sans / 600 — uses body size with semibold for differentiation
 
 ---
 
@@ -234,10 +234,14 @@ All design tokens are defined in `app/globals.css` using the `@theme` directive.
   --font-body: var(--font-dm-sans);
 
   /* Spacing (consumed via Tailwind spacing utilities) */
-  --spacing-section-desktop: 80px;
   --spacing-section-mobile: 48px;
   --spacing-content-max: 1120px;
   --spacing-invest-max: 680px;
+}
+
+/* Layout constants — outside the spacing token scale */
+:root {
+  --spacing-section-desktop: 80px;
 }
 ```
 
