@@ -18,8 +18,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Narrative Content
 
-- [ ] **NAR-01**: Narrative hero with locked copy ("Ryan Stern / Builder. Operator."), headshot (160px circle desktop, 80px mobile), living signal (last commit from GitHub API with 1hr ISR cache), dual CTAs ("Explore the systems" + "Ask me anything")
-- [ ] **NAR-02**: Featured systems section (4 empathy-first entries: LifeVault, Relay, OpenEFB, v2cf) with horizontal narrative rows (problem left, solution right, 32px gap between rows)
+- [x] **NAR-01**: Narrative hero with locked copy ("Ryan Stern / Builder. Operator."), headshot (160px circle desktop, 80px mobile), living signal (last commit from GitHub API with 1hr ISR cache), dual CTAs ("Explore the systems" + "Ask me anything")
+- [x] **NAR-02**: Featured systems section (4 empathy-first entries: LifeVault, Relay, OpenEFB, v2cf) with horizontal narrative rows (problem left, solution right, 32px gap between rows)
 - [ ] **NAR-03**: Origin story section (120-180 words, 3 paragraphs, campaign names in prose — environment/failure, what Ryan noticed, "I started building because the tools didn't exist")
 - [ ] **NAR-04**: Systems shelf as dense typographic list (11 systems: msgvault, pixvault, drivevault, Mainline, Mission Control, SFR, foundry, skygate, open-ez, ticker, signal-glass) with tech badges and public repo GitHub link icons
 - [ ] **NAR-05**: Contact + investor dual-column section (left: "Schedule a conversation" with Calendar booking + email + tertiary GitHub/X links; right: "For investors and partners" linking to /invest)
@@ -102,8 +102,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUND-04 | Phase 1: Foundation + Design System | Pending |
 | FOUND-05 | Phase 1: Foundation + Design System | Pending |
 | FOUND-06 | Phase 1: Foundation + Design System | Pending |
-| NAR-01 | Phase 2: Static Narrative Content | Pending |
-| NAR-02 | Phase 2: Static Narrative Content | Pending |
+| NAR-01 | Phase 2: Static Narrative Content | Complete |
+| NAR-02 | Phase 2: Static Narrative Content | Complete |
 | NAR-03 | Phase 2: Static Narrative Content | Pending |
 | NAR-04 | Phase 2: Static Narrative Content | Pending |
 | NAR-05 | Phase 2: Static Narrative Content | Pending |
