@@ -55,4 +55,34 @@ describe('System Prompt', () => {
   it('contains contact email for fallback', () => {
     expect(SYSTEM_PROMPT).toContain('ryan@quartermint.com')
   })
+
+  describe('scroll context injection', () => {
+    it('buildSystemPrompt() with no args returns base prompt without [CURRENT SECTION]', () => {
+      const prompt = buildSystemPrompt()
+      expect(prompt).not.toContain('[CURRENT SECTION]')
+    })
+
+    it('buildSystemPrompt(null) returns base prompt without [CURRENT SECTION]', () => {
+      const prompt = buildSystemPrompt(null)
+      expect(prompt).not.toContain('[CURRENT SECTION]')
+    })
+
+    it('buildSystemPrompt("featured-systems") includes section context', () => {
+      const prompt = buildSystemPrompt('featured-systems')
+      expect(prompt).toContain('[CURRENT SECTION]')
+      expect(prompt).toContain('the featured systems')
+      expect(prompt).toContain('[/CURRENT SECTION]')
+    })
+
+    it('buildSystemPrompt("chat-section") returns prompt without [CURRENT SECTION]', () => {
+      const prompt = buildSystemPrompt('chat-section')
+      expect(prompt).not.toContain('[CURRENT SECTION]')
+    })
+
+    it('buildSystemPrompt("origin-story") includes origin story context', () => {
+      const prompt = buildSystemPrompt('origin-story')
+      expect(prompt).toContain('[CURRENT SECTION]')
+      expect(prompt).toContain('the origin story about building infrastructure')
+    })
+  })
 })

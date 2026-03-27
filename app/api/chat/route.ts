@@ -31,7 +31,11 @@ export async function POST(req: Request) {
     }
 
     // Parse and validate request body
-    const { messages, sessionId }: { messages: UIMessage[]; sessionId: string } =
+    const {
+      messages,
+      sessionId,
+      scrollContext,
+    }: { messages: UIMessage[]; sessionId: string; scrollContext?: string } =
       await req.json()
 
     if (!Array.isArray(messages) || messages.length === 0) {
@@ -59,7 +63,7 @@ export async function POST(req: Request) {
     // Stream response from Claude
     const result = streamText({
       model: anthropic('claude-sonnet-4-6'),
-      system: buildSystemPrompt(),
+      system: buildSystemPrompt(scrollContext),
       messages: await convertToModelMessages(messages),
       maxOutputTokens: 500,
       onFinish: async ({ text }) => {

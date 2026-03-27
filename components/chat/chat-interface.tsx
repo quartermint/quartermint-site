@@ -8,6 +8,8 @@ import { StarterChips } from './starter-chips'
 import { TypingIndicator } from './typing-indicator'
 import { ChatErrorState } from './chat-error-state'
 import { ChatRateLimitState } from './chat-rate-limit-state'
+import { useScrollContext } from '@/components/scroll-context-provider'
+import { getScrollChips } from '@/lib/chat/scroll-context'
 
 export function ChatInterface() {
   const [sessionId] = useState(() => crypto.randomUUID())
@@ -17,15 +19,17 @@ export function ChatInterface() {
   )
   const inputRef = useRef<HTMLInputElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const { currentSection } = useScrollContext()
+  const dynamicChips = getScrollChips(currentSection)
 
   // AI SDK v6: transport-based architecture replaces api/body props
   const transport = useMemo(
     () =>
       new DefaultChatTransport({
         api: '/api/chat',
-        body: { sessionId },
+        body: { sessionId, scrollContext: currentSection },
       }),
-    [sessionId]
+    [sessionId, currentSection]
   )
 
   const { messages, sendMessage, status, error } = useChat({
@@ -95,7 +99,7 @@ export function ChatInterface() {
             Ask me anything about what I&apos;m building
           </h2>
           <div className="mt-4">
-            <StarterChips onSelect={handleChipClick} />
+            <StarterChips onSelect={handleChipClick} chips={dynamicChips} />
           </div>
           <div className="h-6" />
         </>
