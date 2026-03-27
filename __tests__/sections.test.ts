@@ -5,17 +5,31 @@ import { join } from 'path'
 /**
  * This test validates the alternating background pattern on the home page.
  * It reads app/page.tsx and verifies SectionWrapper usage with both bg values.
- * NOTE: This test will fully validate once Plan 02-04 wires all sections into page.tsx.
- * For now, it checks that the page file exists and can be read.
  */
 
 describe('Section alternating backgrounds', () => {
+  const pageSrc = readFileSync(
+    join(process.cwd(), 'app/page.tsx'),
+    'utf-8'
+  )
+
   it('page.tsx exists and can be read', () => {
-    const pageSrc = readFileSync(
-      join(process.cwd(), 'app/page.tsx'),
-      'utf-8'
-    )
     expect(pageSrc).toBeTruthy()
+  })
+
+  it('imports all 6 section components', () => {
+    expect(pageSrc).toContain("import { HeroSection }")
+    expect(pageSrc).toContain("import { FeaturedSystems }")
+    expect(pageSrc).toContain("import { ChatPlaceholder }")
+    expect(pageSrc).toContain("import { OriginStory }")
+    expect(pageSrc).toContain("import { SystemsShelf }")
+    expect(pageSrc).toContain("import { ContactInvestor }")
+  })
+
+  it('has correct alternating bg/surface pattern (6 sections)', () => {
+    // Extract all bg= values in order
+    const bgMatches = [...pageSrc.matchAll(/bg="(bg|surface)"/g)].map(m => m[1])
+    expect(bgMatches).toEqual(['bg', 'surface', 'bg', 'surface', 'bg', 'surface'])
   })
 
   it('systems-shelf component imports shelfSystems', () => {

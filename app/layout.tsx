@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Instrument_Serif } from 'next/font/google'
 import { DM_Sans } from 'next/font/google'
 import { StickyNav } from '@/components/sticky-nav'
+import { FooterStats } from '@/components/footer-stats'
 import './globals.css'
 
 // Instrument Serif is NOT a variable font -- must specify weight + style (Pitfall 3)
@@ -49,8 +50,10 @@ export default function RootLayout({
         <main id="main-content" role="main" className="flex-1">
           {children}
         </main>
-        <footer role="contentinfo">
-          {/* Footer placeholder -- Phase 2 */}
+        <footer role="contentinfo" className="bg-bg">
+          <div className="max-w-[var(--spacing-content-max)] mx-auto px-4 sm:px-6 lg:px-8">
+            <FooterStats />
+          </div>
         </footer>
       </body>
     </html>
