@@ -28,16 +28,22 @@ describe('HeroSection component source', () => {
     expect(heroSource).toContain('Explore the systems')
   })
 
-  it('contains CTA text "Ask me anything"', () => {
-    expect(heroSource).toContain('Ask me anything')
+  it('imports ChatCTA for "Ask me anything" CTA', () => {
+    expect(heroSource).toContain('ChatCTA')
+    expect(heroSource).toContain('chat/chat-cta')
   })
 
   it('contains #featured-systems href', () => {
     expect(heroSource).toContain('#featured-systems')
   })
 
-  it('contains #chat-section href', () => {
-    expect(heroSource).toContain('#chat-section')
+  it('ChatCTA contains #chat-section href and "Ask me anything" text', () => {
+    const ctaSrc = readFileSync(
+      join(process.cwd(), 'components/chat/chat-cta.tsx'),
+      'utf-8'
+    )
+    expect(ctaSrc).toContain('#chat-section')
+    expect(ctaSrc).toContain('Ask me anything')
   })
 
   it('contains headshot path /images/headshot.jpg', () => {
