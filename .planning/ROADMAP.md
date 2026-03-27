@@ -47,7 +47,13 @@ Plans:
   3. The /invest route displays a memo-style page with thesis pull quote, stats grid, and calendar CTA -- with no securities claims or forward-looking financial projections
   4. A /privacy route exists with content covering chat logging, section tracking, email opt-in, 90-day cookie, and no third-party tracking
   5. The site is deployed on Vercel with auto-deploy on push to main, and OG tags, Twitter cards, robots.txt, sitemap.xml, and canonical URLs are present on all routes
-**Plans**: TBD
+**Plans:** 5 plans
+Plans:
+- [ ] 02-01-PLAN.md -- Shared utility components (StickyNav, SectionWrapper, LivingSignal) + supporting libs
+- [ ] 02-02-PLAN.md -- Hero section, featured systems, chat placeholder + page wiring
+- [ ] 02-03-PLAN.md -- Origin story, systems shelf, contact section, footer stats
+- [ ] 02-04-PLAN.md -- Full page assembly, /invest route, /privacy route
+- [ ] 02-05-PLAN.md -- SEO metadata, OG image, Vercel deployment, visual verification
 **UI hint**: yes
 
 ### Phase 3: Chat System
@@ -95,7 +101,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation + Design System | 0/3 | Planning complete | - |
-| 2. Static Narrative Content | 0/TBD | Not started | - |
+| 2. Static Narrative Content | 0/5 | Planning complete | - |
 | 3. Chat System | 0/TBD | Not started | - |
 | 4. Engagement Intelligence | 0/TBD | Not started | - |
 | 5. Operations + Go-Live | 0/TBD | Not started | - |
