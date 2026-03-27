@@ -1,5 +1,7 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
+import { redis } from '@/lib/chat/redis'
+import { getISOWeekKey } from '@/lib/digest/week-key'
 
 /**
  * Next.js 16 middleware (proxy.ts replaces middleware.ts).
@@ -21,6 +23,13 @@ export function middleware(request: NextRequest) {
       maxAge: 90 * 24 * 60 * 60, // 90 days, matches VISITOR_TTL
       path: '/',
     })
+  }
+
+  // Track /invest page views for weekly digest (OPS-01)
+  if (request.nextUrl.pathname === '/invest') {
+    const weekKey = getISOWeekKey()
+    // Fire-and-forget: don't await, don't block response
+    redis.incr(`stats:invest_views:${weekKey}`).catch(() => {})
   }
 
   return response

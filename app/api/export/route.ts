@@ -2,6 +2,7 @@ import { Resend } from 'resend'
 import { Ratelimit } from '@upstash/ratelimit'
 import { redis } from '@/lib/chat/redis'
 import { ConversationExportEmail } from '@/lib/email/conversation-export-template'
+import { getISOWeekKey } from '@/lib/digest/week-key'
 
 // Rate limit: 3 exports per hour per IP (per RESEARCH recommendation)
 const ratelimit = new Ratelimit({
@@ -63,6 +64,10 @@ export async function POST(req: Request) {
     console.error('Resend export email error:', error)
     return Response.json({ error: 'Failed to send email' }, { status: 500 })
   }
+
+  // Track export count for weekly digest (OPS-01)
+  const weekKey = getISOWeekKey()
+  await redis.incr(`stats:export_requests:${weekKey}`).catch(() => {})
 
   return Response.json({ success: true })
 }
