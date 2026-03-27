@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 1: Foundation + Design System** - Next.js 16 scaffold, CSS custom properties, fonts, dark mode, data layer, accessibility baseline
 - [ ] **Phase 2: Static Narrative Content** - All page sections, /invest route, /privacy route, sticky nav, animations, SEO metadata, Vercel deployment
 - [ ] **Phase 3: Chat System** - Embedded AI chat with streaming, persona, three-tier rate limiting, Upstash Redis, cost controls
-- [ ] **Phase 4: Engagement Intelligence** - Scroll-aware chat, smart starter chips, returning visitors, /invest journey detection, conversation export, keyboard shortcuts
+- [x] **Phase 4: Engagement Intelligence** - Scroll-aware chat, smart starter chips, returning visitors, /invest journey detection, conversation export, keyboard shortcuts (completed 2026-03-27)
 - [ ] **Phase 5: Operations + Go-Live** - Weekly digest email, per-system detail pages, DNS repoint, scroll-speed animations, final verification
 
 ## Phase Details
@@ -84,11 +84,11 @@ Plans:
   3. A returning visitor within 7 days sees a personalized greeting referencing their previous topic; visitors 7-30 days old see a generic welcome-back; visitors over 30 days or with KV failures are treated as new
   4. After viewing the contact section and navigating to /invest, the visitor sees the variant heading "You've seen the work. Here's where it's going." instead of the default
   5. After 3 messages, an envelope icon appears in the chat header; clicking it reveals a slide-down panel where the visitor can enter their email and receive the conversation via Resend, with a clipboard fallback on error
-**Plans:** 3 plans
+**Plans:** 3/3 plans complete
 Plans:
-- [ ] 04-01-PLAN.md -- Scroll context infrastructure, dynamic smart chips, chat API scroll-awareness
+- [x] 04-01-PLAN.md -- Scroll context infrastructure, dynamic smart chips, chat API scroll-awareness
 - [x] 04-02-PLAN.md -- Returning visitor detection, rv cookie, greeting tiers, topic extraction
-- [ ] 04-03-PLAN.md -- Conversation export email, /invest journey detection, keyboard shortcuts
+- [x] 04-03-PLAN.md -- Conversation export email, /invest journey detection, keyboard shortcuts
 **UI hint**: yes
 
 ### Phase 5: Operations + Go-Live
@@ -112,5 +112,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation + Design System | 0/3 | Planning complete | - |
 | 2. Static Narrative Content | 0/5 | Planning complete | - |
 | 3. Chat System | 0/4 | Planning complete | - |
-| 4. Engagement Intelligence | 0/3 | Planning complete | - |
+| 4. Engagement Intelligence | 3/3 | Complete   | 2026-03-27 |
 | 5. Operations + Go-Live | 0/TBD | Not started | - |

@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 04-02-PLAN.md (returning visitor detection)
-last_updated: "2026-03-27T19:44:45.337Z"
+stopped_at: Completed 04-03-PLAN.md (export, journey, shortcuts)
+last_updated: "2026-03-27T19:56:03Z"
 last_activity: 2026-03-27
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 15
-  completed_plans: 13
-  percent: 87
+  completed_plans: 14
+  percent: 93
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-26)
 ## Current Position
 
 Phase: 04
-Plan: 02 complete
+Plan: 03 complete
 Status: Executing
 Last activity: 2026-03-27
 
-Progress: [████████░░] 87%
+Progress: [█████████░] 93%
 
 ## Performance Metrics
 
@@ -57,6 +57,7 @@ Progress: [████████░░] 87%
 | Phase 03 P03 | 5min | 3 tasks | 7 files |
 | Phase 03 P04 | 3min | 3 tasks | 7 files |
 | Phase 04 P02 | 6min | 2 tasks | 12 files |
+| Phase 04 P03 | 5min | 3 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -81,6 +82,9 @@ Recent decisions affecting current work:
 - [Phase 03]: ChatSection wrapper keeps page.tsx as Server Component; ChatCTA client island in HeroSection for mobile overlay state
 - [Phase 04]: maxOutputTokens (not maxTokens) for AI SDK v6 generateText
 - [Phase 04]: buildSystemPrompt accepts optional scrollContext parameter for section injection
+- [04-03]: useState(false)+useEffect for InvestHeading (no suppressHydrationWarning per React 19 behavior)
+- [04-03]: 3 exports/hr/IP rate limit on export endpoint via @upstash/ratelimit sliding window
+- [04-03]: AI SDK v6 message parts extraction for export content (filter text parts from parts array)
 
 ### Pending Todos
 
@@ -94,6 +98,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-27T19:44:45.333Z
-Stopped at: Completed 04-02-PLAN.md (returning visitor detection)
+Last session: 2026-03-27T19:56:03Z
+Stopped at: Completed 04-03-PLAN.md (export, journey, shortcuts)
 Resume file: None
