@@ -69,8 +69,8 @@ Plans:
 **Plans:** 4 plans
 Plans:
 - [x] 03-01-PLAN.md -- Install deps, chat types, Redis client, rate limiting, conversation logging, system prompt
-- [x] 03-02-PLAN.md -- Streaming chat API route handler + backend tests
-- [ ] 03-03-PLAN.md -- Chat UI components (ChatInterface, MessageBubble, StarterChips, states, mobile overlay)
+- [ ] 03-02-PLAN.md -- Streaming chat API route handler + backend tests
+- [x] 03-03-PLAN.md -- Chat UI components (ChatInterface, MessageBubble, StarterChips, states, mobile overlay)
 - [ ] 03-04-PLAN.md -- Page wiring, hero CTA update, UI integration tests, visual verification
 **UI hint**: yes
 
