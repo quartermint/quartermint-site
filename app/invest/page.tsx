@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { InvestHeading } from '@/components/invest-heading'
 
 export const metadata: Metadata = {
   title: 'Invest -- Ryan Stern',
@@ -34,9 +35,7 @@ const stats = [
 export default function InvestPage() {
   return (
     <div className="max-w-[var(--spacing-invest-max)] mx-auto px-4 sm:px-6 lg:px-8 py-[var(--spacing-section-mobile)] lg:py-[var(--spacing-section-desktop)]">
-      <h1 className="font-display text-[32px] leading-[1.2] text-text mb-8">
-        The Infrastructure Behind the Work
-      </h1>
+      <InvestHeading />
 
       <blockquote className="border-l-[3px] border-accent pl-6 my-8">
         <p className="font-display italic text-[20px] leading-[1.3] text-text">

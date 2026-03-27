@@ -11,6 +11,7 @@ import { ChatRateLimitState } from './chat-rate-limit-state'
 import { useScrollContext } from '@/components/scroll-context-provider'
 import { getScrollChips } from '@/lib/chat/scroll-context'
 import { ReturningVisitorGreeting } from './returning-visitor-greeting'
+import { ConversationExportPanel } from './conversation-export-panel'
 
 export function ChatInterface() {
   const [sessionId] = useState(() => crypto.randomUUID())
@@ -21,6 +22,7 @@ export function ChatInterface() {
   const [returningVisitorChips, setReturningVisitorChips] = useState<
     string[] | null
   >(null)
+  const [exportOpen, setExportOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const { currentSection } = useScrollContext()
@@ -89,13 +91,52 @@ export function ChatInterface() {
   }
 
   const isRateLimited = rateLimitType !== null
+  const userMessageCount = messages.filter((m) => m.role === 'user').length
 
   return (
     <div
-      className="mx-auto max-w-[720px] min-h-[200px] bg-bg rounded-[8px] shadow-[0_2px_8px_rgba(0,0,0,0.06)] p-4 sm:p-6"
+      className="relative mx-auto max-w-[720px] min-h-[200px] bg-bg rounded-[8px] shadow-[0_2px_8px_rgba(0,0,0,0.06)] p-4 sm:p-6"
       role="complementary"
       aria-label="Chat with Ryan"
     >
+      {/* Envelope icon: export conversation via email (after 3 user messages) */}
+      {userMessageCount >= 3 && (
+        <button
+          onClick={() => setExportOpen((prev) => !prev)}
+          aria-label="Export conversation via email"
+          className="absolute top-4 right-4 p-3 text-text-muted hover:text-text transition-colors duration-150 motion-reduce:transition-none"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <rect x="2" y="4" width="16" height="12" rx="2" />
+            <path d="M2 4l8 6 8-6" />
+          </svg>
+        </button>
+      )}
+
+      {/* Conversation export panel */}
+      <ConversationExportPanel
+        messages={messages.map((m) => ({
+          role: m.role as 'user' | 'assistant',
+          content:
+            m.parts
+              ?.filter((p) => p.type === 'text')
+              .map((p) => ('text' in p ? p.text : ''))
+              .join('') || '',
+        }))}
+        sessionId={sessionId}
+        isOpen={exportOpen}
+        onClose={() => setExportOpen(false)}
+      />
+
       {/* Idle state: heading + returning visitor greeting + starter chips */}
       {!hasMessages && (
         <>

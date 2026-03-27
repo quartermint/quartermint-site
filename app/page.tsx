@@ -7,6 +7,7 @@ import { ChatSection } from '@/components/chat/chat-section'
 import { OriginStory } from '@/components/origin-story'
 import { SystemsShelf } from '@/components/systems-shelf'
 import { ContactInvestor } from '@/components/contact-investor'
+import { KeyboardShortcutsModal } from '@/components/keyboard-shortcuts-modal'
 
 export const revalidate = 3600
 
@@ -44,6 +45,9 @@ export default async function Home() {
       <SectionWrapper bg="surface" label="Contact" id="contact-section">
         <ContactInvestor />
       </SectionWrapper>
+
+      {/* Keyboard shortcuts modal -- ? key toggle, manages own state */}
+      <KeyboardShortcutsModal />
     </ScrollContextProvider>
   )
 }
