@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-03-27T15:36:53.586Z",
+  "phase": "03",
+  "phase_name": "chat-system",
+  "phase_dir": ".planning/phases/03-chat-system",
+  "plan": null,
+  "task": null,
+  "total_tasks": 10,
+  "status": "paused",
+  "completed_tasks": [],
+  "remaining_tasks": [
+    {"id": "03-01", "name": "Chat types, Redis client, rate limiting, system prompt", "status": "not_started"},
+    {"id": "03-02", "name": "Streaming chat API route + backend tests", "status": "not_started"},
+    {"id": "03-03", "name": "Chat UI components (7 files)", "status": "not_started"},
+    {"id": "03-04", "name": "Page wiring, mobile overlay, visual verification", "status": "not_started"}
+  ],
+  "blockers": [],
+  "human_actions_pending": [
+    {"action": "Set up Upstash Redis via Vercel Dashboard -> Storage", "context": "Required for rate limiting and conversation logging", "blocking": true},
+    {"action": "Add ANTHROPIC_API_KEY to Vercel env vars", "context": "Reuse existing key from Stripped deployment", "blocking": true},
+    {"action": "Configure $50/mo budget alert in Anthropic Dashboard", "context": "Layer 3 rate limiting", "blocking": false},
+    {"action": "Provide headshot image at public/images/headshot.jpg", "context": "Phase 2 gap — hero section shows broken image without it", "blocking": false},
+    {"action": "Create GitHub repo and link Vercel project", "context": "Phase 2 gap — deployment not connected", "blocking": false}
+  ],
+  "decisions": [
+    {"decision": "Removed ticker and signal-glass from systems shelf", "rationale": "Internal-only brain noodles, not ready for public site", "phase": "02"},
+    {"decision": "Origin story added 'second decade' bridge sentence", "rationale": "First version didn't address what came after politics", "phase": "02"},
+    {"decision": "Privacy link deferred to Phase 3 chat input area", "rationale": "More contextually appropriate below chat than in footer", "phase": "02"},
+    {"decision": "Footer content polish deferred to go-live sweep", "rationale": "User preference to handle in final pass", "phase": "02"},
+    {"decision": "/invest copy approved for development", "rationale": "Good enough for dev, final polish at go-live", "phase": "02"}
+  ],
+  "uncommitted_files": [".planning/STATE.md"],
+  "next_action": "Run /gsd:execute-phase 3 --wave 1 to start Wave 1 (Plan 03-01: install deps, create chat types/redis/rate-limit/system-prompt). Before execution, set up ANTHROPIC_API_KEY and Upstash Redis env vars in .env.local for local development.",
+  "context_notes": "Autonomous run completed Phases 1-2, planned Phase 3. Phase 3 has 4 plans in 3 waves. Plans passed checker verification (iteration 2/3 — 3 blockers resolved in revision). UI-SPEC approved. All planning artifacts are ready. Execution has not started — STATE.md was updated to reflect phase start but no code has been written for Phase 3 yet. 161 tests passing from Phases 1-2. Phases 4-5 still need plan->execute cycle."
+}
