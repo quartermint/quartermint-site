@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Autonomous run completed Phases 3-4, paused before Phase 5
-last_updated: "2026-03-27T20:43:48.233Z"
+stopped_at: Completed 05-01-PLAN.md (weekly digest)
+last_updated: "2026-03-27T21:08:00Z"
 last_activity: 2026-03-27
 progress:
   total_phases: 5
   completed_phases: 4
-  total_plans: 15
-  completed_plans: 15
-  percent: 93
+  total_plans: 18
+  completed_plans: 16
+  percent: 89
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-26)
 ## Current Position
 
 Phase: 05
-Plan: Not started
+Plan: 1 of 3
 Status: Executing
 Last activity: 2026-03-27
 
-Progress: [█████████░] 93%
+Progress: [█████████░] 95%
 
 ## Performance Metrics
 
@@ -58,6 +58,7 @@ Progress: [█████████░] 93%
 | Phase 03 P04 | 3min | 3 tasks | 7 files |
 | Phase 04 P02 | 6min | 2 tasks | 12 files |
 | Phase 04 P03 | 5min | 3 tasks | 12 files |
+| Phase 05 P01 | 3min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -85,6 +86,9 @@ Recent decisions affecting current work:
 - [04-03]: useState(false)+useEffect for InvestHeading (no suppressHydrationWarning per React 19 behavior)
 - [04-03]: 3 exports/hr/IP rate limit on export endpoint via @upstash/ratelimit sliding window
 - [04-03]: AI SDK v6 message parts extraction for export content (filter text parts from parts array)
+- [05-01]: ISO week key format (YYYY-WNN) for Redis counter bucketing -- natural weekly rollover, no TTL cleanup
+- [05-01]: Fire-and-forget Redis INCR in proxy.ts for /invest views -- .catch(() => {}) prevents Redis failures from blocking navigation
+- [05-01]: Monday 9 AM UTC cron schedule for weekly digest (Hobby plan timing +/- 59 min)
 
 ### Pending Todos
 
@@ -98,6 +102,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-27T20:43:48.230Z
-Stopped at: Autonomous run completed Phases 3-4, paused before Phase 5
-Resume file: .planning/phases/05-operations-go-live/.continue-here.md
+Last session: 2026-03-27T21:08:00Z
+Stopped at: Completed 05-01-PLAN.md (weekly digest)
+Resume file: .planning/phases/05-operations-go-live/05-01-SUMMARY.md

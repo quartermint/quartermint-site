@@ -58,7 +58,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Operations
 
-- [ ] **OPS-01**: Weekly digest email via Vercel cron + Resend — plain text, system sans-serif, chat sessions/messages/top 3 questions/export requests//invest views, "Reply to stop" footer
+- [x] **OPS-01**: Weekly digest email via Vercel cron + Resend — plain text, system sans-serif, chat sessions/messages/top 3 questions/export requests//invest views, "Reply to stop" footer
 - [ ] **OPS-02**: Vercel deployment (fresh project on existing account, auto-deploy on git push to main, ANTHROPIC_API_KEY env var configured)
 - [ ] **OPS-03**: DNS repoint from Cloudflare to Vercel (Cloudflare retains DNS ownership, A/CNAME records to Vercel)
 - [ ] **OPS-04**: Metadata per route — og:title, og:description, og:image (headshot or branded card), Twitter summary_large_image card, robots.txt (allow all), sitemap.xml (/ and /invest), canonical URLs
@@ -127,7 +127,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ENG-06 | Phase 5: Operations + Go-Live | Pending |
 | INT-01 | Phase 4: Engagement Intelligence | Complete |
 | INT-02 | Phase 4: Engagement Intelligence | Complete |
-| OPS-01 | Phase 5: Operations + Go-Live | Pending |
+| OPS-01 | Phase 5: Operations + Go-Live | Complete |
 | OPS-02 | Phase 2: Static Narrative Content | Pending |
 | OPS-03 | Phase 5: Operations + Go-Live | Pending |
 | OPS-04 | Phase 2: Static Narrative Content | Pending |
