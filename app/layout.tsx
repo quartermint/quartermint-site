@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Instrument_Serif } from 'next/font/google'
 import { DM_Sans } from 'next/font/google'
+import { StickyNav } from '@/components/sticky-nav'
 import './globals.css'
 
 // Instrument Serif is NOT a variable font -- must specify weight + style (Pitfall 3)
@@ -43,7 +44,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <header role="banner">
-          {/* Nav placeholder -- Phase 2 */}
+          <StickyNav />
         </header>
         <main id="main-content" role="main" className="flex-1">
           {children}
