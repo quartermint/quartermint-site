@@ -22,8 +22,27 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Ryan Stern',
-  description: 'Builder. Operator.',
+  metadataBase: new URL('https://quartermint.com'),
+  title: 'Ryan Stern -- Builder. Operator.',
+  description:
+    'Nine services, forty repositories, and a thesis: information routed to the right person, in the right form, at the right time.',
+  openGraph: {
+    title: 'Ryan Stern -- Builder. Operator.',
+    description:
+      'Nine services, forty repositories, and a thesis: information routed to the right person, in the right form, at the right time.',
+    url: 'https://quartermint.com',
+    siteName: 'Ryan Stern',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ryan Stern -- Builder. Operator.',
+    description:
+      'Nine services, forty repositories, and a thesis: information routed to the right person, in the right form, at the right time.',
+  },
+  alternates: {
+    canonical: 'https://quartermint.com',
+  },
 }
 
 export default function RootLayout({
