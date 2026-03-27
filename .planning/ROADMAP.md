@@ -103,7 +103,7 @@ Plans:
 **Plans:** 3 plans
 Plans:
 - [ ] 05-01-PLAN.md -- Weekly digest email: tracking counters, Redis aggregation, React Email template, Vercel cron endpoint
-- [ ] 05-02-PLAN.md -- Per-system detail pages at /systems/[slug] + sitemap update
+- [x] 05-02-PLAN.md -- Per-system detail pages at /systems/[slug] + sitemap update
 - [ ] 05-03-PLAN.md -- Scroll-speed-adaptive animations + DNS repoint verification checkpoint
 **UI hint**: yes
 
