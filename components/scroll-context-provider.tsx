@@ -35,7 +35,17 @@ export function ScrollContextProvider({ children }: { children: ReactNode }) {
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
         if (visible.length > 0) {
-          setCurrentSection(visible[0].target.id)
+          const sectionId = visible[0].target.id
+          setCurrentSection(sectionId)
+
+          // Set sessionStorage flag for /invest journey detection (D-07, INV-02)
+          if (sectionId === 'contact-section') {
+            try {
+              sessionStorage.setItem('qm_journey_contact', 'true')
+            } catch {
+              // sessionStorage may not be available in private browsing
+            }
+          }
         }
       },
       { threshold: 0.3 }
