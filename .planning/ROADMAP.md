@@ -87,7 +87,7 @@ Plans:
 **Plans:** 3 plans
 Plans:
 - [ ] 04-01-PLAN.md -- Scroll context infrastructure, dynamic smart chips, chat API scroll-awareness
-- [ ] 04-02-PLAN.md -- Returning visitor detection, rv cookie, greeting tiers, topic extraction
+- [x] 04-02-PLAN.md -- Returning visitor detection, rv cookie, greeting tiers, topic extraction
 - [ ] 04-03-PLAN.md -- Conversation export email, /invest journey detection, keyboard shortcuts
 **UI hint**: yes
 

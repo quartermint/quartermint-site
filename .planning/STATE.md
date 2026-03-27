@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-04-PLAN.md (chat integration and visual verification)
-last_updated: "2026-03-27T19:06:51.048Z"
+stopped_at: Completed 04-02-PLAN.md (returning visitor detection)
+last_updated: "2026-03-27T19:44:45.337Z"
 last_activity: 2026-03-27
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 12
-  completed_plans: 12
-  percent: 10
+  total_plans: 15
+  completed_plans: 13
+  percent: 87
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-26)
 
 **Core value:** A visitor with no context understands what Ryan builds and why within 60 seconds -- and can interact with the site to get answers in real time via the embedded chat.
-**Current focus:** Phase 03 — chat-system
+**Current focus:** Phase 04 — engagement-intelligence
 
 ## Current Position
 
 Phase: 04
-Plan: Not started
-Status: Ready to execute
+Plan: 02 complete
+Status: Executing
 Last activity: 2026-03-27
 
-Progress: [#.........] 10%
+Progress: [████████░░] 87%
 
 ## Performance Metrics
 
@@ -56,6 +56,7 @@ Progress: [#.........] 10%
 | Phase 03 P01 | 3min | 2 tasks | 7 files |
 | Phase 03 P03 | 5min | 3 tasks | 7 files |
 | Phase 03 P04 | 3min | 3 tasks | 7 files |
+| Phase 04 P02 | 6min | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,8 @@ Recent decisions affecting current work:
 - [Phase 03]: AI SDK v6 DefaultChatTransport for api/body config instead of direct useChat props
 - [Phase 03]: Mobile overlay renders independent ChatInterface instance (separate useChat state per D-11)
 - [Phase 03]: ChatSection wrapper keeps page.tsx as Server Component; ChatCTA client island in HeroSection for mobile overlay state
+- [Phase 04]: maxOutputTokens (not maxTokens) for AI SDK v6 generateText
+- [Phase 04]: buildSystemPrompt accepts optional scrollContext parameter for section injection
 
 ### Pending Todos
 
@@ -91,6 +94,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-27T18:47:37.660Z
-Stopped at: Completed 03-04-PLAN.md (chat integration and visual verification)
+Last session: 2026-03-27T19:44:45.333Z
+Stopped at: Completed 04-02-PLAN.md (returning visitor detection)
 Resume file: None
