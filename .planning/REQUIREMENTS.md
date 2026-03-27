@@ -54,7 +54,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Intelligence
 
 - [ ] **INT-01**: Conversation export via email — envelope icon (20px, text-muted) in chat header after 3rd message, slide-down panel with email input + "Send" button, sent via Resend from chat@quartermint.com, success auto-dismisses 3s, error shows "Copy conversation" clipboard fallback, BCC Ryan
-- [ ] **INT-02**: Returning visitor detection — 90-day `rv` cookie with session ID, Upstash Redis stores visitor:{id} with lastVisit/topics[]/sectionsViewed[]/messageCount, <7 days: "Welcome back. You were asking about [topic]", 7-30 days: "Good to see you again", >30 days: treat as new, KV failure: treat as new silently
+- [x] **INT-02**: Returning visitor detection — 90-day `rv` cookie with session ID, Upstash Redis stores visitor:{id} with lastVisit/topics[]/sectionsViewed[]/messageCount, <7 days: "Welcome back. You were asking about [topic]", 7-30 days: "Good to see you again", >30 days: treat as new, KV failure: treat as new silently
 
 ### Operations
 
@@ -126,7 +126,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ENG-05 | Phase 4: Engagement Intelligence | Pending |
 | ENG-06 | Phase 5: Operations + Go-Live | Pending |
 | INT-01 | Phase 4: Engagement Intelligence | Pending |
-| INT-02 | Phase 4: Engagement Intelligence | Pending |
+| INT-02 | Phase 4: Engagement Intelligence | Complete |
 | OPS-01 | Phase 5: Operations + Go-Live | Pending |
 | OPS-02 | Phase 2: Static Narrative Content | Pending |
 | OPS-03 | Phase 5: Operations + Go-Live | Pending |

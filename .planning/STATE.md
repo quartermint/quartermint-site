@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 04-01-PLAN.md (scroll context infrastructure)
-last_updated: "2026-03-27T19:06:51.048Z"
+stopped_at: Completed 04-02-PLAN.md (returning visitor detection)
+last_updated: "2026-03-27T19:44:45.337Z"
 last_activity: 2026-03-27
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 12
-  completed_plans: 12
-  percent: 10
+  total_plans: 15
+  completed_plans: 13
+  percent: 87
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-26)
 ## Current Position
 
 Phase: 04
-Plan: 1 of 4
+Plan: 02 complete
 Status: Executing
 Last activity: 2026-03-27
 
-Progress: [###.......] 30%
+Progress: [████████░░] 87%
 
 ## Performance Metrics
 
@@ -56,7 +56,7 @@ Progress: [###.......] 30%
 | Phase 03 P01 | 3min | 2 tasks | 7 files |
 | Phase 03 P03 | 5min | 3 tasks | 7 files |
 | Phase 03 P04 | 3min | 3 tasks | 7 files |
-| Phase 04 P01 | 3min | 2 tasks | 10 files |
+| Phase 04 P02 | 6min | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -79,9 +79,8 @@ Recent decisions affecting current work:
 - [Phase 03]: AI SDK v6 DefaultChatTransport for api/body config instead of direct useChat props
 - [Phase 03]: Mobile overlay renders independent ChatInterface instance (separate useChat state per D-11)
 - [Phase 03]: ChatSection wrapper keeps page.tsx as Server Component; ChatCTA client island in HeroSection for mobile overlay state
-- [Phase 04]: Single IntersectionObserver at page level via ScrollContextProvider, not per-component observers
-- [Phase 04]: chat-section returns static defaults with no prompt injection when user is in chat
-- [Phase 04]: Scroll context appended at request time to system prompt, deploy-time base prompt unchanged
+- [Phase 04]: maxOutputTokens (not maxTokens) for AI SDK v6 generateText
+- [Phase 04]: buildSystemPrompt accepts optional scrollContext parameter for section injection
 
 ### Pending Todos
 
@@ -95,6 +94,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-27T19:41:17Z
-Stopped at: Completed 04-01-PLAN.md (scroll context infrastructure)
+Last session: 2026-03-27T19:44:45.333Z
+Stopped at: Completed 04-02-PLAN.md (returning visitor detection)
 Resume file: None

@@ -86,8 +86,8 @@ Plans:
   5. After 3 messages, an envelope icon appears in the chat header; clicking it reveals a slide-down panel where the visitor can enter their email and receive the conversation via Resend, with a clipboard fallback on error
 **Plans:** 3 plans
 Plans:
-- [x] 04-01-PLAN.md -- Scroll context infrastructure, dynamic smart chips, chat API scroll-awareness
-- [ ] 04-02-PLAN.md -- Returning visitor detection, rv cookie, greeting tiers, topic extraction
+- [ ] 04-01-PLAN.md -- Scroll context infrastructure, dynamic smart chips, chat API scroll-awareness
+- [x] 04-02-PLAN.md -- Returning visitor detection, rv cookie, greeting tiers, topic extraction
 - [ ] 04-03-PLAN.md -- Conversation export email, /invest journey detection, keyboard shortcuts
 **UI hint**: yes
 

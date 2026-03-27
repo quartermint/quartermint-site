@@ -8,11 +8,13 @@ const STARTER_QUESTIONS = [
 
 interface StarterChipsProps {
   onSelect: (question: string) => void
+  /** Optional dynamic chips (returning visitor, scroll context, etc.) */
   chips?: string[]
 }
 
 export function StarterChips({ onSelect, chips }: StarterChipsProps) {
   const questions = chips ?? STARTER_QUESTIONS
+
   return (
     <div className="flex flex-wrap gap-2 justify-center">
       {questions.map((question) => (
