@@ -37,3 +37,14 @@ export const CALENDAR_BOOKING_URL =
 
 /** Contact email for error state mailto CTAs */
 export const RYAN_EMAIL = 'ryan@quartermint.com'
+
+/** Visitor state stored in Upstash Redis under visitor:{id} key */
+export interface VisitorState {
+  lastVisit: string // ISO 8601
+  topics: string[] // LLM-extracted, max 5, FIFO
+  sectionsViewed: string[] // Section names from scroll tracking
+  messageCount: number // Total messages across all sessions
+}
+
+/** Visitor recency tier for greeting personalization */
+export type VisitorTier = 'recent' | 'moderate' | 'stale' | 'new'
