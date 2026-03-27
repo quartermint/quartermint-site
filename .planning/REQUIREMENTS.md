@@ -62,7 +62,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **OPS-02**: Vercel deployment (fresh project on existing account, auto-deploy on git push to main, ANTHROPIC_API_KEY env var configured)
 - [ ] **OPS-03**: DNS repoint from Cloudflare to Vercel (Cloudflare retains DNS ownership, A/CNAME records to Vercel)
 - [ ] **OPS-04**: Metadata per route — og:title, og:description, og:image (headshot or branded card), Twitter summary_large_image card, robots.txt (allow all), sitemap.xml (/ and /invest), canonical URLs
-- [ ] **OPS-05**: Per-system detail pages at quartermint.com/systems/[slug] — dynamic route consuming lib/systems.ts data
+- [x] **OPS-05**: Per-system detail pages at quartermint.com/systems/[slug] — dynamic route consuming lib/systems.ts data
 
 ## v2 Requirements
 
@@ -131,7 +131,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | OPS-02 | Phase 2: Static Narrative Content | Pending |
 | OPS-03 | Phase 5: Operations + Go-Live | Pending |
 | OPS-04 | Phase 2: Static Narrative Content | Pending |
-| OPS-05 | Phase 5: Operations + Go-Live | Pending |
+| OPS-05 | Phase 5: Operations + Go-Live | Complete |
 
 **Coverage:**
 - v1 requirements: 36 total

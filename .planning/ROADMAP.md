@@ -102,8 +102,8 @@ Plans:
   4. Scroll-speed-adaptive animations respond across three tiers (fast/medium/slow) and are fully disabled when prefers-reduced-motion is set
 **Plans:** 3 plans
 Plans:
-- [x] 05-01-PLAN.md -- Weekly digest email: tracking counters, Redis aggregation, React Email template, Vercel cron endpoint
-- [ ] 05-02-PLAN.md -- Per-system detail pages at /systems/[slug] + sitemap update
+- [ ] 05-01-PLAN.md -- Weekly digest email: tracking counters, Redis aggregation, React Email template, Vercel cron endpoint
+- [x] 05-02-PLAN.md -- Per-system detail pages at /systems/[slug] + sitemap update
 - [ ] 05-03-PLAN.md -- Scroll-speed-adaptive animations + DNS repoint verification checkpoint
 **UI hint**: yes
 
