@@ -70,6 +70,11 @@
   }
 }
 
+/* === Smooth Scroll === */
+html {
+  scroll-behavior: smooth;
+}
+
 /* === Base Body Styles === */
 body {
   background-color: var(--color-bg);
