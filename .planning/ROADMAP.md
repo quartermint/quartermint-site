@@ -49,7 +49,7 @@ Plans:
   5. The site is deployed on Vercel with auto-deploy on push to main, and OG tags, Twitter cards, robots.txt, sitemap.xml, and canonical URLs are present on all routes
 **Plans:** 5 plans
 Plans:
-- [ ] 02-01-PLAN.md -- Shared utility components (StickyNav, SectionWrapper, LivingSignal) + supporting libs
+- [x] 02-01-PLAN.md -- Shared utility components (StickyNav, SectionWrapper, LivingSignal) + supporting libs
 - [ ] 02-02-PLAN.md -- Hero section, featured systems, chat placeholder + page wiring
 - [ ] 02-03-PLAN.md -- Origin story, systems shelf, contact section, footer stats
 - [ ] 02-04-PLAN.md -- Full page assembly, /invest route, /privacy route

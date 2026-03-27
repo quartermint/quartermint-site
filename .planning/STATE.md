@@ -10,8 +10,8 @@ progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 3
-  completed_plans: 3
-  percent: 0
+  completed_plans: 4
+  percent: 10
 ---
 
 # Project State
@@ -21,35 +21,35 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-26)
 
 **Core value:** A visitor with no context understands what Ryan builds and why within 60 seconds -- and can interact with the site to get answers in real time via the embedded chat.
-**Current focus:** Phase 01 — foundation-design-system
+**Current focus:** Phase 02 — static-narrative-content
 
 ## Current Position
 
 Phase: 02
-Plan: Not started
-Status: Executing Phase 01
+Plan: 1 of 5
+Status: Executing Phase 02
 Last activity: 2026-03-27
 
-Progress: [..........] 0%
+Progress: [#.........] 10%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: 3min
+- Total execution time: 0.05 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 02 | 1 | 3min | 3min |
 
 **Recent Trend:**
 
-- Last 5 plans: -
-- Trend: -
+- Last 5 plans: 02-01 (3min)
+- Trend: Starting
 
 *Updated after each plan completion*
 
@@ -64,6 +64,9 @@ Recent decisions affecting current work:
 - [Roadmap]: Fresh AI SDK v6 + @upstash/redis install, not Stripped code copy (version chasm risk)
 - [Roadmap]: Static content ships before chat (reviewable artifact with zero external dependencies)
 - [Roadmap]: DNS repoint is last operation (irreversible, only after all features verified on preview URLs)
+- [02-01]: 5px scroll delta threshold on StickyNav to prevent iOS momentum scroll thrashing
+- [02-01]: noAnimation prop on SectionWrapper for above-the-fold Hero section
+- [02-01]: Full Tailwind class names in conditionals (not template literals) for Tailwind v4 scanner
 
 ### Pending Todos
 
@@ -77,6 +80,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T21:04:49.498Z
-Stopped at: All 5 phases context gathered (cross-phase review)
-Resume file: .planning/phases/01-foundation-design-system/01-CONTEXT.md
+Last session: 2026-03-27T14:06:14Z
+Stopped at: Completed 02-01-PLAN.md (shared utilities)
+Resume file: .planning/phases/02-static-narrative-content/02-02-PLAN.md

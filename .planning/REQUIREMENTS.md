@@ -23,8 +23,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **NAR-03**: Origin story section (120-180 words, 3 paragraphs, campaign names in prose — environment/failure, what Ryan noticed, "I started building because the tools didn't exist")
 - [ ] **NAR-04**: Systems shelf as dense typographic list (11 systems: msgvault, pixvault, drivevault, Mainline, Mission Control, SFR, foundry, skygate, open-ez, ticker, signal-glass) with tech badges and public repo GitHub link icons
 - [ ] **NAR-05**: Contact + investor dual-column section (left: "Schedule a conversation" with Calendar booking + email + tertiary GitHub/X links; right: "For investors and partners" linking to /invest)
-- [ ] **NAR-06**: Minimal sticky nav bar (48px height, "Ryan Stern" left -> top, "Invest" right -> /invest, transparent at top, white bg + shadow after 100px scroll, hide-on-scroll-down/show-on-scroll-up on mobile)
-- [ ] **NAR-07**: Alternating section backgrounds (Hero=white, Featured Systems=mint, Chat=white, Origin Story=mint, Systems Shelf=white, Contact=mint)
+- [x] **NAR-06**: Minimal sticky nav bar (48px height, "Ryan Stern" left -> top, "Invest" right -> /invest, transparent at top, white bg + shadow after 100px scroll, hide-on-scroll-down/show-on-scroll-up on mobile)
+- [x] **NAR-07**: Alternating section backgrounds (Hero=white, Featured Systems=mint, Chat=white, Origin Story=mint, Systems Shelf=white, Contact=mint)
 - [ ] **NAR-08**: Footer stats line centered below contact ("40+ repositories / 894K files indexed / 9 production services", DM Sans 13px, text-faint)
 
 ### Chat System
@@ -46,8 +46,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **ENG-01**: Smart starter chips (exactly 3 chips, priority: scroll context > commit recency > time-of-day > static defaults, DM Sans 14px, surface bg, 6px border-radius, disappear after first click)
 - [ ] **ENG-02**: Chat section scroll awareness — IntersectionObserver tracks which section is visible, passes as metadata to chat API, system prompt incorporates "user was viewing [section]" context
-- [ ] **ENG-03**: Section entrance animations (translateY 8px -> 0 + opacity on scroll into viewport, 400ms ease, via IntersectionObserver at 0.3 threshold)
-- [ ] **ENG-04**: Living signal fade-in (opacity 0 -> 1, 600ms ease, 300ms delay on load)
+- [x] **ENG-03**: Section entrance animations (translateY 8px -> 0 + opacity on scroll into viewport, 400ms ease, via IntersectionObserver at 0.3 threshold)
+- [x] **ENG-04**: Living signal fade-in (opacity 0 -> 1, 600ms ease, 300ms delay on load)
 - [ ] **ENG-05**: Keyboard shortcuts overlay (? key, centered modal 400px max-width, bg with 80% opacity backdrop-filter blur, Instrument Serif 20px heading, DM Sans 14px shortcuts, dismiss on Esc/click-outside/?, not shown when input focused)
 - [ ] **ENG-06**: Scroll-speed-adaptive animations (3 tiers: fast <400ms/150ms/4px, medium 400-1200ms/400ms/8px, slow >1200ms/800ms/12px, all disabled with prefers-reduced-motion)
 
@@ -107,8 +107,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | NAR-03 | Phase 2: Static Narrative Content | Pending |
 | NAR-04 | Phase 2: Static Narrative Content | Pending |
 | NAR-05 | Phase 2: Static Narrative Content | Pending |
-| NAR-06 | Phase 2: Static Narrative Content | Pending |
-| NAR-07 | Phase 2: Static Narrative Content | Pending |
+| NAR-06 | Phase 2: Static Narrative Content | Complete |
+| NAR-07 | Phase 2: Static Narrative Content | Complete |
 | NAR-08 | Phase 2: Static Narrative Content | Pending |
 | CHAT-01 | Phase 3: Chat System | Pending |
 | CHAT-02 | Phase 3: Chat System | Pending |
@@ -121,8 +121,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INV-03 | Phase 2: Static Narrative Content | Pending |
 | ENG-01 | Phase 3: Chat System | Pending |
 | ENG-02 | Phase 4: Engagement Intelligence | Pending |
-| ENG-03 | Phase 2: Static Narrative Content | Pending |
-| ENG-04 | Phase 2: Static Narrative Content | Pending |
+| ENG-03 | Phase 2: Static Narrative Content | Complete |
+| ENG-04 | Phase 2: Static Narrative Content | Complete |
 | ENG-05 | Phase 4: Engagement Intelligence | Pending |
 | ENG-06 | Phase 5: Operations + Go-Live | Pending |
 | INT-01 | Phase 4: Engagement Intelligence | Pending |
