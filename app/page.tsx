@@ -2,7 +2,7 @@ import { getLatestCommit } from '@/lib/github'
 import { SectionWrapper } from '@/components/section-wrapper'
 import { HeroSection } from '@/components/hero-section'
 import { FeaturedSystems } from '@/components/featured-systems'
-import { ChatPlaceholder } from '@/components/chat-placeholder'
+import { ChatSection } from '@/components/chat/chat-section'
 import { OriginStory } from '@/components/origin-story'
 import { SystemsShelf } from '@/components/systems-shelf'
 import { ContactInvestor } from '@/components/contact-investor'
@@ -26,7 +26,7 @@ export default async function Home() {
 
       {/* 3. Chat -- bg (white) */}
       <SectionWrapper bg="bg" label="Chat" id="chat-section">
-        <ChatPlaceholder />
+        <ChatSection />
       </SectionWrapper>
 
       {/* 4. Origin Story -- surface (mint) */}

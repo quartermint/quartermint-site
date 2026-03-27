@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { LivingSignal } from '@/components/living-signal'
+import { ChatCTA } from '@/components/chat/chat-cta'
 import type { CommitInfo } from '@/lib/github'
 
 interface HeroSectionProps {
@@ -58,12 +59,7 @@ export function HeroSection({ signal }: HeroSectionProps) {
           >
             Explore the systems
           </a>
-          <a
-            href="#chat-section"
-            className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-6 bg-surface text-text font-body text-[14px] rounded-[6px]"
-          >
-            Ask me anything
-          </a>
+          <ChatCTA />
         </div>
       </div>
     </div>

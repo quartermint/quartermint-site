@@ -20,7 +20,7 @@ describe('Section alternating backgrounds', () => {
   it('imports all 6 section components', () => {
     expect(pageSrc).toContain("import { HeroSection }")
     expect(pageSrc).toContain("import { FeaturedSystems }")
-    expect(pageSrc).toContain("import { ChatPlaceholder }")
+    expect(pageSrc).toContain("import { ChatSection }")
     expect(pageSrc).toContain("import { OriginStory }")
     expect(pageSrc).toContain("import { SystemsShelf }")
     expect(pageSrc).toContain("import { ContactInvestor }")
