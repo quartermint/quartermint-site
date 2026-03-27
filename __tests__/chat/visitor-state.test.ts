@@ -249,7 +249,7 @@ describe('Topic Extraction (lib/chat/topic-extract.ts)', () => {
     expect(mockAnthropic).toHaveBeenCalledWith('claude-haiku-4-5')
     expect(mockGenerateText).toHaveBeenCalledWith(
       expect.objectContaining({
-        maxTokens: 20,
+        maxOutputTokens: 20,
       })
     )
   })

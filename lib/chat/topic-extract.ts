@@ -17,7 +17,7 @@ export async function extractAndStoreTopic(
     const { text } = await generateText({
       model: anthropic('claude-haiku-4-5'),
       prompt: `Summarize the main topic of this conversation in 3-5 words. Return ONLY the topic, nothing else.\n\n${conversationText}`,
-      maxTokens: 20,
+      maxOutputTokens: 20,
     })
 
     const existing = await getVisitorState(visitorId)

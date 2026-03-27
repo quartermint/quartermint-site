@@ -4,6 +4,8 @@ import { cookies, headers } from 'next/headers'
 import { buildSystemPrompt } from '@/lib/chat/system-prompt'
 import { checkAllRateLimits } from '@/lib/chat/rate-limit'
 import { logConversation } from '@/lib/chat/conversation-log'
+import { upsertVisitorState } from '@/lib/chat/visitor'
+import { extractAndStoreTopic } from '@/lib/chat/topic-extract'
 import { RYAN_EMAIL } from '@/lib/chat/types'
 import type { ChatErrorResponse } from '@/lib/chat/types'
 
@@ -31,8 +33,18 @@ export async function POST(req: Request) {
     }
 
     // Parse and validate request body
-    const { messages, sessionId }: { messages: UIMessage[]; sessionId: string } =
-      await req.json()
+    const {
+      messages,
+      sessionId,
+      scrollContext,
+    }: {
+      messages: UIMessage[]
+      sessionId: string
+      scrollContext?: string
+    } = await req.json()
+
+    // Read rv cookie for visitor state tracking
+    const visitorId = cookieStore.get('rv')?.value
 
     if (!Array.isArray(messages) || messages.length === 0) {
       const body: ChatErrorResponse = {
@@ -59,11 +71,41 @@ export async function POST(req: Request) {
     // Stream response from Claude
     const result = streamText({
       model: anthropic('claude-sonnet-4-6'),
-      system: buildSystemPrompt(),
+      system: buildSystemPrompt(scrollContext),
       messages: await convertToModelMessages(messages),
       maxOutputTokens: 500,
       onFinish: async ({ text }) => {
         await logConversation(sessionId, messages, text, ip)
+
+        // Update visitor state and trigger topic extraction (fire-and-forget)
+        if (visitorId) {
+          // Update visitor lastVisit and sections viewed
+          const updates: { lastVisit: string; sectionsViewed?: string[] } = {
+            lastVisit: new Date().toISOString(),
+          }
+          if (scrollContext) {
+            updates.sectionsViewed = [scrollContext]
+          }
+          upsertVisitorState(visitorId, updates).catch(() => {})
+
+          // Extract topic when conversation has sufficient messages (>= 2 user messages)
+          const userMessageCount = messages.filter(
+            (m) => m.role === 'user'
+          ).length
+          if (userMessageCount >= 2) {
+            const conversationText = messages
+              .map(
+                (m) =>
+                  `${m.role === 'user' ? 'User' : 'Assistant'}: ${
+                    'content' in m && typeof m.content === 'string'
+                      ? m.content
+                      : ''
+                  }`
+              )
+              .join('\n')
+            extractAndStoreTopic(visitorId, conversationText).catch(() => {})
+          }
+        }
       },
     })
 

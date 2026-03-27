@@ -8,6 +8,7 @@ import { StarterChips } from './starter-chips'
 import { TypingIndicator } from './typing-indicator'
 import { ChatErrorState } from './chat-error-state'
 import { ChatRateLimitState } from './chat-rate-limit-state'
+import { ReturningVisitorGreeting } from './returning-visitor-greeting'
 
 export function ChatInterface() {
   const [sessionId] = useState(() => crypto.randomUUID())
@@ -15,6 +16,9 @@ export function ChatInterface() {
   const [rateLimitType, setRateLimitType] = useState<'session' | 'ip' | null>(
     null
   )
+  const [returningVisitorChips, setReturningVisitorChips] = useState<
+    string[] | null
+  >(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -88,14 +92,20 @@ export function ChatInterface() {
       role="complementary"
       aria-label="Chat with Ryan"
     >
-      {/* Idle state: heading + starter chips */}
+      {/* Idle state: heading + returning visitor greeting + starter chips */}
       {!hasMessages && (
         <>
           <h2 className="font-display text-[24px] leading-[1.2] text-text text-center">
             Ask me anything about what I&apos;m building
           </h2>
+          <ReturningVisitorGreeting
+            onChipsReady={setReturningVisitorChips}
+          />
           <div className="mt-4">
-            <StarterChips onSelect={handleChipClick} />
+            <StarterChips
+              onSelect={handleChipClick}
+              chips={returningVisitorChips ?? undefined}
+            />
           </div>
           <div className="h-6" />
         </>
