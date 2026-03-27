@@ -67,30 +67,30 @@ Phase 2 exceptions:
 | Instrument Serif | Regular (400), Italic (400i) | `next/font/google`, self-hosted at build time |
 | DM Sans | 400, 600 | `next/font/google`, self-hosted at build time |
 
-### Extended Type Scale (6 roles for Phase 2)
+### Type Scale (4 sizes + 1 display exception)
 
-Phase 1 established a 4-size scale (Heading 32px, Title 20px, Body 16px, Caption 14px). Phase 2 extends this to 6 roles to accommodate the design doc's full page layout. The design doc specifies a more granular scale that the actual page content requires.
+Phase 1 established a 4-size scale (Heading 32px, Title 20px, Body 16px, Caption 14px). Phase 2 adds a single Display size (48px) for the hero h1 only. All other content maps to the 4-size scale.
 
 | Role | Size | Font | Weight | Line Height | Phase 2 Usage |
 |------|------|------|--------|-------------|---------------|
-| Display | 48px | Instrument Serif | 400 | 1.1 | Hero h1 "Ryan Stern" only. Single use. Desktop only -- scales down to 32px on mobile. |
-| Heading | 32px | Instrument Serif | 400 | 1.2 | Section headings (h2): "Featured Systems" implied heading area, origin story heading, systems shelf heading, contact heading. /invest page heading. |
-| Title | 20px | Instrument Serif | 400 | 1.3 | Featured system names (h3), /invest sub-headings. Italic variant for hero subtitle "Builder. Operator." and /invest thesis pull quote. |
-| Body-lg | 18px | DM Sans | 400 | 1.7 | Hero paragraph text (two locked paragraphs). Gives the hero copy visual weight above standard body. |
-| Body | 16px | DM Sans | 400 | 1.7 | All standard body text: featured system problem/solution text, origin story paragraphs, /invest body, /privacy body, contact section text, shelf system one-liners. |
-| Caption | 14px | DM Sans | 600 | 1.4 | Nav items ("Ryan Stern", "Invest"), tech badges (uppercase, letter-spacing 1px). 400 weight variant for living signal text, privacy notice. |
-
-**Additional small text (not separate scale roles -- use sparingly):**
-- **13px** / DM Sans / 400 / 1.4 -- Footer stats line only. Uses `--color-text-faint`. Source: design doc D-12.
-- **12px** / DM Sans / 600 / uppercase / letter-spacing 1px -- Tech stack badges on featured system rows. Source: design doc badge spec.
+| Display | 48px | Instrument Serif | 400 | 1.1 | Hero h1 "Ryan Stern" only. Single use. Desktop only -- scales down to Heading 32px on mobile. |
+| Heading | 32px | Instrument Serif | 400 | 1.2 | Section headings (h2): "Featured Systems" implied heading area, origin story heading, systems shelf heading, contact heading. /invest page heading. /privacy page heading. |
+| Title | 20px | Instrument Serif | 400 | 1.3 | Featured system names (h3), /invest sub-headings, chat placeholder heading. Italic variant for hero subtitle "Builder. Operator." and /invest thesis pull quote. |
+| Body | 16px | DM Sans | 400 | 1.7 | All body text including hero paragraphs, featured system problem/solution text, origin story paragraphs, /invest body, /privacy body, contact section text, shelf system one-liners, chat placeholder subtext. |
+| Caption | 14px | DM Sans | 600 | 1.4 | Nav items ("Ryan Stern", "Invest"), CTA button labels, footer stats line. 400 weight variant for living signal text, privacy notice. Uppercase + letter-spacing 1px variant for tech badges (featured system rows and shelf). |
 
 **Weight usage (2 weights only):**
-- **400 (Regular):** All body text, hero paragraphs, system descriptions, origin story, /invest body, /privacy body, living signal, privacy notice, shelf one-liners
-- **600 (Semibold):** Nav items, tech badges, CTA button labels, featured system solution text differentiation, emphasis text, section labels
+- **400 (Regular):** All body text, hero paragraphs, system descriptions, origin story, /invest body, /privacy body, living signal, privacy notice, shelf one-liners, chat placeholder subtext
+- **600 (Semibold):** Nav items, tech badges (uppercase, letter-spacing 1px), CTA button labels, featured system solution text differentiation, emphasis text, section labels, footer stats
+
+**How hero paragraphs achieve visual weight without a separate size:**
+Hero paragraphs use Body 16px at `--color-text` (primary, high contrast) rather than the `--color-text-muted` used for standard body text elsewhere. The darker color on the white hero background provides the visual prominence the hero copy needs.
+
+**How tech badges achieve visual distinction at Caption 14px:**
+Tech badges use Caption 14px with weight 600 + `text-transform: uppercase` + `letter-spacing: 1px` + `--color-text-faint`. The combination of uppercase, tracking, weight, and muted color creates a clearly distinct visual treatment from regular caption text without requiring a separate font size.
 
 **Responsive type scaling:**
 - Display 48px scales to Heading 32px on mobile (<640px)
-- Body-lg 18px scales to Body 16px on mobile (<640px)
 - All other sizes remain constant across breakpoints
 
 ---
@@ -106,9 +106,9 @@ Inherited from Phase 1 UI-SPEC. No new color tokens introduced in Phase 2.
 | `--color-bg` | #FFFFFF | Page background, white alternating sections (Hero, Chat placeholder, Systems Shelf), nav background after scroll, /invest full background |
 | `--color-surface` | #E6F4F1 | Mint alternating sections (Featured Systems, Origin Story, Contact), nav transparent state |
 | `--color-accent` | #A8E6CF | Living signal dot, /invest thesis pull-quote left border (3px), CTA "Explore the systems" button background, focus rings |
-| `--color-text` | #333A45 | All headings (Instrument Serif), primary text, system titles, nav text |
-| `--color-text-muted` | #555555 | Body paragraphs, featured system solution text, contact section body, /invest body |
-| `--color-text-faint` | #888888 | Footer stats, living signal text, featured system problem text, paused shelf system names, tech badges |
+| `--color-text` | #333A45 | All headings (Instrument Serif), primary text, system titles, nav text, hero paragraph text |
+| `--color-text-muted` | #555555 | Standard body paragraphs, featured system problem and solution text, contact section body, /invest body, chat placeholder subtext |
+| `--color-text-faint` | #888888 | Footer stats, living signal text, paused shelf system names, tech badges |
 
 ### Dark Mode (`@media (prefers-color-scheme: dark)`)
 
@@ -141,7 +141,7 @@ Inherited from Phase 1 UI-SPEC. No new color tokens introduced in Phase 2.
 | `--color-text-faint` on `--color-bg` | 3.5:1 | AA Large |
 | `--color-text-faint` on `--color-surface` | ~2.8:1 | AA Large (14px+ bold or 18px+) |
 
-**Note:** `--color-text-faint` on `--color-surface` is used for featured system problem text (16px regular). At 2.8:1 this does not meet AA for normal text. Two options: (1) use `--color-text-muted` (#555555) for problem text on mint sections (achieves ~5.9:1 AAA), or (2) keep the design doc's spec of `--color-text-faint` for problem text since these sections are on mint backgrounds. **Recommendation: Use `--color-text-muted` for featured system problem text to meet WCAG AA.** The Phase 1 spec listed problem text as `--color-text-faint` but this was on `--color-bg` (white), not `--color-surface` (mint). On mint backgrounds, upgrade to `--color-text-muted`.
+**Note:** `--color-text-faint` on `--color-surface` is used for featured system tech badges (14px/600/uppercase). At 2.8:1 this meets AA Large for bold text at 14px+ (semibold 600 qualifies as bold). For featured system problem text on mint sections, `--color-text-muted` (#555555) is used instead (achieves ~5.9:1 AAA), upgrading from the design doc's `--color-text-faint` to meet WCAG AA on mint backgrounds.
 
 ---
 
@@ -192,7 +192,7 @@ Phase 2 is the content-heavy phase. All visitor-facing copy ships here.
 |---------|------|
 | Left column heading | "Schedule a conversation" |
 | Left column subtext | "If you're building in this space, I'd like to hear what you're working on." |
-| Left column tertiary | "Or follow the work" + GitHub icon (quartermint org) + X/Twitter icon |
+| Left column tertiary | "Or follow the work" + GitHub icon (quartermint org) + X/Twitter icon (aria-label="Ryan Stern on X") |
 | Right column heading | "For investors and partners" |
 | Right column CTA | Links to /invest |
 
@@ -221,7 +221,7 @@ Phase 2 is the content-heavy phase. All visitor-facing copy ships here.
 
 | State | What Appears | Copy |
 |-------|-------------|------|
-| Chat placeholder (Phase 2) | Chat section exists with heading, no input, no interaction | "Ask me anything about what I'm building" (Instrument Serif 24px) + "Chat coming soon." (DM Sans 16px, `--color-text-muted`) |
+| Chat placeholder (Phase 2) | Chat section exists with heading, no input, no interaction | "Ask me anything about what I'm building" (Instrument Serif 20px) + "Chat coming soon." (DM Sans 16px, `--color-text-muted`) |
 | Living signal loading | Nothing until cached data arrives | No skeleton, no flash, no placeholder |
 | Living signal stale (>7 days) | Signal renders in `--color-text-faint` | Same format, dimmed color |
 | Empty shelf system one-liner | Should not occur -- all 11 one-liners must be populated before shipping | N/A |
@@ -261,7 +261,7 @@ None in Phase 2. No forms, no data mutation, no delete operations.
 |-----------|-------------|-------------|
 | `LivingSignal` | Fetches latest commit from GitHub API (ISR 1hr). Renders relative time + repo name. Fallback to env var. | NAR-01, ENG-04 |
 | `SectionWrapper` | Handles alternating background colors (white/mint), section padding, `aria-label`, and scroll-triggered entrance animation. | NAR-07, ENG-03 |
-| `TechBadge` | DM Sans 12px, 600 weight, uppercase, 1px letter-spacing, `--color-text-faint`. Reused across featured rows and shelf. | -- |
+| `TechBadge` | DM Sans 14px, 600 weight, uppercase, 1px letter-spacing, `--color-text-faint`. Reused across featured rows and shelf. | -- |
 
 ---
 
@@ -307,7 +307,7 @@ Each section spans full viewport width for background color. Content within is c
 | H1 "Ryan Stern" | Instrument Serif 48px/400/1.1 (desktop), 32px (mobile) |
 | Subtitle "Builder. Operator." | Instrument Serif Italic 20px/400/1.3, `--color-text-muted` |
 | Living signal | DM Sans 14px/400, `--color-text-muted` (fresh) or `--color-text-faint` (>7 days). Fade-in: opacity 0->1, 600ms ease, 300ms delay (ENG-04). |
-| Body paragraphs | DM Sans 18px/400/1.7, `--color-text-muted` |
+| Body paragraphs | DM Sans 16px/400/1.7, `--color-text` (primary color for hero visual weight, not `--color-text-muted`) |
 | CTA "Explore the systems" | DM Sans 14px/600, `--color-accent` background, `--color-text` text, 6px border-radius, 48px height, min-width 44px |
 | CTA "Ask me anything" | DM Sans 14px/400, `--color-surface` background, `--color-text` text, 6px border-radius, 48px height, min-width 44px |
 | Headshot | `border-radius: 50%`, `object-fit: cover`, `aspect-ratio: 1` |
@@ -321,7 +321,7 @@ Each section spans full viewport width for background color. Content within is c
 | Row structure | Problem text left (50% width), system name + solution right (50% width) |
 | Problem text | DM Sans 16px/400/1.7, `--color-text-muted` (upgraded from `--color-text-faint` for contrast on mint) |
 | System title | Instrument Serif 20px/400/1.3, `--color-text` |
-| Tech badge | DM Sans 12px/600/uppercase/1px letter-spacing, `--color-text-faint` |
+| Tech badge | DM Sans 14px/600/uppercase/1px letter-spacing, `--color-text-faint` |
 | Solution text | DM Sans 16px/600/1.7, `--color-text-muted` |
 | Mobile (<640px) | Stack vertically: problem above, solution below |
 | Fallback | If horizontal rows feel too tall on mobile, fall back to 2x2 card grid (24px gap, `--color-surface` bg) -- per design doc |
@@ -331,7 +331,7 @@ Each section spans full viewport width for background color. Content within is c
 | Property | Value |
 |----------|-------|
 | Container | `--color-bg` background, `box-shadow: 0 2px 8px rgba(0,0,0,0.06)`, 8px border-radius, max-width 720px centered, min-height 200px |
-| Heading | "Ask me anything about what I'm building" -- Instrument Serif 24px/400/1.2 |
+| Heading | "Ask me anything about what I'm building" -- Instrument Serif 20px/400/1.3 (Title role) |
 | Subtext | "Chat coming soon." -- DM Sans 16px/400, `--color-text-muted` |
 | Purpose | Reserves the chat section position. Replaced by functional chat in Phase 3. |
 
@@ -409,9 +409,9 @@ Inherited from Phase 1. Per-section responsive behavior defined in Section Layou
 | ARIA landmarks | `<header>` with nav, `<main>` with `<section aria-label="...">` per content section, `<footer>` |
 | Skip navigation | Hidden link "Skip to main content" visible on focus (inherited from Phase 1 layout) |
 | Touch targets | 44x44px minimum on all buttons, links, nav items, GitHub icons (inherited) |
-| Color contrast | WCAG AAA for primary/secondary text. AA Large for faint text on white. Problem text on mint sections uses `--color-text-muted` (not `--color-text-faint`) for AA compliance. |
+| Color contrast | WCAG AAA for primary/secondary text. AA Large for faint text on white. Problem text on mint sections uses `--color-text-muted` (not `--color-text-faint`) for AA compliance. Tech badges (14px/600) on mint use `--color-text-faint` which meets AA Large for bold text. |
 | Reduced motion | All animations disabled via Phase 1 `@media (prefers-reduced-motion: reduce)` |
-| Screen reader | Living signal: sr-only text "Last code pushed to GitHub {time} ago". GitHub icons: `aria-label="{system} on GitHub"`. Section headings via `aria-label` on `<section>` elements. |
+| Screen reader | Living signal: sr-only text "Last code pushed to GitHub {time} ago". GitHub icons: `aria-label="{system} on GitHub"`. X/Twitter icon: `aria-label="Ryan Stern on X"`. Section headings via `aria-label` on `<section>` elements. |
 | Headshot alt text | "Ryan Stern" -- descriptive, not decorative |
 | External links | `target="_blank" rel="noopener noreferrer"` on all external links (GitHub, Calendar, X/Twitter) |
 
