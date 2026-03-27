@@ -32,8 +32,8 @@ Decimal phases appear between their surrounding integers in numeric order.
   5. Keyboard focus rings (2px), ARIA landmarks, 44px touch targets, and prefers-reduced-motion support are present in the base layout
 **Plans:** 3 plans
 Plans:
-- [ ] 01-01-PLAN.md -- Project scaffold + design token system (fonts, colors, dark mode)
-- [ ] 01-02-PLAN.md -- Systems data layer + test infrastructure (lib/systems.ts, vitest)
+- [x] 01-01-PLAN.md -- Project scaffold + design token system (fonts, colors, dark mode)
+- [x] 01-02-PLAN.md -- Systems data layer + test infrastructure (lib/systems.ts, vitest)
 - [ ] 01-03-PLAN.md -- Responsive layout, accessibility tests, visual verification
 **UI hint**: yes
 
