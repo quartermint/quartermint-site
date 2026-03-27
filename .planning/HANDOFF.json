@@ -1,36 +1,34 @@
 {
   "version": "1.0",
-  "timestamp": "2026-03-27T15:36:53.586Z",
-  "phase": "03",
-  "phase_name": "chat-system",
-  "phase_dir": ".planning/phases/03-chat-system",
+  "timestamp": "2026-03-27T20:42:59.024Z",
+  "phase": "05",
+  "phase_name": "operations-go-live",
+  "phase_dir": ".planning/phases/05-operations-go-live",
   "plan": null,
   "task": null,
-  "total_tasks": 10,
+  "total_tasks": 0,
   "status": "paused",
   "completed_tasks": [],
   "remaining_tasks": [
-    {"id": "03-01", "name": "Chat types, Redis client, rate limiting, system prompt", "status": "not_started"},
-    {"id": "03-02", "name": "Streaming chat API route + backend tests", "status": "not_started"},
-    {"id": "03-03", "name": "Chat UI components (7 files)", "status": "not_started"},
-    {"id": "03-04", "name": "Page wiring, mobile overlay, visual verification", "status": "not_started"}
+    {"id": "05-plan", "name": "Phase 5 needs plan → execute cycle", "status": "not_started"}
   ],
   "blockers": [],
   "human_actions_pending": [
-    {"action": "Set up Upstash Redis via Vercel Dashboard -> Storage", "context": "Required for rate limiting and conversation logging", "blocking": true},
-    {"action": "Add ANTHROPIC_API_KEY to Vercel env vars", "context": "Reuse existing key from Stripped deployment", "blocking": true},
-    {"action": "Configure $50/mo budget alert in Anthropic Dashboard", "context": "Layer 3 rate limiting", "blocking": false},
-    {"action": "Provide headshot image at public/images/headshot.jpg", "context": "Phase 2 gap — hero section shows broken image without it", "blocking": false},
-    {"action": "Create GitHub repo and link Vercel project", "context": "Phase 2 gap — deployment not connected", "blocking": false}
+    {"action": "Create GitHub repo for quartermint-site", "context": "No repo exists yet — needed for Vercel deployment", "blocking": true},
+    {"action": "Link Vercel project to GitHub repo", "context": "Enables automatic deployments on push", "blocking": true},
+    {"action": "Add env vars to Vercel project settings", "context": "ANTHROPIC_API_KEY, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN, RESEND_API_KEY", "blocking": true},
+    {"action": "Set up Resend account and verify quartermint.com domain", "context": "SPF/DKIM/DMARC DNS records in Cloudflare for email delivery", "blocking": true},
+    {"action": "Provide headshot image at public/images/headshot.jpg", "context": "Hero section shows broken image without it", "blocking": false},
+    {"action": "Configure Anthropic $50/mo budget alert", "context": "Dashboard config, not code", "blocking": false},
+    {"action": "Complete Phase 3+4 human UAT items", "context": "6 Phase 3 items + Phase 4 visual items deferred to go-live pass", "blocking": false}
   ],
   "decisions": [
-    {"decision": "Removed ticker and signal-glass from systems shelf", "rationale": "Internal-only brain noodles, not ready for public site", "phase": "02"},
-    {"decision": "Origin story added 'second decade' bridge sentence", "rationale": "First version didn't address what came after politics", "phase": "02"},
-    {"decision": "Privacy link deferred to Phase 3 chat input area", "rationale": "More contextually appropriate below chat than in footer", "phase": "02"},
-    {"decision": "Footer content polish deferred to go-live sweep", "rationale": "User preference to handle in final pass", "phase": "02"},
-    {"decision": "/invest copy approved for development", "rationale": "Good enough for dev, final polish at go-live", "phase": "02"}
+    {"decision": "Upstash Redis free tier via direct console (not Vercel Marketplace)", "rationale": "Free tier requires no credit card; Marketplace forced PayAsYouGo with card", "phase": "03"},
+    {"decision": "Read-write token required (not read-only)", "rationale": "@upstash/ratelimit uses evalsha which needs write permissions", "phase": "03"},
+    {"decision": "suppressHydrationWarning avoided for InvestHeading", "rationale": "React 19 bug — suppresses warning AND prevents client re-render from updating DOM", "phase": "04"},
+    {"decision": "Human UAT deferred to go-live pass", "rationale": "User preference to batch all visual testing at the end", "phase": "03-04"}
   ],
-  "uncommitted_files": [".planning/STATE.md"],
-  "next_action": "Run /gsd:execute-phase 3 --wave 1 to start Wave 1 (Plan 03-01: install deps, create chat types/redis/rate-limit/system-prompt). Before execution, set up ANTHROPIC_API_KEY and Upstash Redis env vars in .env.local for local development.",
-  "context_notes": "Autonomous run completed Phases 1-2, planned Phase 3. Phase 3 has 4 plans in 3 waves. Plans passed checker verification (iteration 2/3 — 3 blockers resolved in revision). UI-SPEC approved. All planning artifacts are ready. Execution has not started — STATE.md was updated to reflect phase start but no code has been written for Phase 3 yet. 161 tests passing from Phases 1-2. Phases 4-5 still need plan->execute cycle."
+  "uncommitted_files": [],
+  "next_action": "Run /gsd:plan-phase 5 then /gsd:execute-phase 5. Phase 5 context exists. Before execution: create GitHub repo, link Vercel, add env vars, set up Resend domain verification, provide headshot.",
+  "context_notes": "Autonomous run completed Phases 3-4 this session. Phase 3: 4 plans, chat system working (streaming verified in browser). Phase 4: 3 plans, scroll context + returning visitor + export/invest/shortcuts. 294 tests passing. Phase 5 context already exists from prior autonomous run. Phase 5 is the final phase — DNS repoint, Vercel deployment, polish animations, weekly digest cron, privacy page, meta tags."
 }
