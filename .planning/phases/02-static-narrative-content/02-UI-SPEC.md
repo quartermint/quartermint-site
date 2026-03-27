@@ -67,14 +67,11 @@ Phase 2 exceptions:
 | Instrument Serif | Regular (400), Italic (400i) | `next/font/google`, self-hosted at build time |
 | DM Sans | 400, 600 | `next/font/google`, self-hosted at build time |
 
-### Type Scale (4 sizes + 1 display exception)
-
-Phase 1 established a 4-size scale (Heading 32px, Title 20px, Body 16px, Caption 14px). Phase 2 adds a single Display size (48px) for the hero h1 only. All other content maps to the 4-size scale.
+### Type Scale (4 sizes)
 
 | Role | Size | Font | Weight | Line Height | Phase 2 Usage |
 |------|------|------|--------|-------------|---------------|
-| Display | 48px | Instrument Serif | 400 | 1.1 | Hero h1 "Ryan Stern" only. Single use. Desktop only -- scales down to Heading 32px on mobile. |
-| Heading | 32px | Instrument Serif | 400 | 1.2 | Section headings (h2): "Featured Systems" implied heading area, origin story heading, systems shelf heading, contact heading. /invest page heading. /privacy page heading. |
+| Heading | 32px | Instrument Serif | 400 | 1.2 | Section headings (h2): "Featured Systems" implied heading area, origin story heading, systems shelf heading, contact heading. /invest page heading. /privacy page heading. Hero h1 "Ryan Stern" uses Heading at 32px mobile / 48px desktop via responsive variant (`text-[32px] lg:text-[48px]`, line-height 1.1 at desktop size). |
 | Title | 20px | Instrument Serif | 400 | 1.3 | Featured system names (h3), /invest sub-headings, chat placeholder heading. Italic variant for hero subtitle "Builder. Operator." and /invest thesis pull quote. |
 | Body | 16px | DM Sans | 400 | 1.7 | All body text including hero paragraphs, featured system problem/solution text, origin story paragraphs, /invest body, /privacy body, contact section text, shelf system one-liners, chat placeholder subtext. |
 | Caption | 14px | DM Sans | 600 | 1.4 | Nav items ("Ryan Stern", "Invest"), CTA button labels, footer stats line. 400 weight variant for living signal text, privacy notice. Uppercase + letter-spacing 1px variant for tech badges (featured system rows and shelf). |
@@ -90,8 +87,8 @@ Hero paragraphs use Body 16px at `--color-text` (primary, high contrast) rather 
 Tech badges use Caption 14px with weight 600 + `text-transform: uppercase` + `letter-spacing: 1px` + `--color-text-faint`. The combination of uppercase, tracking, weight, and muted color creates a clearly distinct visual treatment from regular caption text without requiring a separate font size.
 
 **Responsive type scaling:**
-- Display 48px scales to Heading 32px on mobile (<640px)
-- All other sizes remain constant across breakpoints
+- Heading role renders at 48px on desktop (>=1024px) for the hero h1 only, via `text-[32px] lg:text-[48px]` with line-height 1.1 at the desktop size. All section h2s use Heading at 32px on all viewports.
+- All other sizes remain constant across breakpoints.
 
 ---
 
@@ -304,7 +301,7 @@ Each section spans full viewport width for background color. Content within is c
 
 | Element | Spec |
 |---------|------|
-| H1 "Ryan Stern" | Instrument Serif 48px/400/1.1 (desktop), 32px (mobile) |
+| H1 "Ryan Stern" | Heading (hero variant): Instrument Serif 32px/400/1.2 mobile, 48px/400/1.1 desktop (`text-[32px] lg:text-[48px]`) |
 | Subtitle "Builder. Operator." | Instrument Serif Italic 20px/400/1.3, `--color-text-muted` |
 | Living signal | DM Sans 14px/400, `--color-text-muted` (fresh) or `--color-text-faint` (>7 days). Fade-in: opacity 0->1, 600ms ease, 300ms delay (ENG-04). |
 | Body paragraphs | DM Sans 16px/400/1.7, `--color-text` (primary color for hero visual weight, not `--color-text-muted`) |
