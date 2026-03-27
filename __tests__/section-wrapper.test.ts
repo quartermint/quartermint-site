@@ -33,8 +33,8 @@ describe('components/section-wrapper.tsx', () => {
     expect(sectionWrapper).toContain('noAnimation')
   })
 
-  it('uses translate-y for entrance animation', () => {
-    expect(sectionWrapper).toContain('translate-y')
+  it('uses translateY for entrance animation', () => {
+    expect(sectionWrapper).toContain('translateY')
   })
 
   it('uses content max-width wrapper', () => {
