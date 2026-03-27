@@ -7,6 +7,7 @@ interface SectionWrapperProps {
   bg: 'bg' | 'surface'
   label: string
   noAnimation?: boolean
+  id?: string
 }
 
 export function SectionWrapper({
@@ -14,6 +15,7 @@ export function SectionWrapper({
   bg,
   label,
   noAnimation = false,
+  id,
 }: SectionWrapperProps) {
   const ref = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(noAnimation)
@@ -43,6 +45,7 @@ export function SectionWrapper({
   return (
     <section
       ref={ref}
+      id={id}
       aria-label={label}
       className={`${bgClass} transition-all duration-[400ms] ease-out
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
