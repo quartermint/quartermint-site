@@ -66,7 +66,12 @@ Plans:
   3. Three rate limiting layers are active simultaneously: cookie-based session limit (20 messages), IP-based hard cap (60/hr via Upstash Redis returning 429), and a $50/month Anthropic budget alert configured
   4. A privacy notice appears below the chat input linking to /privacy, and the AI honestly discloses it is a digital proxy when sincerely asked
   5. On mobile, the chat opens as a full-screen overlay triggered by the hero CTA
-**Plans**: TBD
+**Plans:** 4 plans
+Plans:
+- [ ] 03-01-PLAN.md -- Install deps, chat types, Redis client, rate limiting, conversation logging, system prompt
+- [ ] 03-02-PLAN.md -- Streaming chat API route handler + backend tests
+- [ ] 03-03-PLAN.md -- Chat UI components (ChatInterface, MessageBubble, StarterChips, states, mobile overlay)
+- [ ] 03-04-PLAN.md -- Page wiring, hero CTA update, UI integration tests, visual verification
 **UI hint**: yes
 
 ### Phase 4: Engagement Intelligence
@@ -102,6 +107,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Foundation + Design System | 0/3 | Planning complete | - |
 | 2. Static Narrative Content | 0/5 | Planning complete | - |
-| 3. Chat System | 0/TBD | Not started | - |
+| 3. Chat System | 0/4 | Planning complete | - |
 | 4. Engagement Intelligence | 0/TBD | Not started | - |
 | 5. Operations + Go-Live | 0/TBD | Not started | - |
