@@ -70,7 +70,7 @@ Phase 4 exceptions:
 | Role | Size | Font | Weight | Line Height | Phase 4 Usage |
 |------|------|------|--------|-------------|---------------|
 | Heading | 24px | Instrument Serif | 400 | 1.2 | Chat container heading (inherited), not new in Phase 4 |
-| Title | 20px | Instrument Serif | 400 | 1.3 | Keyboard shortcuts modal heading ("Keyboard Shortcuts"), /invest variant heading uses existing 32px display role |
+| Title | 20px | Instrument Serif | 400 | 1.3 | Keyboard shortcuts modal heading ("Keyboard Shortcuts") |
 | Body | 16px | DM Sans | 400 | 1.7 | Returning visitor greeting text, export success/error copy |
 | Caption | 14px | DM Sans | 400 | 1.4 | Smart starter chip labels (same as Phase 3), keyboard shortcut descriptions, export email input text, export send button label, export panel copy |
 
@@ -394,8 +394,10 @@ Panel content replaced with: "Couldn't send." (DM Sans 14px/400, `--color-text-m
 
 | Scenario | Heading Text | Typography |
 |----------|-------------|------------|
-| Default (SSR, direct link, no flag) | "The Infrastructure Behind the Work" | Instrument Serif 32px/400/1.2, `--color-text` (existing) |
-| Journey variant (flag present) | "You've seen the work. Here's where it's going." | Instrument Serif 32px/400/1.2, `--color-text` (same styling, only text changes) |
+| Default (SSR, direct link, no flag) | "The Infrastructure Behind the Work" | Instrument Serif 32px/400/1.2, `--color-text` -- **inherited Phase 1 display role, not a Phase 4 typography declaration** |
+| Journey variant (flag present) | "You've seen the work. Here's where it's going." | Instrument Serif 32px/400/1.2, `--color-text` -- **inherited Phase 1 display role, not a Phase 4 typography declaration** |
+
+> **Scope note:** The 32px size used by `InvestHeading` is the Phase 1 display heading role applied unchanged. `InvestHeading` only swaps the text string -- it does not introduce a new font size. The Phase 4 type scale remains 4 sizes (14/16/20/24px). 32px is out of Phase 4 scope.
 
 ### Hydration Strategy
 
