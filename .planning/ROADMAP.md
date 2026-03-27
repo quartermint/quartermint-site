@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 - [x] 01-01-PLAN.md -- Project scaffold + design token system (fonts, colors, dark mode)
 - [x] 01-02-PLAN.md -- Systems data layer + test infrastructure (lib/systems.ts, vitest)
-- [ ] 01-03-PLAN.md -- Responsive layout, accessibility tests, visual verification
+- [x] 01-03-PLAN.md -- Responsive layout, accessibility tests, visual verification
 **UI hint**: yes
 
 ### Phase 2: Static Narrative Content
