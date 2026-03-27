@@ -129,8 +129,7 @@ describe('System prompt accepts scrollContext (file-read pattern)', () => {
     expect(content).toContain('scrollContext?: string')
   })
 
-  it('injects CURRENT SECTION block when scrollContext provided', () => {
-    expect(content).toContain('[CURRENT SECTION]')
-    expect(content).toContain('[/CURRENT SECTION]')
+  it('delegates scroll context injection to getSectionPromptContext', () => {
+    expect(content).toContain('getSectionPromptContext')
   })
 })
