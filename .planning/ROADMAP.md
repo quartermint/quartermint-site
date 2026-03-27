@@ -52,7 +52,7 @@ Plans:
 - [x] 02-01-PLAN.md -- Shared utility components (StickyNav, SectionWrapper, LivingSignal) + supporting libs
 - [x] 02-02-PLAN.md -- Hero section, featured systems, chat placeholder + page wiring
 - [x] 02-03-PLAN.md -- Origin story, systems shelf, contact section, footer stats
-- [ ] 02-04-PLAN.md -- Full page assembly, /invest route, /privacy route
+- [x] 02-04-PLAN.md -- Full page assembly, /invest route, /privacy route
 - [ ] 02-05-PLAN.md -- SEO metadata, OG image, Vercel deployment, visual verification
 **UI hint**: yes
 
