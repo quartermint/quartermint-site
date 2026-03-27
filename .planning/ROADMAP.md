@@ -84,7 +84,11 @@ Plans:
   3. A returning visitor within 7 days sees a personalized greeting referencing their previous topic; visitors 7-30 days old see a generic welcome-back; visitors over 30 days or with KV failures are treated as new
   4. After viewing the contact section and navigating to /invest, the visitor sees the variant heading "You've seen the work. Here's where it's going." instead of the default
   5. After 3 messages, an envelope icon appears in the chat header; clicking it reveals a slide-down panel where the visitor can enter their email and receive the conversation via Resend, with a clipboard fallback on error
-**Plans**: TBD
+**Plans:** 3 plans
+Plans:
+- [ ] 04-01-PLAN.md -- Scroll context infrastructure, dynamic smart chips, chat API scroll-awareness
+- [ ] 04-02-PLAN.md -- Returning visitor detection, rv cookie, greeting tiers, topic extraction
+- [ ] 04-03-PLAN.md -- Conversation export email, /invest journey detection, keyboard shortcuts
 **UI hint**: yes
 
 ### Phase 5: Operations + Go-Live
@@ -108,5 +112,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation + Design System | 0/3 | Planning complete | - |
 | 2. Static Narrative Content | 0/5 | Planning complete | - |
 | 3. Chat System | 0/4 | Planning complete | - |
-| 4. Engagement Intelligence | 0/TBD | Not started | - |
+| 4. Engagement Intelligence | 0/3 | Planning complete | - |
 | 5. Operations + Go-Live | 0/TBD | Not started | - |
