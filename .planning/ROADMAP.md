@@ -98,9 +98,14 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. quartermint.com resolves to the Vercel deployment with working HTTPS, and all routes (/, /invest, /privacy, /systems/[slug]) load correctly
   2. A weekly digest email arrives (plain text via Resend) summarizing chat sessions, top questions, export requests, and /invest views from the past week
-  3. Each of the 15 systems in lib/systems.ts has a detail page at /systems/[slug] rendering its full data
+  3. Each of the 13 systems in lib/systems.ts has a detail page at /systems/[slug] rendering its full data
   4. Scroll-speed-adaptive animations respond across three tiers (fast/medium/slow) and are fully disabled when prefers-reduced-motion is set
-**Plans**: TBD
+**Plans:** 3 plans
+Plans:
+- [ ] 05-01-PLAN.md -- Weekly digest email: tracking counters, Redis aggregation, React Email template, Vercel cron endpoint
+- [ ] 05-02-PLAN.md -- Per-system detail pages at /systems/[slug] + sitemap update
+- [ ] 05-03-PLAN.md -- Scroll-speed-adaptive animations + DNS repoint verification checkpoint
+**UI hint**: yes
 
 ## Progress
 
@@ -113,4 +118,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Static Narrative Content | 0/5 | Planning complete | - |
 | 3. Chat System | 0/4 | Planning complete | - |
 | 4. Engagement Intelligence | 3/3 | Complete   | 2026-03-27 |
-| 5. Operations + Go-Live | 0/TBD | Not started | - |
+| 5. Operations + Go-Live | 0/3 | Planning complete | - |
