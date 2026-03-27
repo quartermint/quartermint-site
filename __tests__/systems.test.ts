@@ -5,8 +5,8 @@ const ALLOWED_BADGES = ['Go', 'Swift', 'TypeScript', 'Python', 'Raspberry Pi', '
 const FEATURED_NAMES = ['LifeVault', 'Relay', 'OpenEFB', 'v2cf']
 
 describe('lib/systems.ts', () => {
-  it('exports exactly 15 systems', () => {
-    expect(systems).toHaveLength(15)
+  it('exports exactly 13 systems', () => {
+    expect(systems).toHaveLength(13)
   })
 
   it('every system has all required fields', () => {
@@ -26,9 +26,9 @@ describe('lib/systems.ts', () => {
     expect(featured).toHaveLength(4)
   })
 
-  it('has exactly 11 shelf systems', () => {
+  it('has exactly 9 shelf systems', () => {
     const shelf = systems.filter((s) => !s.featured)
-    expect(shelf).toHaveLength(11)
+    expect(shelf).toHaveLength(9)
   })
 
   it('featured systems are LifeVault, Relay, OpenEFB, v2cf', () => {
@@ -91,8 +91,8 @@ describe('lib/systems.ts', () => {
     }
   })
 
-  it('shelfSystems export returns exactly 11 non-featured items', () => {
-    expect(shelfSystems).toHaveLength(11)
+  it('shelfSystems export returns exactly 9 non-featured items', () => {
+    expect(shelfSystems).toHaveLength(9)
     for (const system of shelfSystems) {
       expect(system.featured).toBe(false)
     }

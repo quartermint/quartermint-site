@@ -18,7 +18,8 @@ export function OriginStory() {
         front offices. Nobody was building the connective tissue.
       </p>
       <p className="font-body text-[16px] leading-[1.7] text-text-muted">
-        I started building because the tools didn't exist.
+        The second decade became the answer.{' '}
+        {"I started building because the tools didn't exist."}
       </p>
     </div>
   )

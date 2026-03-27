@@ -69,12 +69,11 @@ export const systems: System[] = [
     featured: true,
   },
 
-  // ── Shelf Systems (11) ────────────────────────────────────────────────
+  // ── Shelf Systems (9) ─────────────────────────────────────────────────
   {
     name: 'msgvault',
     slug: 'msgvault',
-    // DRAFT -- pending user approval
-    oneLiner: 'Offline Gmail archiver that exports your entire inbox for local search',
+    oneLiner: 'Unified message archiver for Gmail, iMessage, Google Voice, Slack, and any communication tool you plug in',
     problem: '',
     solution: '',
     techBadge: 'Go',
@@ -86,7 +85,6 @@ export const systems: System[] = [
   {
     name: 'pixvault',
     slug: 'pixvault',
-    // DRAFT -- pending user approval
     oneLiner: 'Photo and media vault with metadata extraction and deduplication',
     problem: '',
     solution: '',
@@ -99,8 +97,7 @@ export const systems: System[] = [
   {
     name: 'drivevault',
     slug: 'drivevault',
-    // DRAFT -- pending user approval
-    oneLiner: 'Google Drive archiver preserving folder structure and sharing metadata',
+    oneLiner: 'Cloud and local backup archiver for Google Drive, OneDrive, Dropbox, and computer file systems',
     problem: '',
     solution: '',
     techBadge: 'Go',
@@ -112,8 +109,7 @@ export const systems: System[] = [
   {
     name: 'Mainline',
     slug: 'mainline',
-    // DRAFT -- pending user approval
-    oneLiner: 'Team workspace bridging native iOS and server-side Go',
+    oneLiner: 'Team workspace where chat, agent, and files live in the same layer',
     problem: '',
     solution: '',
     techBadge: 'Go + Swift',
@@ -125,7 +121,6 @@ export const systems: System[] = [
   {
     name: 'Mission Control',
     slug: 'mission-control',
-    // DRAFT -- pending user approval
     oneLiner: 'Operational dashboard aggregating project status and deployment health',
     problem: '',
     solution: '',
@@ -138,8 +133,7 @@ export const systems: System[] = [
   {
     name: 'Sovereign Flight Recorder',
     slug: 'sovereign-flight-recorder',
-    // DRAFT -- pending user approval
-    oneLiner: 'iOS VFR flight recording with privacy-first on-device processing',
+    oneLiner: 'General aviation black box — flight recording with privacy-first on-device processing',
     problem: '',
     solution: '',
     techBadge: 'Swift',
@@ -151,8 +145,7 @@ export const systems: System[] = [
   {
     name: 'foundry',
     slug: 'foundry',
-    // DRAFT -- pending user approval
-    oneLiner: '3D print management from file upload to finished part tracking',
+    oneLiner: 'AI chatbot to physical print — conversational 3D printing pipeline',
     problem: '',
     solution: '',
     techBadge: 'Python',
@@ -164,7 +157,6 @@ export const systems: System[] = [
   {
     name: 'skygate',
     slug: 'skygate',
-    // DRAFT -- pending user approval
     oneLiner: 'Starlink bandwidth management appliance for general aviation aircraft',
     problem: '',
     solution: '',
@@ -177,7 +169,6 @@ export const systems: System[] = [
   {
     name: 'open-ez',
     slug: 'open-ez',
-    // DRAFT -- pending user approval
     oneLiner: 'Plans-as-Code parametric design system for Long-EZ aircraft',
     problem: '',
     solution: '',
@@ -185,32 +176,6 @@ export const systems: System[] = [
     isPublic: true,
     githubUrl: 'https://github.com/quartermint/open-ez',
     status: 'active',
-    featured: false,
-  },
-  {
-    name: 'ticker',
-    slug: 'ticker',
-    // DRAFT -- pending user approval
-    oneLiner: 'Behavioral alpha trading copilot surfacing patterns in market data',
-    problem: '',
-    solution: '',
-    techBadge: 'Python',
-    isPublic: false,
-    githubUrl: null,
-    status: 'active',
-    featured: false,
-  },
-  {
-    name: 'signal-glass',
-    slug: 'signal-glass',
-    // DRAFT -- pending user approval
-    oneLiner: 'Signal processing and pattern analysis toolkit',
-    problem: '',
-    solution: '',
-    techBadge: 'Python',
-    isPublic: false,
-    githubUrl: null,
-    status: 'paused',
     featured: false,
   },
 ]
