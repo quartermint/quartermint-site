@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-04-PLAN.md (chat integration and visual verification)
+stopped_at: Completed 04-01-PLAN.md (scroll context infrastructure)
 last_updated: "2026-03-27T19:06:51.048Z"
 last_activity: 2026-03-27
 progress:
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-26)
 
 **Core value:** A visitor with no context understands what Ryan builds and why within 60 seconds -- and can interact with the site to get answers in real time via the embedded chat.
-**Current focus:** Phase 03 — chat-system
+**Current focus:** Phase 04 — engagement-intelligence
 
 ## Current Position
 
 Phase: 04
-Plan: Not started
-Status: Ready to execute
+Plan: 1 of 4
+Status: Executing
 Last activity: 2026-03-27
 
-Progress: [#.........] 10%
+Progress: [###.......] 30%
 
 ## Performance Metrics
 
@@ -56,6 +56,7 @@ Progress: [#.........] 10%
 | Phase 03 P01 | 3min | 2 tasks | 7 files |
 | Phase 03 P03 | 5min | 3 tasks | 7 files |
 | Phase 03 P04 | 3min | 3 tasks | 7 files |
+| Phase 04 P01 | 3min | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,9 @@ Recent decisions affecting current work:
 - [Phase 03]: AI SDK v6 DefaultChatTransport for api/body config instead of direct useChat props
 - [Phase 03]: Mobile overlay renders independent ChatInterface instance (separate useChat state per D-11)
 - [Phase 03]: ChatSection wrapper keeps page.tsx as Server Component; ChatCTA client island in HeroSection for mobile overlay state
+- [Phase 04]: Single IntersectionObserver at page level via ScrollContextProvider, not per-component observers
+- [Phase 04]: chat-section returns static defaults with no prompt injection when user is in chat
+- [Phase 04]: Scroll context appended at request time to system prompt, deploy-time base prompt unchanged
 
 ### Pending Todos
 
@@ -91,6 +95,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-27T18:47:37.660Z
-Stopped at: Completed 03-04-PLAN.md (chat integration and visual verification)
+Last session: 2026-03-27T19:41:17Z
+Stopped at: Completed 04-01-PLAN.md (scroll context infrastructure)
 Resume file: None

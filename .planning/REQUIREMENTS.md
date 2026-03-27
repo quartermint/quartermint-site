@@ -45,7 +45,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Engagement
 
 - [x] **ENG-01**: Smart starter chips (exactly 3 chips, priority: scroll context > commit recency > time-of-day > static defaults, DM Sans 14px, surface bg, 6px border-radius, disappear after first click)
-- [ ] **ENG-02**: Chat section scroll awareness — IntersectionObserver tracks which section is visible, passes as metadata to chat API, system prompt incorporates "user was viewing [section]" context
+- [x] **ENG-02**: Chat section scroll awareness — IntersectionObserver tracks which section is visible, passes as metadata to chat API, system prompt incorporates "user was viewing [section]" context
 - [x] **ENG-03**: Section entrance animations (translateY 8px -> 0 + opacity on scroll into viewport, 400ms ease, via IntersectionObserver at 0.3 threshold)
 - [x] **ENG-04**: Living signal fade-in (opacity 0 -> 1, 600ms ease, 300ms delay on load)
 - [ ] **ENG-05**: Keyboard shortcuts overlay (? key, centered modal 400px max-width, bg with 80% opacity backdrop-filter blur, Instrument Serif 20px heading, DM Sans 14px shortcuts, dismiss on Esc/click-outside/?, not shown when input focused)
@@ -120,7 +120,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INV-02 | Phase 4: Engagement Intelligence | Pending |
 | INV-03 | Phase 2: Static Narrative Content | Pending |
 | ENG-01 | Phase 3: Chat System | Complete |
-| ENG-02 | Phase 4: Engagement Intelligence | Pending |
+| ENG-02 | Phase 4: Engagement Intelligence | Complete |
 | ENG-03 | Phase 2: Static Narrative Content | Complete |
 | ENG-04 | Phase 2: Static Narrative Content | Complete |
 | ENG-05 | Phase 4: Engagement Intelligence | Pending |
