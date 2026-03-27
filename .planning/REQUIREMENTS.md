@@ -30,8 +30,8 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Chat System
 
 - [ ] **CHAT-01**: Embedded AI chat with streaming responses (AI SDK v6 useChat hook, @ai-sdk/anthropic provider, streamText API, architecture ported from Stripped ~/stripped/)
-- [ ] **CHAT-02**: Chat persona with identityvault-informed system prompt (biographical data from ~/identityvault/), 500-token max per response, honest AI disclosure when sincerely asked ("I'm Ryan's digital proxy"), deflection for political opinions/private questions/code requests
-- [ ] **CHAT-03**: Three-layer rate limiting — Layer 1: cookie-based session (20 msgs/session, HttpOnly SameSite=Strict 24h), Layer 2: IP-based hard cap (60 msgs/hr via Upstash Redis, returns 429), Layer 3: $50/mo Anthropic API spend alert (dashboard config)
+- [x] **CHAT-02**: Chat persona with identityvault-informed system prompt (biographical data from ~/identityvault/), 500-token max per response, honest AI disclosure when sincerely asked ("I'm Ryan's digital proxy"), deflection for political opinions/private questions/code requests
+- [x] **CHAT-03**: Three-layer rate limiting — Layer 1: cookie-based session (20 msgs/session, HttpOnly SameSite=Strict 24h), Layer 2: IP-based hard cap (60 msgs/hr via Upstash Redis, returns 429), Layer 3: $50/mo Anthropic API spend alert (dashboard config)
 - [ ] **CHAT-04**: Privacy notice below chat input (DM Sans 12px, text-faint, links to /privacy page covering: chat logging, section tracking, email opt-in, 90-day cookie, no third-party tracking)
 - [ ] **CHAT-05**: Chat interaction states — idle (heading + 3 starter chips + input), typing (animated dots with "Thinking..." label), error (friendly fallback with mailto CTA), rate limit (CTA to book a call), mobile (full-screen overlay triggered by hero CTA)
 - [ ] **CHAT-06**: Chat container (box-shadow: 0 2px 8px rgba(0,0,0,0.06), border-radius 8px, max-width 720px centered, min-height 200px idle, heading "Ask me anything about what I'm building" in Instrument Serif 24px)
@@ -111,8 +111,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | NAR-07 | Phase 2: Static Narrative Content | Complete |
 | NAR-08 | Phase 2: Static Narrative Content | Pending |
 | CHAT-01 | Phase 3: Chat System | Pending |
-| CHAT-02 | Phase 3: Chat System | Pending |
-| CHAT-03 | Phase 3: Chat System | Pending |
+| CHAT-02 | Phase 3: Chat System | Complete |
+| CHAT-03 | Phase 3: Chat System | Complete |
 | CHAT-04 | Phase 3: Chat System | Pending |
 | CHAT-05 | Phase 3: Chat System | Pending |
 | CHAT-06 | Phase 3: Chat System | Pending |
