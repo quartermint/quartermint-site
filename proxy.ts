@@ -10,7 +10,7 @@ import { getISOWeekKey } from '@/lib/digest/week-key'
  * Every visitor gets a session ID regardless of whether they interact with chat,
  * enabling section tracking and returning visitor detection.
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const response = NextResponse.next()
 
   // Set rv cookie on first visit (per D-03, Pitfall 4)

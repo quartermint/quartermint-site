@@ -11,7 +11,9 @@ const ratelimit = new Ratelimit({
   prefix: 'export',
 })
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY)
+}
 
 export async function POST(req: Request) {
   // Read IP from headers (same pattern as chat route)
@@ -52,7 +54,7 @@ export async function POST(req: Request) {
   }
 
   // Send email via Resend
-  const { error } = await resend.emails.send({
+  const { error } = await getResend().emails.send({
     from: 'Ryan Stern <chat@quartermint.com>',
     to: [email],
     bcc: ['ryan@quartermint.com'],

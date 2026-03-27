@@ -3,7 +3,9 @@ import { Resend } from 'resend'
 import { aggregateWeeklyStats } from '@/lib/digest/aggregate'
 import { WeeklyDigestEmail } from '@/lib/email/digest-template'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY)
+}
 
 /**
  * Weekly digest cron endpoint.
@@ -24,7 +26,7 @@ export async function GET(request: NextRequest) {
   try {
     const stats = await aggregateWeeklyStats()
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'quartermint.com <chat@quartermint.com>',
       to: ['ryan@quartermint.com'],
       subject: `quartermint.com -- Week of ${stats.weekOf}`,
