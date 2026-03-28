@@ -13,7 +13,7 @@ interface StarterChipsProps {
 }
 
 export function StarterChips({ onSelect, chips }: StarterChipsProps) {
-  const questions = chips ?? STARTER_QUESTIONS
+  const questions = [...new Set(chips ?? STARTER_QUESTIONS)]
 
   return (
     <div className="flex flex-wrap gap-2 justify-center">
