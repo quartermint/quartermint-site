@@ -24,7 +24,7 @@ export function ChatInterface() {
   >(null)
   const [exportOpen, setExportOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
   const { currentSection } = useScrollContext()
   const dynamicChips = getScrollChips(currentSection)
 
@@ -67,9 +67,10 @@ export function ChatInterface() {
   const isStreaming = status === 'streaming' || status === 'submitted'
   const hasMessages = messages.some((m) => m.role === 'user')
 
-  // Auto-scroll to bottom on new messages
+  // Auto-scroll chat container to bottom on new messages
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const el = messagesContainerRef.current
+    if (el) el.scrollTop = el.scrollHeight
   }, [messages])
 
   // Return focus to input when streaming completes
@@ -159,6 +160,7 @@ export function ChatInterface() {
       {/* Active state: scrollable message area */}
       {hasMessages && (
         <div
+          ref={messagesContainerRef}
           className="max-h-[400px] sm:max-h-[500px] lg:max-h-[calc(600px-120px)] overflow-y-auto mb-6"
           role="log"
           aria-live="polite"
@@ -198,7 +200,6 @@ export function ChatInterface() {
             </div>
           )}
 
-          <div ref={messagesEndRef} />
         </div>
       )}
 
