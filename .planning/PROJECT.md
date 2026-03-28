@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A personal founder site for Ryan Stern at quartermint.com that tells the story of a builder-operator with a thesis and a body of work. Replaces the current consultant-positioning landing page with a narrative-driven site featuring an embedded AI chat interface (ported from Stripped/Relay), empathy-first system showcases, an investor-facing /invest route, and a visual design system rooted in editorial typography and mint color palette. The site itself demonstrates the thesis: information routed to the right person, in the right form, at the right time.
+A personal founder site live at quartermint.com that tells the story of a builder-operator with a thesis and a body of work. Features an embedded AI chat interface (streaming via Claude Sonnet 4.6), empathy-first system showcases, an investor-facing /invest route, per-system detail pages, and a visual design system rooted in editorial typography and mint color palette. The site demonstrates the thesis: information routed to the right person, in the right form, at the right time.
 
 ## Core Value
 
@@ -12,43 +12,33 @@ A visitor with no context understands what Ryan builds and why within 60 seconds
 
 ### Validated
 
-(None yet — ship to validate)
+- Narrative hero with locked copy, headshot, living signal, dual CTAs — v1.0
+- Featured systems (LifeVault, Relay, OpenEFB, v2cf) with empathy-first framing — v1.0
+- Embedded AI chat with streaming (AI SDK v6 + Claude Sonnet 4.6) — v1.0
+- Chat persona with 884-word curated system prompt, 500-token cap, honest AI disclosure — v1.0
+- Three-tier rate limiting (cookie 20/session, IP 60/hr, fail-closed) — v1.0
+- Origin story, systems shelf (9 systems), contact/investor section — v1.0
+- /invest memo page with journey detection variant heading — v1.0
+- Sticky nav, alternating backgrounds, dark mode, responsive 3-breakpoint layout — v1.0
+- Accessibility baseline (focus rings, ARIA landmarks, 44px targets, reduced-motion) — v1.0
+- Privacy page, footer stats, OG/Twitter meta, sitemap, robots.txt — v1.0
+- Smart starter chips (scroll context > recency > time-of-day > defaults) — v1.0
+- Keyboard shortcuts overlay (? key) — v1.0
+- Scroll-aware chat context via IntersectionObserver — v1.0
+- Conversation export via Resend email with clipboard fallback — v1.0
+- Returning visitor detection (rv cookie, Redis state, 3 greeting tiers) — v1.0
+- Weekly digest email via Vercel cron + Resend — v1.0
+- Scroll-speed-adaptive animations (3 tiers + reduced-motion) — v1.0
+- Per-system detail pages at /systems/[slug] for 13 systems — v1.0
+- Section entrance animations (translateY + opacity, IntersectionObserver) — v1.0
+- Living signal fade-in (600ms ease, 300ms delay) — v1.0
+- DRY data source (lib/systems.ts) — v1.0
+- Vercel deployment with auto-deploy on push — v1.0
+- DNS repoint from Cloudflare to Vercel (DNS-only, no proxy) — v1.0
 
 ### Active
 
-- [ ] Narrative hero with locked copy, headshot, living signal (last commit timestamp), and dual CTAs
-- [ ] Featured systems section (4 cards: LifeVault, Relay, OpenEFB, v2cf) with empathy-first framing
-- [ ] Embedded chat interface ported from Stripped architecture (@ai-sdk/anthropic streaming)
-- [ ] Chat persona with identityvault-informed system prompt, 500-token response cap, honest AI disclosure
-- [ ] Chat rate limiting: cookie-based session (20 msgs), IP-based hard cap (60/hr via Vercel KV), $50 budget alert
-- [ ] Origin story section reframing campaign history (120-180 words, 3 paragraphs)
-- [ ] Systems shelf as dense typographic list (11 systems with tech badges, public repo indicators)
-- [ ] Contact + investor path dual-column section with Google Calendar booking + /invest link
-- [ ] /invest route — memo-style page with thesis, stats, trajectory, background, CTA
-- [ ] Minimal sticky nav bar (Ryan Stern left, Invest right, scroll-aware)
-- [ ] Alternating section backgrounds (white/mint visual rhythm)
-- [ ] Dark mode via prefers-color-scheme media query with mapped color palette
-- [ ] Visual system: Instrument Serif headlines, DM Sans body, mint color palette, CSS custom properties
-- [ ] Responsive design across 3 breakpoints (mobile <640, tablet 640-1023, desktop >=1024)
-- [ ] Accessibility: keyboard nav, ARIA landmarks, 44px touch targets, WCAG AAA contrast, reduced-motion
-- [ ] Privacy notice below chat input with /privacy page
-- [ ] Footer stats line (40+ repos / 894K files / 9 services)
-- [ ] /invest journey detection (sessionStorage flag, variant heading for main-page visitors)
-- [ ] /invest compliance language (no securities claims)
-- [ ] Smart starter chips (scroll context > commit recency > time-of-day > static defaults)
-- [ ] Keyboard shortcuts overlay (? key)
-- [ ] Chat context awareness (section scroll tracking informs chat responses)
-- [ ] Conversation export via email (Resend from chat@quartermint.com, slide-down panel after 3rd message)
-- [ ] Returning visitor detection (90-day cookie, Vercel KV topic tracking, personalized chat greetings)
-- [ ] Weekly digest email via Vercel cron + Resend (chat sessions, top questions, /invest views)
-- [ ] Scroll-speed-adaptive animations (IntersectionObserver timing, 3 speed tiers)
-- [ ] Per-system detail pages (quartermint.com/systems/[slug])
-- [ ] Section entrance animations (translateY + opacity on scroll, respects reduced-motion)
-- [ ] Living signal fade-in animation (opacity 0->1, 600ms ease, 300ms delay)
-- [ ] OG tags, Twitter cards, robots.txt, sitemap.xml, canonical URLs per route
-- [ ] DRY data source: lib/systems.ts single source for all system descriptions
-- [ ] Vercel deployment with auto-deploy on git push to main
-- [ ] DNS repoint from Cloudflare to Vercel
+(None — v1.0 complete. Define with /gsd:new-milestone)
 
 ### Out of Scope
 
@@ -62,12 +52,10 @@ A visitor with no context understands what Ryan builds and why within 60 seconds
 
 ## Context
 
-- **Current state:** quartermint.com is a single static HTML file on Cloudflare CDN. Tailwind, Inter font, mint palette. Positions Ryan as a fractional operator for hire — wrong for current trajectory.
-- **Catalyst:** YC S26 application (deadline May 4), FI Core enrollment, pitch feedback from Jonathan Greechan (VIP Pitch Lounge, 2026-03-24) — "the pitch needs work," current framing doesn't establish immediate understanding.
-- **Chat architecture source:** ~/stripped/ contains the proven Next.js 14 App Router chat implementation (ChatInterface component + API route + system prompt builder + @ai-sdk/anthropic streaming). Extract and adapt, don't rebuild.
-- **Identity data source:** ~/identityvault/ and ~/stripped/content/profile/ contain biography, personality, experiences, and skills data for the chat system prompt.
-- **Design doc:** Extensively reviewed — CEO review, Codex adversarial review, Claude adversarial review, 2x design review, eng review. All cleared. Hero copy locked. Visual system defined.
-- **Audiences:** (1) People who need systems Ryan builds — not hiring fractional, engaging with builder. (2) Investors/accelerators evaluating Ryan as founder.
+- **Current state:** quartermint.com is live on Vercel. Next.js 16, AI SDK v6, Upstash Redis, Resend email. 5,870 LOC TypeScript, 356 tests, 107 commits. All routes: /, /invest, /privacy, /systems/[slug].
+- **Stack:** Next.js 16.2 (Turbopack), React 19, Tailwind CSS v4, AI SDK v6, @ai-sdk/anthropic, @upstash/redis + @upstash/ratelimit, Resend, React Email
+- **Infrastructure:** Vercel (hosting + cron), Cloudflare (DNS only), Upstash Redis (rate limiting + visitor state + chat logs), Resend (export + digest emails)
+- **Audiences:** (1) People who need systems Ryan builds — engaging with builder. (2) Investors/accelerators evaluating Ryan as founder via /invest route.
 
 ## Constraints
 
@@ -84,14 +72,16 @@ A visitor with no context understands what Ryan builds and why within 60 seconds
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Vercel over Cloudflare for v1 | Chat streaming + KV out of the box, same platform as Stripped | — Pending |
-| Extract chat from Stripped, not fresh build | Proven architecture, same stack (Next.js 14, App Router, @ai-sdk/anthropic) | — Pending |
-| Horizontal narrative rows for featured systems (A/B vs 2x2 grid) | Both Codex and Claude flagged 2x2 card grid as most common AI-generated layout | — Pending |
-| Thesis stated once in hero (not subtext-only) | Codex challenged subtext-only approach; Greechan pitch feedback on immediate understanding | — Pending |
-| Campaign names in prose, not logo carousel | Reframes as origin story, not credentials for hire | — Pending |
-| Cookie-based + IP-based + budget alert rate limiting | Three layers: UX (20 msgs/session), abuse (60/hr/IP), budget ($50 monthly alert) | — Pending |
-| No CMS — hardcoded JSX | Content changes infrequent, solo builder, reduces complexity | — Pending |
-| Full scope including phase 2 features | User chose "everything" — digest email, scroll-speed animations, per-system detail pages all in roadmap | — Pending |
+| Vercel over Cloudflare for v1 | Chat streaming + KV out of the box | ✓ Good — streaming works, cron works |
+| Fresh AI SDK v6, not Stripped v3 port | 3 major version gap too risky to port line-by-line | ✓ Good — clean patterns, no legacy debt |
+| Horizontal narrative rows for featured systems | Avoided AI-generic 2x2 card grid | ✓ Good — distinctive layout |
+| Thesis stated once in hero | Greechan pitch feedback on immediate understanding | ✓ Good |
+| Campaign names in prose, not logo carousel | Origin story framing, not credentials for hire | ✓ Good |
+| Three-tier rate limiting (cookie + IP + fail-closed) | UX (20/session), abuse (60/hr/IP), safety (fail-closed on Redis error) | ✓ Good |
+| No CMS — hardcoded JSX | Solo builder, content changes infrequent | ✓ Good |
+| Upstash Redis direct (not Vercel KV) | @vercel/kv deprecated, Upstash free tier no card needed | ✓ Good |
+| Lazy Resend client initialization | Avoids build crash when RESEND_API_KEY not in build env | ✓ Good |
+| proxy.ts export name `proxy` not `middleware` | Next.js 16 requirement — Turbopack rejects `middleware` export | ✓ Good |
 
 ## Evolution
 
@@ -111,4 +101,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-26 after initialization*
+*Last updated: 2026-03-28 after v1.0 milestone*
