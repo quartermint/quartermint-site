@@ -108,10 +108,10 @@
 | Option | Description | Selected |
 |--------|-------------|----------|
 | quartermint org public repos | v2cf, openefb, foundry, skygate, open-ez | |
-| quartermint + vanboompow | Add msgvault, vegas-eats | ✓ |
+| quartermint + sternryan | Add msgvault, vegas-eats | ✓ |
 | I'll provide the exact list | Custom curated list | |
 
-**User's choice:** quartermint + vanboompow
+**User's choice:** quartermint + sternryan
 
 ### Stats Check
 

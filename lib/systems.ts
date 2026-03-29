@@ -78,7 +78,7 @@ export const systems: System[] = [
     solution: '',
     techBadge: 'Go',
     isPublic: true,
-    githubUrl: 'https://github.com/vanboompow/msgvault',
+    githubUrl: 'https://github.com/sternryan/msgvault',
     status: 'active',
     featured: false,
   },

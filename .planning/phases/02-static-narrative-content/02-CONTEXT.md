@@ -16,7 +16,7 @@ Build all static page content: hero section with locked copy, 4 featured system 
 ### Hero Section
 - **D-01:** Hero copy is LOCKED. H1: "Ryan Stern", subtitle: "Builder. Operator." Two paragraphs of body copy provided in design doc. Do not modify or ship with placeholder text.
 - **D-02:** Headshot: user-provided full-size photo cropped to circle (160px desktop, 120px tablet, 80px mobile). Right-aligned on desktop, centered above name on mobile.
-- **D-03:** Living signal: query public repos from quartermint org + vanboompow org. Unauthenticated GitHub API. 1hr ISR cache. SIGNAL_REPOS env var with curated list. Fallback to FALLBACK_SIGNAL env var if >14 days stale or API error.
+- **D-03:** Living signal: query public repos from quartermint org + sternryan. Unauthenticated GitHub API. 1hr ISR cache. SIGNAL_REPOS env var with curated list. Fallback to FALLBACK_SIGNAL env var if >14 days stale or API error.
 - **D-04:** Dual CTAs: "Explore the systems" (scrolls to featured) + "Ask me anything" (scrolls to chat section / opens overlay on mobile).
 
 ### Featured Systems
