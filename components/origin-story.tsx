@@ -2,24 +2,23 @@ export function OriginStory() {
   return (
     <div className="space-y-4">
       <p className="font-body text-[16px] leading-[1.7] text-text-muted">
-        The first decade was political operations. Obama, Clinton, Sanders, Biden.
-        Congressional offices, scheduling desks, advance teams coordinating
-        across time zones and security protocols. The work was logistics at
-        speed: make sure the right person has the right information before the
-        room gets called. It almost never worked on the first try. Not because
-        people failed, but because the tools did.
+        You&apos;ve been in the room where five people look at the same event
+        brief and nobody has the version they need to make the call. The field
+        team has one spreadsheet, advance has another, the principal&apos;s
+        office has a PDF from last week. You spend forty minutes on a call
+        syncing information that should have been routed automatically.
       </p>
       <p className="font-body text-[16px] leading-[1.7] text-text-muted">
-        Every team I joined had the same problem hiding in plain sight. The
-        information existed. Someone had it. But it was trapped in the wrong
-        inbox, the wrong format, the wrong version. Five people would look at
-        the same event and nobody had what they needed to make the call. The
-        pattern repeated everywhere, from campaign war rooms to congressional
-        front offices. Nobody was building the connective tissue.
+        You&apos;ve watched a committee grow from three to twelve because nobody
+        would take authority. Each new person needs the same briefing. By the
+        time everyone&apos;s aligned, the window has closed. The problem was
+        never that the information didn&apos;t exist. It was trapped in the
+        wrong inbox, the wrong format, the wrong version.
       </p>
       <p className="font-body text-[16px] leading-[1.7] text-text-muted">
-        The second decade became the answer.{' '}
-        {"I started building because the tools didn't exist."}
+        That&apos;s the gap I build for. Operational tools for campaigns, PACs,
+        and advocacy organizations, built by someone who&apos;s sat in your
+        chair.
       </p>
     </div>
   )
