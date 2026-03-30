@@ -5,7 +5,7 @@ milestone_name: milestone
 status: executing
 stopped_at: Completed quick-260330-kx8
 last_updated: "2026-03-30T20:23:54.745Z"
-last_activity: 2026-03-28
+last_activity: 2026-03-30
 progress:
   total_phases: 5
   completed_phases: 5
@@ -97,6 +97,12 @@ None yet.
 - Vercel plan tier (Hobby vs Pro) affects Phase 3 chat route timeout -- confirm before Phase 3 planning
 - Resend domain verification (SPF/DKIM/DMARC for quartermint.com) should start during Phase 3 as background task for Phase 4 email
 - identityvault content curation for system prompt needs scoping during Phase 3 planning
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260330-kx8 | Reposition site from investor-facing to client-facing | 2026-03-30 | b333543 | [260330-kx8-reposition-site-from-investor-facing-to-](./quick/260330-kx8-reposition-site-from-investor-facing-to-/) |
 
 ## Session Continuity
 
