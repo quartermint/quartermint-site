@@ -5,7 +5,6 @@ import { HeroSection } from '@/components/hero-section'
 import { FeaturedSystems } from '@/components/featured-systems'
 import { ChatSection } from '@/components/chat/chat-section'
 import { OriginStory } from '@/components/origin-story'
-import { SystemsShelf } from '@/components/systems-shelf'
 import { ContactInvestor } from '@/components/contact-investor'
 import { KeyboardShortcutsModal } from '@/components/keyboard-shortcuts-modal'
 
@@ -36,13 +35,8 @@ export default async function Home() {
         <OriginStory />
       </SectionWrapper>
 
-      {/* 5. Systems Shelf -- bg (white) */}
-      <SectionWrapper bg="bg" label="Systems Shelf" id="systems-shelf">
-        <SystemsShelf />
-      </SectionWrapper>
-
-      {/* 6. Contact + Investor -- surface (mint) */}
-      <SectionWrapper bg="surface" label="Contact" id="contact-section">
+      {/* 5. Contact -- bg (white) */}
+      <SectionWrapper bg="bg" label="Contact" id="contact-section">
         <ContactInvestor />
       </SectionWrapper>
 

@@ -49,10 +49,10 @@ export function StickyNav() {
           Ryan Stern
         </a>
         <a
-          href="/invest"
+          href="/work-with-me"
           className="font-body text-[14px] font-semibold text-text inline-flex items-center min-h-[44px] min-w-[44px]"
         >
-          Invest
+          Work With Me
         </a>
       </div>
     </nav>

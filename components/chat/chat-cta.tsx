@@ -13,7 +13,7 @@ export function ChatCTA() {
         href="#chat-section"
         className="hidden sm:inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-6 bg-surface text-text font-body text-[14px] rounded-[6px]"
       >
-        Ask me anything
+        Talk to my AI
       </a>
 
       {/* Mobile: open overlay */}
@@ -22,7 +22,7 @@ export function ChatCTA() {
         onClick={() => setOverlayOpen(true)}
         className="inline-flex sm:hidden items-center justify-center min-h-[44px] min-w-[44px] px-6 bg-surface text-text font-body text-[14px] rounded-[6px]"
       >
-        Ask me anything
+        Talk to my AI
       </button>
 
       {/* Mobile overlay */}

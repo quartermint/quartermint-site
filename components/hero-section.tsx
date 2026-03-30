@@ -29,7 +29,7 @@ export function HeroSection({ signal }: HeroSectionProps) {
         </h1>
 
         <p className="font-display italic text-[20px] leading-[1.3] text-text-muted mt-2">
-          Builder. Operator.
+          Forward-deployed engineer for campaigns, advocacy, and nonprofits
         </p>
 
         <div className="mt-3">
@@ -37,18 +37,19 @@ export function HeroSection({ signal }: HeroSectionProps) {
         </div>
 
         <p className="font-body text-[16px] leading-[1.7] text-text mt-6">
-          Twenty years in political operations. Campaigns, congressional offices,
-          scheduling teams where five people looked at the same event and nobody
-          got the version they actually needed. The problem was never that the
-          information didn&apos;t exist. Someone got fifty pages when they needed
-          two. An email chain hit thirty replies when one person needed to make a
-          call.
+          Fall 2024: 10,000-person rallies running concurrently, every system
+          tracking attendance in Google Sheets. Intake through Google Forms. By
+          the end of the cycle, we had a literal tracker of trackers. I watched
+          a trip presentation get given six times in one day because every person
+          added to the call wouldn&apos;t take authority.
         </p>
 
         <p className="font-body text-[16px] leading-[1.7] text-text mt-4">
-          So the tools got built. Nine services, forty repositories, open-source
-          projects, a platform that makes a decade of email and photos actually
-          searchable. The pattern was the same every time. The tools are too.
+          I&apos;ve been the staffer watching tools break at 2am. I&apos;ve been
+          the consultant watching committees grow instead of delegate. Now I
+          build the operational infrastructure campaigns actually need. Fast
+          prototypes, real tools, built by someone who&apos;s been in your war
+          room.
         </p>
 
         {/* Dual CTAs */}
@@ -57,7 +58,7 @@ export function HeroSection({ signal }: HeroSectionProps) {
             href="#featured-systems"
             className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-6 bg-accent text-text font-body text-[14px] font-semibold rounded-[6px]"
           >
-            Explore the systems
+            See the tools
           </a>
           <ChatCTA />
         </div>
