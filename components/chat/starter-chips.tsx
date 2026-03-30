@@ -1,9 +1,9 @@
 'use client'
 
 const STARTER_QUESTIONS = [
-  'What are you building?',
-  'How does LifeVault work?',
-  "What's the information routing thesis?",
+  'How would you fix our campaign ops?',
+  'What have you built for PACs?',
+  "What's your campaign experience?",
 ] as const
 
 interface StarterChipsProps {

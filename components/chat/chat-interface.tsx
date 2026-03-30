@@ -142,7 +142,7 @@ export function ChatInterface() {
       {!hasMessages && (
         <>
           <h2 className="font-display text-[24px] leading-[1.2] text-text text-center">
-            Ask me anything about what I&apos;m building
+            This is how I think about your problem
           </h2>
           <ReturningVisitorGreeting
             onChipsReady={setReturningVisitorChips}
@@ -211,7 +211,7 @@ export function ChatInterface() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={
-            isRateLimited ? 'Message limit reached' : 'Ask me anything...'
+            isRateLimited ? 'Message limit reached' : 'Ask about campaigns, advocacy tools, or operations...'
           }
           aria-label="Type your message"
           disabled={isStreaming || isRateLimited}

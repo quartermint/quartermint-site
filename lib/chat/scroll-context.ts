@@ -12,7 +12,6 @@ export const SECTION_IDS = [
   'featured-systems',
   'chat-section',
   'origin-story',
-  'systems-shelf',
   'contact-section',
 ] as const
 
@@ -23,41 +22,34 @@ export const SECTION_CONTEXT_MAP: Record<
 > = {
   'hero-section': {
     label: 'the hero introduction',
-    chips: ['What are you building?', 'How does LifeVault work?'],
+    chips: ['How would you fix our campaign ops?', 'What have you built for PACs?'],
   },
   'featured-systems': {
-    label: 'the featured systems: LifeVault, Relay, OpenEFB, and v2cf',
-    chips: ['Tell me more about LifeVault', 'How does Relay work?'],
+    label: 'the featured tools: Relay, Campaign Finance Dashboard, LifeVault, and whatamivotingon',
+    chips: ['Tell me about the PAC dashboard', 'How does Relay help teams?'],
   },
   'chat-section': {
     label: '',
     chips: [
       'What are you building?',
-      "What's the information routing thesis?",
+      'How would you approach our operations challenge?',
     ],
   },
   'origin-story': {
     label: 'the origin story about building infrastructure',
-    chips: ['What made you start building?', 'Tell me about your background'],
-  },
-  'systems-shelf': {
-    label: 'the full systems shelf',
-    chips: [
-      'Which of these systems are open source?',
-      'What does skygate do?',
-    ],
+    chips: ["What's your campaign experience?", 'Why did you start building?'],
   },
   'contact-section': {
-    label: 'the contact and investor section',
-    chips: ['How can I work with you?', "What's the best way to connect?"],
+    label: 'the contact section',
+    chips: ['How do we start working together?', 'What does an engagement look like?'],
   },
 }
 
-/** Static default chips -- same as Phase 3 StarterChips defaults */
+/** Static default chips -- campaign/advocacy focused */
 export const STATIC_DEFAULT_CHIPS = [
-  'What are you building?',
-  'How does LifeVault work?',
-  "What's the information routing thesis?",
+  'How would you fix our campaign ops?',
+  'What have you built for PACs?',
+  "What's your campaign experience?",
 ]
 
 /**
