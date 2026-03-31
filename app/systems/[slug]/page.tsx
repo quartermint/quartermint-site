@@ -79,7 +79,7 @@ export default async function SystemPage({
               href="https://calendar.app.google/kQD52ja6x24rATbM8"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-6 bg-accent text-text font-body text-[14px] font-semibold rounded-[6px]"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-6 bg-accent text-on-accent font-body text-[14px] font-semibold rounded-[6px]"
             >
               Book a time
             </a>
@@ -114,7 +114,7 @@ export default async function SystemPage({
               href={system.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 min-h-[44px] min-w-[44px] px-6 mt-8 bg-accent text-text font-body text-[14px] font-semibold rounded-[6px]"
+              className="inline-flex items-center gap-2 min-h-[44px] min-w-[44px] px-6 mt-8 bg-accent text-on-accent font-body text-[14px] font-semibold rounded-[6px]"
             >
               View on GitHub &rarr;
             </a>

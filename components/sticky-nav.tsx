@@ -51,13 +51,13 @@ export function StickyNav() {
         <div className="flex items-center gap-2">
           <a
             href="#featured-systems"
-            className="inline-flex items-center justify-center min-h-[36px] px-4 font-body text-[13px] text-text-muted hover:text-text transition-colors duration-150 rounded-[6px]"
+            className="inline-flex items-center justify-center min-h-[36px] px-4 font-body text-[13px] font-semibold text-on-accent bg-accent/50 rounded-[6px]"
           >
             Systems
           </a>
           <a
             href="/work-with-me"
-            className="inline-flex items-center justify-center min-h-[36px] px-4 font-body text-[13px] font-semibold text-text bg-accent rounded-[6px]"
+            className="inline-flex items-center justify-center min-h-[36px] px-4 font-body text-[13px] font-semibold text-on-accent bg-accent rounded-[6px]"
           >
             Work With Me
           </a>

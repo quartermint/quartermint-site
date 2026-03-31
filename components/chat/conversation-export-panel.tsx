@@ -92,7 +92,7 @@ export function ConversationExportPanel({
             <button
               onClick={handleSend}
               disabled={!isValidEmail || status === 'sending'}
-              className="min-w-[64px] min-h-[36px] bg-accent text-text font-body text-[14px] font-semibold rounded-[6px] disabled:opacity-40 transition-opacity"
+              className="min-w-[64px] min-h-[36px] bg-accent text-on-accent font-body text-[14px] font-semibold rounded-[6px] disabled:opacity-40 transition-opacity"
             >
               {status === 'sending' ? '...' : 'Send'}
             </button>
