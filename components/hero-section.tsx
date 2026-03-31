@@ -36,10 +36,9 @@ export function HeroSection({ signal }: HeroSectionProps) {
         </div>
 
         <p className="font-body text-[16px] leading-[1.7] text-text mt-6">
-          Your field team has one spreadsheet, advance has another, and the
-          principal&apos;s office has a PDF from last week. You spend forty
-          minutes on a call syncing information that should have been routed
-          automatically.
+          Your organizing team has one spreadsheet, advance has another, and
+          the bodyperson a PDF that will be outdated before they find a
+          printer.
         </p>
 
         <p className="font-body text-[16px] leading-[1.7] text-text font-semibold mt-4">
