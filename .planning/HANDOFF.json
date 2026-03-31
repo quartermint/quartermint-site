@@ -1,34 +1,69 @@
 {
   "version": "1.0",
-  "timestamp": "2026-03-27T20:42:59.024Z",
-  "phase": "05",
-  "phase_name": "operations-go-live",
-  "phase_dir": ".planning/phases/05-operations-go-live",
-  "plan": null,
-  "task": null,
-  "total_tasks": 0,
+  "timestamp": "2026-03-31T00:06:49.582Z",
+  "phase": "quick",
+  "phase_name": "site-repositioning-and-iteration",
+  "phase_dir": ".planning/quick/260330-kx8-reposition-site-from-investor-facing-to-",
+  "plan": 1,
+  "task": 3,
+  "total_tasks": 3,
   "status": "paused",
-  "completed_tasks": [],
+  "completed_tasks": [
+    {"id": 1, "name": "Site repositioning: investor-facing to client-facing", "status": "done", "commit": "2a211a2"},
+    {"id": 2, "name": "Iterative feedback round: hero copy, section reorder, featured systems, chat heading, contact modal, LinkedIn, calendar link", "status": "done", "commit": "deployed-to-prod"},
+    {"id": 3, "name": "Tracking + chat QA automation", "status": "in_progress", "progress": "Vercel Analytics wired, attribution capture deployed, event tracking on key interactions, chat QA script written but chat API 500s on prod"}
+  ],
   "remaining_tasks": [
-    {"id": "05-plan", "name": "Phase 5 needs plan → execute cycle", "status": "not_started"}
+    {"id": "bug-1", "name": "Fix chat API 500 on Vercel production", "status": "not_started"},
+    {"id": "copy-1", "name": "Full copy edit review with expert perspectives", "status": "not_started"}
   ],
-  "blockers": [],
-  "human_actions_pending": [
-    {"action": "Create GitHub repo for quartermint-site", "context": "No repo exists yet — needed for Vercel deployment", "blocking": true},
-    {"action": "Link Vercel project to GitHub repo", "context": "Enables automatic deployments on push", "blocking": true},
-    {"action": "Add env vars to Vercel project settings", "context": "ANTHROPIC_API_KEY, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN, RESEND_API_KEY", "blocking": true},
-    {"action": "Set up Resend account and verify quartermint.com domain", "context": "SPF/DKIM/DMARC DNS records in Cloudflare for email delivery", "blocking": true},
-    {"action": "Provide headshot image at public/images/headshot.jpg", "context": "Hero section shows broken image without it", "blocking": false},
-    {"action": "Configure Anthropic $50/mo budget alert", "context": "Dashboard config, not code", "blocking": false},
-    {"action": "Complete Phase 3+4 human UAT items", "context": "6 Phase 3 items + Phase 4 visual items deferred to go-live pass", "blocking": false}
+  "blockers": [
+    {
+      "description": "Chat API returns 500 on production. profile-loader.ts uses fs.readFileSync to read content/profile/*.md files from disk. Works locally but fails on Vercel serverless because content/ directory is not bundled into the serverless function.",
+      "type": "technical",
+      "workaround": "Three options: (1) inline content as TS constants, (2) use dynamic import with webpack asset, (3) add content/ to next.config outputFileTracingIncludes. Option 3 is cleanest."
+    },
+    {
+      "description": "Hero copy reads too personal/egotistical. Ryan's feedback: the first-person war stories make it about him, not about the visitor's pain. Needs copy review session.",
+      "type": "human_action",
+      "workaround": "Plan /gsd:quick --discuss with brainstorming from resume experts, headhunters, speechwriters, positioning consultants"
+    }
   ],
+  "human_actions_pending": [],
   "decisions": [
-    {"decision": "Upstash Redis free tier via direct console (not Vercel Marketplace)", "rationale": "Free tier requires no credit card; Marketplace forced PayAsYouGo with card", "phase": "03"},
-    {"decision": "Read-write token required (not read-only)", "rationale": "@upstash/ratelimit uses evalsha which needs write permissions", "phase": "03"},
-    {"decision": "suppressHydrationWarning avoided for InvestHeading", "rationale": "React 19 bug — suppresses warning AND prevents client re-render from updating DOM", "phase": "04"},
-    {"decision": "Human UAT deferred to go-live pass", "rationale": "User preference to batch all visual testing at the end", "phase": "03-04"}
+    {"decision": "Repositioned from investor-facing to client-facing targeting campaigns, advocacy, nonprofits", "rationale": "Bella's feedback identified unclear audience and too many products", "phase": "quick"},
+    {"decision": "Featured systems: whatamivotingon.com (top, linked), Campaign Finance Dashboard, LifeVault, Relay (bottom)", "rationale": "Political ops relevance; aviation/dev tools removed entirely", "phase": "quick"},
+    {"decision": "Modular chat profile system ported from Stripped with audience-specific emphasis overrides", "rationale": "Radical honesty personality, experience weighting, campaigns-advocacy audience profile", "phase": "quick"},
+    {"decision": "/invest redirects to /work-with-me, nav says Work With Me", "rationale": "No investor audience, client-facing positioning", "phase": "quick"},
+    {"decision": "preview.quartermint.com as staging domain with manual Vercel alias workflow", "rationale": "Hobby plan can't change production branch; manual deploy/alias works for solo dev", "phase": "quick"},
+    {"decision": "Vercel Analytics + Redis visitor tracking for attribution and event logging", "rationale": "Lightweight, no new dependencies, per-visitor journey in existing Upstash Redis", "phase": "quick"},
+    {"decision": "amp-ops always anonymized as Campaign Finance Dashboard / a state PAC", "rationale": "Private client, cannot name publicly", "phase": "quick"},
+    {"decision": "Section order: Hero > Chat > Origin Story > Featured Systems > Contact", "rationale": "Ryan's feedback: chat is primary CTA, should be immediately visible", "phase": "quick"},
+    {"decision": "Send message modal replaces bare email link", "rationale": "Ryan's feedback: don't want email just listed", "phase": "quick"},
+    {"decision": "Calendar link updated to https://calendar.app.google/kQD52ja6x24rATbM8", "rationale": "Ryan's preference, shorter URL", "phase": "quick"}
   ],
-  "uncommitted_files": [],
-  "next_action": "Run /gsd:plan-phase 5 then /gsd:execute-phase 5. Phase 5 context exists. Before execution: create GitHub repo, link Vercel, add env vars, set up Resend domain verification, provide headshot.",
-  "context_notes": "Autonomous run completed Phases 3-4 this session. Phase 3: 4 plans, chat system working (streaming verified in browser). Phase 4: 3 plans, scroll context + returning visitor + export/invest/shortcuts. 294 tests passing. Phase 5 context already exists from prior autonomous run. Phase 5 is the final phase — DNS repoint, Vercel deployment, polish animations, weekly digest cron, privacy page, meta tags."
+  "uncommitted_files": [
+    "app/api/contact/route.ts",
+    "app/api/visitor/route.ts",
+    "app/layout.tsx",
+    "app/page.tsx",
+    "app/systems/[slug]/page.tsx",
+    "app/work-with-me/page.tsx",
+    "components/attribution-capture.tsx",
+    "components/chat/chat-interface.tsx",
+    "components/chat/chat-section.tsx",
+    "components/contact-investor.tsx",
+    "components/featured-systems.tsx",
+    "components/hero-section.tsx",
+    "components/send-message-modal.tsx",
+    "lib/chat/types.ts",
+    "lib/chat/visitor.ts",
+    "lib/systems.ts",
+    "lib/tracking.ts",
+    "package.json",
+    "package-lock.json",
+    "scripts/chat-qa.ts"
+  ],
+  "next_action": "Fix chat API 500: add outputFileTracingIncludes for content/ in next.config, then run scripts/chat-qa.ts to validate. Then start copy edit review session.",
+  "context_notes": "Bella's feedback drove a major site repositioning in this session. Ryan gave real-time feedback as we iterated. The hero copy still needs work — Ryan flagged it as too egotistical/personal. The chat QA script is ready but blocked by the profile-loader filesystem issue on Vercel. Deploy workflow: npx vercel --prod --yes for prod, npx vercel --yes + npx vercel alias <url> preview.quartermint.com for preview."
 }
