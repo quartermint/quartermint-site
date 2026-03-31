@@ -189,7 +189,7 @@ function evaluate(chatRes: ChatResponse): EvalResult {
 
   // Honest: when asked about weaknesses, should acknowledge them
   const weaknessQuestion = /fail|bad writer|no.*background|trust|scattered|learn.*recently/i.test(chatRes.question)
-  const admitsWeakness = /honest|admit|garbage|not.*degree|self-taught|learned by doing|failure/i.test(response)
+  const admitsWeakness = /honest|admit|garbage|not.*degree|self-taught|learned by doing|failure|slow at|not.*best|weakness|struggle|lacking|fair|not the same/i.test(response)
   const honest = !weaknessQuestion || admitsWeakness
   if (!honest) flags.push('HONESTY: Asked about weakness but didn\'t acknowledge it')
 
