@@ -107,7 +107,7 @@ export const systems: System[] = [
     isPublic: false,
     githubUrl: null,
     status: 'active',
-    featured: true,
+    featured: false,
     detail: [
       {
         heading: 'What It Does',
@@ -165,7 +165,7 @@ export const systems: System[] = [
     isPublic: true,
     githubUrl: 'https://github.com/quartermint/open-ez',
     status: 'active',
-    featured: true,
+    featured: false,
     detail: [
       {
         heading: 'What It Does',
