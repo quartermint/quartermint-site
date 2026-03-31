@@ -33,12 +33,13 @@ export async function POST(req: Request) {
     }
 
     // Parse and validate request body
+    // Raw messages may come as UIMessage (from useChat) or plain {role, content} (from scripts/curl)
     const {
-      messages,
+      messages: rawMessages,
       sessionId,
       scrollContext,
     }: {
-      messages: UIMessage[]
+      messages: Array<UIMessage | { role: string; content: string; id: string; parts?: UIMessage['parts'] }>
       sessionId: string
       scrollContext?: string
     } = await req.json()
@@ -46,7 +47,7 @@ export async function POST(req: Request) {
     // Read rv cookie for visitor state tracking
     const visitorId = cookieStore.get('rv')?.value
 
-    if (!Array.isArray(messages) || messages.length === 0) {
+    if (!Array.isArray(rawMessages) || rawMessages.length === 0) {
       const body: ChatErrorResponse = {
         error: 'Messages are required.',
         type: 'error',
@@ -56,6 +57,14 @@ export async function POST(req: Request) {
         headers: { 'Content-Type': 'application/json' },
       })
     }
+
+    // Normalize messages: ensure parts array exists (AI SDK v6 requires it)
+    // Raw API calls send {role, content, id} without parts; useChat sends full UIMessage with parts
+    const messages: UIMessage[] = rawMessages.map((m) => ({
+      ...m,
+      role: m.role as UIMessage['role'],
+      parts: m.parts ?? [{ type: 'text' as const, text: 'content' in m && typeof m.content === 'string' ? m.content : '' }],
+    })) as UIMessage[]
 
     if (!sessionId || typeof sessionId !== 'string') {
       const body: ChatErrorResponse = {
