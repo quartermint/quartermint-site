@@ -103,6 +103,68 @@ export const systems: System[] = [
     ],
   },
   {
+    name: 'Prism',
+    slug: 'prism',
+    url: '/systems/prism',
+    oneLiner: 'Identity discovery engine for undocumented careers',
+    problem:
+      "Most of the world's expertise has no resume. Cannabis operators, military veterans, tradespeople, family business owners — people with 15 years of real operational experience in industries that don't produce documentation. They know what they can do, but they can't say it in a new world's language.",
+    solution:
+      "Prism runs a structured interview, discovers what you actually know, and translates your operational experience into language that hiring managers, investors, and partners understand. Your identity, seen through someone else's eyes.",
+    techBadge: 'TypeScript',
+    isPublic: false,
+    githubUrl: null,
+    status: 'active',
+    featured: true,
+    detail: [
+      {
+        heading: 'What It Does',
+        body: "Prism conducts a conversational interview that maps your real experience — not your resume — into a structured identity profile. It finds the patterns in what you've done, names the skills you didn't know you had, and translates your operational knowledge into language that opens doors in industries you've never worked in.",
+      },
+      {
+        heading: 'Why It Matters',
+        body: "The resume is a broken format for anyone whose career didn't follow a traditional path. If you spent a decade running cannabis operations, you have supply chain expertise, compliance knowledge, and crisis management skills — but no document that says so. Prism bridges that gap.",
+      },
+      {
+        heading: 'How We Build It',
+        body: "Each Prism implementation starts with a real person and a real deadline. The interview pipeline adapts to your industry background, and the synthesis engine produces identity artifacts tailored to where you're going, not just where you've been.",
+      },
+      {
+        heading: 'Work With Us',
+        body: "If you work with populations whose experience doesn't fit on a resume — workforce development, veteran transition programs, second-chance employers — we should talk about running Prism for your people.",
+      },
+    ],
+  },
+  {
+    name: 'Open-EZ',
+    slug: 'open-ez',
+    url: '/systems/open-ez',
+    oneLiner: 'Plans-as-Code parametric design for the Long-EZ aircraft',
+    problem:
+      "Legacy homebuilt aircraft plans are fragmented across scanned PDFs and unverified CAD files. Dimensions get transcribed by hand. Scaling errors lead to structural failure. Builders spend months reconciling documents that should be a single source of truth.",
+    solution:
+      "Open-EZ treats the aircraft's physical definition as executable Python code. Dimensions are derived algorithmically, manufacturing artifacts are generated automatically, and every change is version-controlled and aerodynamically validated.",
+    techBadge: 'Python',
+    isPublic: true,
+    githubUrl: 'https://github.com/quartermint/open-ez',
+    status: 'active',
+    featured: true,
+    detail: [
+      {
+        heading: 'What It Does',
+        body: "Open-EZ is a parametric design environment for the Rutan Long-EZ (Model 61). The aircraft geometry is defined in Python using CadQuery, validated against NASA's OpenVSP for aerodynamic stability, and exported directly to CNC G-code and 3D-printable assembly jigs. Change a parameter, and the entire aircraft updates — geometry, toolpaths, and compliance documentation.",
+      },
+      {
+        heading: 'Why Plans-as-Code',
+        body: "Static drawings can't catch errors until someone builds the wrong part. Code catches them at generation time. Every dimension traces back to a single algorithmic source of truth. Version control means every change is reviewable. The safety default is the Roncz R1145MS rain canard — the system won't let you build a canard that loses lift in wet conditions.",
+      },
+      {
+        heading: 'Open Source',
+        body: "Open-EZ is open source under Apache 2.0. The homebuilt aircraft community has been sharing plans for decades — we're just making them executable. Contributions welcome from builders, aerodynamicists, and anyone who thinks aircraft plans should be code, not PDFs.",
+      },
+    ],
+  },
+  {
     name: 'Relay',
     slug: 'relay',
     url: '/systems/relay',
