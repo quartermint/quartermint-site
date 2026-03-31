@@ -107,7 +107,7 @@ interface EvalResult {
 }
 
 async function sendMessage(
-  messages: { role: string; content: string }[],
+  messages: { role: string; content: string; id: string }[],
   sessionId: string
 ): Promise<ChatResponse> {
   const userMessage = messages[messages.length - 1].content
@@ -142,13 +142,14 @@ async function sendMessage(
     }
   }
 
-  // AI SDK streams as data lines, extract text parts
+  // AI SDK v6 streams as "data: {json}" lines, extract text-delta parts
   const textParts = fullText
     .split('\n')
-    .filter(line => line.startsWith('0:'))
+    .filter(line => line.startsWith('data: '))
     .map(line => {
       try {
-        return JSON.parse(line.slice(2))
+        const parsed = JSON.parse(line.slice(6))
+        return parsed.type === 'text-delta' ? parsed.delta : ''
       } catch {
         return ''
       }
@@ -213,17 +214,18 @@ async function runQA() {
   for (const conv of TEST_CONVERSATIONS) {
     console.log(`\n--- ${conv.name} ---`)
     const sessionId = crypto.randomUUID()
-    const messageHistory: { role: string; content: string }[] = []
+    const messageHistory: { role: string; content: string; id: string }[] = []
+    let msgIdx = 0
 
     for (const msg of conv.messages) {
-      messageHistory.push({ role: 'user', content: msg })
+      messageHistory.push({ role: 'user', content: msg, id: `msg-${++msgIdx}` })
 
       const chatRes = await sendMessage(messageHistory, sessionId)
       const evalResult = evaluate(chatRes)
       results.push(evalResult)
 
       // Add response to history for multi-turn
-      messageHistory.push({ role: 'assistant', content: chatRes.response })
+      messageHistory.push({ role: 'assistant', content: chatRes.response, id: `msg-${++msgIdx}` })
 
       const status = evalResult.flags.length === 0 ? '\u2713' : '\u2717'
       console.log(`  ${status} [${chatRes.latencyMs}ms] "${msg.slice(0, 60)}..."`)
