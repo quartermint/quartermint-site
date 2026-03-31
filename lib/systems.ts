@@ -124,35 +124,6 @@ export const systems: System[] = [
     ],
   },
   {
-    name: 'Open-EZ',
-    slug: 'open-ez',
-    url: '/systems/open-ez',
-    oneLiner: 'Plans-as-Code parametric design for the Long-EZ aircraft',
-    problem:
-      "Legacy homebuilt aircraft plans are fragmented across scanned PDFs and unverified CAD files. Dimensions get transcribed by hand. Scaling errors lead to structural failure. Builders spend months reconciling documents that should be a single source of truth.",
-    solution:
-      "Open-EZ treats the aircraft's physical definition as executable Python code. Dimensions are derived algorithmically, manufacturing artifacts are generated automatically, and every change is version-controlled and aerodynamically validated.",
-    techBadge: 'Python',
-    isPublic: true,
-    githubUrl: 'https://github.com/quartermint/open-ez',
-    status: 'active',
-    featured: true,
-    detail: [
-      {
-        heading: 'What It Does',
-        body: "Open-EZ is a parametric design environment for the Rutan Long-EZ (Model 61). The aircraft geometry is defined in Python using CadQuery, validated against NASA's OpenVSP for aerodynamic stability, and exported directly to CNC G-code and 3D-printable assembly jigs. Change a parameter and the entire aircraft updates: geometry, toolpaths, and compliance documentation.",
-      },
-      {
-        heading: 'Why Plans-as-Code',
-        body: "Static drawings can't catch errors until someone builds the wrong part. Code catches them at generation time. Every dimension traces back to a single algorithmic source of truth. Version control means every change is reviewable. The safety default is the Roncz R1145MS rain canard. The system won't let you build a canard that loses lift in wet conditions.",
-      },
-      {
-        heading: 'Open Source',
-        body: "Open-EZ is open source under Apache 2.0. The homebuilt aircraft community has been sharing plans for decades. We're making them executable. Contributions welcome from builders, aerodynamicists, and anyone who thinks aircraft plans should be code, not PDFs.",
-      },
-    ],
-  },
-  {
     name: 'Relay',
     slug: 'relay',
     url: '/systems/relay',
@@ -178,6 +149,35 @@ export const systems: System[] = [
       {
         heading: 'How It Works',
         body: "Trained on actual communication: emails, Slack messages, meeting notes, decision patterns. Every implementation is unique to the person it represents. The AI is only as good as the person behind it, and that takes careful calibration.",
+      },
+    ],
+  },
+  {
+    name: 'Open-EZ',
+    slug: 'open-ez',
+    url: '/systems/open-ez',
+    oneLiner: 'Plans-as-Code parametric design for the Long-EZ aircraft',
+    problem:
+      "Legacy homebuilt aircraft plans are fragmented across scanned PDFs and unverified CAD files. Dimensions get transcribed by hand. Scaling errors lead to structural failure. Builders spend months reconciling documents that should be a single source of truth.",
+    solution:
+      "Open-EZ treats the aircraft's physical definition as executable Python code. Dimensions are derived algorithmically, manufacturing artifacts are generated automatically, and every change is version-controlled and aerodynamically validated.",
+    techBadge: 'Python',
+    isPublic: true,
+    githubUrl: 'https://github.com/quartermint/open-ez',
+    status: 'active',
+    featured: true,
+    detail: [
+      {
+        heading: 'What It Does',
+        body: "Open-EZ is a parametric design environment for the Rutan Long-EZ (Model 61). The aircraft geometry is defined in Python using CadQuery, validated against NASA's OpenVSP for aerodynamic stability, and exported directly to CNC G-code and 3D-printable assembly jigs. Change a parameter and the entire aircraft updates: geometry, toolpaths, and compliance documentation.",
+      },
+      {
+        heading: 'Why Plans-as-Code',
+        body: "Static drawings can't catch errors until someone builds the wrong part. Code catches them at generation time. Every dimension traces back to a single algorithmic source of truth. Version control means every change is reviewable. The safety default is the Roncz R1145MS rain canard. The system won't let you build a canard that loses lift in wet conditions.",
+      },
+      {
+        heading: 'Open Source',
+        body: "Open-EZ is open source under Apache 2.0. The homebuilt aircraft community has been sharing plans for decades. We're making them executable. Contributions welcome from builders, aerodynamicists, and anyone who thinks aircraft plans should be code, not PDFs.",
       },
     ],
   },
