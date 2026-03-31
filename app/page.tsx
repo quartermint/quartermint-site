@@ -20,19 +20,19 @@ export default async function Home() {
         <HeroSection signal={signal} />
       </SectionWrapper>
 
-      {/* 2. Featured Systems -- surface (mint) */}
-      <SectionWrapper bg="surface" label="Featured Systems" id="featured-systems">
-        <FeaturedSystems />
-      </SectionWrapper>
-
-      {/* 3. Chat -- bg (white) */}
-      <SectionWrapper bg="bg" label="Chat" id="chat-section">
+      {/* 2. Chat -- surface (mint) */}
+      <SectionWrapper bg="surface" label="Chat" id="chat-section">
         <ChatSection />
       </SectionWrapper>
 
-      {/* 4. Origin Story -- surface (mint) */}
-      <SectionWrapper bg="surface" label="Origin Story" id="origin-story">
+      {/* 3. Origin Story -- bg (white) */}
+      <SectionWrapper bg="bg" label="Origin Story" id="origin-story">
         <OriginStory />
+      </SectionWrapper>
+
+      {/* 4. Featured Systems -- surface (mint) */}
+      <SectionWrapper bg="surface" label="Featured Systems" id="featured-systems">
+        <FeaturedSystems />
       </SectionWrapper>
 
       {/* 5. Contact -- bg (white) */}

@@ -47,10 +47,10 @@ export default async function SystemPage({
   return (
     <div className="max-w-[var(--spacing-invest-max)] mx-auto px-4 sm:px-6 lg:px-8 py-[var(--spacing-section-mobile)] lg:py-[var(--spacing-section-desktop)]">
       <Link
-        href="/#systems-shelf"
+        href="/#featured-systems"
         className="font-body text-[14px] text-text-muted hover:text-text transition-colors"
       >
-        &larr; Back to systems
+        &larr; Back
       </Link>
 
       <h1 className="font-display text-[32px] lg:text-[40px] leading-[1.2] text-text mt-6 mb-2">
@@ -61,51 +61,68 @@ export default async function SystemPage({
         {system.oneLiner}
       </p>
 
-      <div className="flex items-center gap-3 mb-8">
-        <span className="font-body text-[13px] px-3 py-1 bg-surface rounded-[4px] text-text">
-          {system.techBadge}
-        </span>
-        {system.isPublic && (
-          <span className="font-body text-[13px] text-text-faint">
-            Open Source
-          </span>
-        )}
-        <span className="font-body text-[13px] text-text-faint capitalize">
-          {system.status}
-        </span>
-      </div>
-
-      {system.problem && (
+      {system.detail ? (
         <>
-          <h2 className="font-display text-[20px] leading-[1.3] text-text mt-8 mb-3">
-            The Problem
-          </h2>
-          <p className="font-body text-[16px] leading-[1.7] text-text-muted">
-            {system.problem}
-          </p>
-        </>
-      )}
+          {system.detail.map((section) => (
+            <div key={section.heading}>
+              <h2 className="font-display text-[20px] leading-[1.3] text-text mt-10 mb-3">
+                {section.heading}
+              </h2>
+              <p className="font-body text-[16px] leading-[1.7] text-text-muted">
+                {section.body}
+              </p>
+            </div>
+          ))}
 
-      {system.solution && (
+          <div className="mt-12">
+            <p className="font-body text-[16px] text-text-muted mb-4">
+              If this sounds like your world, let&apos;s talk.
+            </p>
+            <a
+              href="https://calendar.app.google/kQD52ja6x24rATbM8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-6 bg-accent text-text font-body text-[14px] font-semibold rounded-[6px]"
+            >
+              Book a time
+            </a>
+          </div>
+        </>
+      ) : (
         <>
-          <h2 className="font-display text-[20px] leading-[1.3] text-text mt-8 mb-3">
-            The Solution
-          </h2>
-          <p className="font-body text-[16px] leading-[1.7] text-text-muted">
-            {system.solution}
-          </p>
-        </>
-      )}
+          {system.problem && (
+            <>
+              <h2 className="font-display text-[20px] leading-[1.3] text-text mt-8 mb-3">
+                The Problem
+              </h2>
+              <p className="font-body text-[16px] leading-[1.7] text-text-muted">
+                {system.problem}
+              </p>
+            </>
+          )}
 
-      {system.githubUrl && (
-        <a
-          href={system.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 min-h-[44px] min-w-[44px] px-6 mt-8 bg-accent text-text font-body text-[14px] font-semibold rounded-[6px]"
-        >
-          View on GitHub &rarr;
-        </a>
+          {system.solution && (
+            <>
+              <h2 className="font-display text-[20px] leading-[1.3] text-text mt-8 mb-3">
+                The Solution
+              </h2>
+              <p className="font-body text-[16px] leading-[1.7] text-text-muted">
+                {system.solution}
+              </p>
+            </>
+          )}
+
+          {system.githubUrl && (
+            <a
+              href={system.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 min-h-[44px] min-w-[44px] px-6 mt-8 bg-accent text-text font-body text-[14px] font-semibold rounded-[6px]"
+            >
+              View on GitHub &rarr;
+            </a>
+          )}
+        </>
       )}
     </div>
   )

@@ -33,7 +33,7 @@ export interface ChatLog {
 
 /** Google Calendar booking link, single source of truth for rate limit CTAs */
 export const CALENDAR_BOOKING_URL =
-  'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2NVNKH4FMghHHM7F5dLn_4OOPj8Yf4LkS55X7KRLB0b8Vw2aCL9cK5Ey9a76O8z5l0E8lS3BX'
+  'https://calendar.app.google/kQD52ja6x24rATbM8'
 
 /** Contact email for error state mailto CTAs */
 export const RYAN_EMAIL = 'ryan@quartermint.com'
@@ -44,6 +44,22 @@ export interface VisitorState {
   topics: string[] // LLM-extracted, max 5, FIFO
   sectionsViewed: string[] // Section names from scroll tracking
   messageCount: number // Total messages across all sessions
+  referrer: string | null // First-touch referrer (document.referrer)
+  utmSource: string | null // utm_source param
+  utmMedium: string | null // utm_medium param
+  utmCampaign: string | null // utm_campaign param
+  events: VisitorEvent[] // Interaction log, max 50 FIFO
+  city: string | null // From Vercel geo headers
+  region: string | null // From Vercel geo headers
+  country: string | null // From Vercel geo headers
+  visits: number // Total visit count
+}
+
+/** Lightweight interaction event */
+export interface VisitorEvent {
+  action: string // e.g. 'system_click', 'chat_open', 'book_click'
+  label: string // e.g. 'relay', 'campaign-finance-dashboard'
+  ts: string // ISO 8601
 }
 
 /** Visitor recency tier for greeting personalization */

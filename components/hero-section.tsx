@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { LivingSignal } from '@/components/living-signal'
-import { ChatCTA } from '@/components/chat/chat-cta'
 import type { CommitInfo } from '@/lib/github'
 
 interface HeroSectionProps {
@@ -17,7 +16,7 @@ export function HeroSection({ signal }: HeroSectionProps) {
           alt="Ryan Stern"
           width={160}
           height={160}
-          className="rounded-full object-cover aspect-square w-20 sm:w-[120px] lg:w-[160px]"
+          className="rounded-full object-cover object-[center_25%] aspect-square w-20 sm:w-[120px] lg:w-[160px]"
           priority
         />
       </div>
@@ -39,28 +38,30 @@ export function HeroSection({ signal }: HeroSectionProps) {
         <p className="font-body text-[16px] leading-[1.7] text-text mt-6">
           Fall 2024: 10,000-person rallies running concurrently, every system
           tracking attendance in Google Sheets. Intake through Google Forms. By
-          the end of the cycle, we had a literal tracker of trackers. I watched
-          a trip presentation get given six times in one day because every person
-          added to the call wouldn&apos;t take authority.
+          the end of the cycle, we had a literal tracker of trackers. I
+          delivered the same trip briefing six times in one day because nobody
+          on the chain would take authority. By that evening, people were
+          texting me apologies because they&apos;d overheard it through each
+          other&apos;s Zoom speakers.
         </p>
 
         <p className="font-body text-[16px] leading-[1.7] text-text mt-4">
-          I&apos;ve been the staffer watching tools break at 2am. I&apos;ve been
-          the consultant watching committees grow instead of delegate. Now I
-          build the operational infrastructure campaigns actually need. Fast
-          prototypes, real tools, built by someone who&apos;s been in your war
-          room.
+          We were up at 2am not because the tools broke, but because nobody was
+          using the ones we had appropriately. I&apos;ve been the staffer
+          living that. I&apos;ve been the consultant watching committees grow
+          instead of delegate. Now I build the operational infrastructure
+          campaigns actually need. Fast prototypes, real tools, built by
+          someone who&apos;s been in your war room.
         </p>
 
-        {/* Dual CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-8">
+        {/* CTA */}
+        <div className="mt-8">
           <a
-            href="#featured-systems"
+            href="#contact-section"
             className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-6 bg-accent text-text font-body text-[14px] font-semibold rounded-[6px]"
           >
-            See the tools
+            Contact me
           </a>
-          <ChatCTA />
         </div>
       </div>
     </div>

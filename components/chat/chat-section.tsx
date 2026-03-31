@@ -15,8 +15,11 @@ export function ChatSection() {
       <div className="block sm:hidden">
         <div className="mx-auto max-w-[720px] min-h-[200px] bg-bg rounded-[8px] shadow-[0_2px_8px_rgba(0,0,0,0.06)] p-4 flex flex-col items-center justify-center text-center">
           <h2 className="font-display text-[24px] leading-[1.2] text-text">
-            This is how I think about your problem
+            This is how I think about your problem:
           </h2>
+          <p className="font-body text-[14px] text-text-muted mt-2">
+            We have to discover it together.
+          </p>
           <p className="font-body text-[14px] text-text-muted mt-4">
             Tap &ldquo;Talk to my AI&rdquo; at the top to start chatting.
           </p>

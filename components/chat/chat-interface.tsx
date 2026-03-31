@@ -12,6 +12,7 @@ import { useScrollContext } from '@/components/scroll-context-provider'
 import { getScrollChips } from '@/lib/chat/scroll-context'
 import { ReturningVisitorGreeting } from './returning-visitor-greeting'
 import { ConversationExportPanel } from './conversation-export-panel'
+import { trackEvent } from '@/lib/tracking'
 
 export function ChatInterface() {
   const [sessionId] = useState(() => crypto.randomUUID())
@@ -83,11 +84,13 @@ export function ChatInterface() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!input.trim() || isStreaming) return
+    if (!hasMessages) trackEvent('chat_open', 'typed')
     sendMessage({ text: input })
     setInput('')
   }
 
   const handleChipClick = (question: string) => {
+    if (!hasMessages) trackEvent('chat_open', question)
     sendMessage({ text: question })
   }
 
@@ -142,7 +145,7 @@ export function ChatInterface() {
       {!hasMessages && (
         <>
           <h2 className="font-display text-[24px] leading-[1.2] text-text text-center">
-            This is how I think about your problem
+            This is how I think about your problem:
           </h2>
           <ReturningVisitorGreeting
             onChipsReady={setReturningVisitorChips}
@@ -231,8 +234,13 @@ export function ChatInterface() {
         </button>
       </form>
 
+      {/* Subtext */}
+      <p className="mt-3 font-body text-[14px] text-text-muted text-center">
+        We have to discover it together.
+      </p>
+
       {/* Privacy notice */}
-      <p className="mt-2 font-body text-[14px] leading-[1.4] text-text-faint">
+      <p className="mt-1 font-body text-[14px] leading-[1.4] text-text-faint">
         Messages are logged.{' '}
         <a href="/privacy" className="underline">
           Privacy policy

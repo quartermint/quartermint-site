@@ -88,7 +88,7 @@ export default function WorkWithMePage() {
         If this sounds like your world, let&apos;s talk.
       </p>
       <a
-        href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2NVNKH4FMghHHM7F5dLn_4OOPj8Yf4LkS55X7KRLB0b8Vw2aCL9cK5Ey9a76O8z5l0E8lS3BX"
+        href="https://calendar.app.google/kQD52ja6x24rATbM8"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-6 bg-accent text-text font-body text-[14px] font-semibold rounded-[6px]"

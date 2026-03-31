@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Instrument_Serif } from 'next/font/google'
 import { DM_Sans } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import { AttributionCapture } from '@/components/attribution-capture'
 import { StickyNav } from '@/components/sticky-nav'
 import { FooterStats } from '@/components/footer-stats'
 import './globals.css'
@@ -23,22 +25,22 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://quartermint.com'),
-  title: 'Ryan Stern -- Builder. Operator.',
+  title: 'Ryan Stern -- Forward-deployed engineer for campaigns, advocacy, and nonprofits',
   description:
-    'Nine services, forty repositories, and a thesis: information routed to the right person, in the right form, at the right time.',
+    'Operational infrastructure for campaigns, PACs, and advocacy organizations. Built by someone who has been in your war room.',
   openGraph: {
-    title: 'Ryan Stern -- Builder. Operator.',
+    title: 'Ryan Stern -- Forward-deployed engineer for campaigns, advocacy, and nonprofits',
     description:
-      'Nine services, forty repositories, and a thesis: information routed to the right person, in the right form, at the right time.',
+      'Operational infrastructure for campaigns, PACs, and advocacy organizations. Built by someone who has been in your war room.',
     url: 'https://quartermint.com',
     siteName: 'Ryan Stern',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ryan Stern -- Builder. Operator.',
+    title: 'Ryan Stern -- Forward-deployed engineer for campaigns, advocacy, and nonprofits',
     description:
-      'Nine services, forty repositories, and a thesis: information routed to the right person, in the right form, at the right time.',
+      'Operational infrastructure for campaigns, PACs, and advocacy organizations. Built by someone who has been in your war room.',
   },
   alternates: {
     canonical: 'https://quartermint.com',
@@ -74,6 +76,8 @@ export default function RootLayout({
             <FooterStats />
           </div>
         </footer>
+        <Analytics />
+        <AttributionCapture />
       </body>
     </html>
   )
