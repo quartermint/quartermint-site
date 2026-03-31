@@ -10,27 +10,10 @@ export function FeaturedSystems() {
         const isExternal = system.url?.startsWith('http')
 
         return (
-          <div
-            key={system.slug}
-            className="flex flex-col sm:flex-row gap-8"
-          >
-            {/* Problem (left column) */}
-            <div className="sm:w-1/2">
-              <span className="font-body text-[12px] font-semibold uppercase tracking-wider text-text-faint">
-                The problem
-              </span>
-              <p className="font-body text-[16px] leading-[1.7] text-text-muted mt-2">
-                {system.problem}
-              </p>
-              {/* Image placeholder — future update */}
-            </div>
-
-            {/* Solution (right column) */}
-            <div className="sm:w-1/2 border-l-[3px] border-accent pl-6">
-              <span className="font-body text-[12px] font-semibold uppercase tracking-wider text-accent">
-                What I built
-              </span>
-              <h3 className="font-display text-[20px] leading-[1.3] text-text mt-2">
+          <div key={system.slug}>
+            {/* Product name + one-liner — full width, leads the entry */}
+            <div className="mb-6">
+              <h3 className="font-display text-[28px] lg:text-[32px] leading-[1.2] text-text">
                 {system.url ? (
                   <a
                     href={system.url}
@@ -44,12 +27,33 @@ export function FeaturedSystems() {
                   system.name
                 )}
               </h3>
-              <p className="font-body text-[14px] leading-[1.7] text-text-muted mt-1">
+              <p className="font-body text-[16px] leading-[1.5] text-text-muted mt-1">
                 {system.oneLiner}
               </p>
-              <p className="font-body text-[16px] leading-[1.7] text-text mt-3">
-                {system.solution}
-              </p>
+            </div>
+
+            {/* Two columns: situation → solution */}
+            <div className="flex flex-col sm:flex-row gap-8">
+              {/* The situation */}
+              <div className="sm:w-1/2">
+                <span className="font-body text-[12px] font-semibold uppercase tracking-wider text-text-faint">
+                  The situation
+                </span>
+                <p className="font-body text-[16px] leading-[1.7] text-text-muted mt-2">
+                  {system.problem}
+                </p>
+                {/* Image placeholder — future update */}
+              </div>
+
+              {/* What it does */}
+              <div className="sm:w-1/2 border-l-[3px] border-accent pl-6">
+                <span className="font-body text-[12px] font-semibold uppercase tracking-wider text-accent">
+                  What it does
+                </span>
+                <p className="font-body text-[16px] leading-[1.7] text-text mt-2">
+                  {system.solution}
+                </p>
+              </div>
             </div>
           </div>
         )
