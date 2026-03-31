@@ -36,22 +36,15 @@ export function HeroSection({ signal }: HeroSectionProps) {
         </div>
 
         <p className="font-body text-[16px] leading-[1.7] text-text mt-6">
-          Fall 2024: 10,000-person rallies running concurrently, every system
-          tracking attendance in Google Sheets. Intake through Google Forms. By
-          the end of the cycle, we had a literal tracker of trackers. I
-          delivered the same trip briefing six times in one day because nobody
-          on the chain would take authority. By that evening, people were
-          texting me apologies because they&apos;d overheard it through each
-          other&apos;s Zoom speakers.
+          Your field team has one spreadsheet, advance has another, and the
+          principal&apos;s office has a PDF from last week. You spend forty
+          minutes on a call syncing information that should have been routed
+          automatically.
         </p>
 
-        <p className="font-body text-[16px] leading-[1.7] text-text mt-4">
-          We were up at 2am not because the tools broke, but because nobody was
-          using the ones we had appropriately. I&apos;ve been the staffer
-          living that. I&apos;ve been the consultant watching committees grow
-          instead of delegate. Now I build the operational infrastructure
-          campaigns actually need. Fast prototypes, real tools, built by
-          someone who&apos;s been in your war room.
+        <p className="font-body text-[16px] leading-[1.7] text-text font-semibold mt-4">
+          Fast prototypes, real tools, built by someone who&apos;s been in
+          your war room.
         </p>
 
         {/* CTA */}
