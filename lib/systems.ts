@@ -108,7 +108,7 @@ export const systems: System[] = [
     url: '/systems/prism',
     oneLiner: 'Identity discovery engine for undocumented careers',
     problem:
-      "Most of the world's expertise has no resume. Cannabis operators, military veterans, tradespeople, family business owners — people with 15 years of real operational experience in industries that don't produce documentation. They know what they can do, but they can't say it in a new world's language.",
+      "Most of the world's expertise has no resume. Family farmers, military veterans, tradespeople, small business owners — people with 15 years of real operational experience in industries that don't produce documentation. They know what they can do, but they can't say it in a new world's language.",
     solution:
       "Prism runs a structured interview, discovers what you actually know, and translates your operational experience into language that hiring managers, investors, and partners understand. Your identity, seen through someone else's eyes.",
     techBadge: 'TypeScript',
@@ -123,7 +123,7 @@ export const systems: System[] = [
       },
       {
         heading: 'Why It Matters',
-        body: "The resume is a broken format for anyone whose career didn't follow a traditional path. If you spent a decade running cannabis operations, you have supply chain expertise, compliance knowledge, and crisis management skills — but no document that says so. Prism bridges that gap.",
+        body: "The resume is a broken format for anyone whose career didn't follow a traditional path. If you spent a decade running a family farm, you have supply chain expertise, financial planning skills, and crisis management instincts — but no document that says so. Prism bridges that gap.",
       },
       {
         heading: 'How We Build It',
