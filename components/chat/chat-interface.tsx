@@ -234,18 +234,19 @@ export function ChatInterface() {
         </button>
       </form>
 
-      {/* Subtext */}
-      <p className="mt-3 font-body text-[14px] text-text-muted text-center">
-        We have to discover it together.
-      </p>
-
-      {/* Privacy notice */}
-      <p className="mt-1 font-body text-[14px] leading-[1.4] text-text-faint">
-        Messages are logged.{' '}
-        <a href="/privacy" className="underline">
-          Privacy policy
-        </a>
-      </p>
+      {/* Subtext: privacy left, tagline right */}
+      <div className="mt-3 flex items-baseline justify-between">
+        <p className="font-body text-[14px] leading-[1.4] text-text-faint">
+          Messages are logged.{' '}
+          <a href="/privacy" className="underline">
+            Privacy policy
+          </a>
+        </p>
+        <p className="font-body text-[14px] text-text-muted">
+          We have to discover it{' '}
+          <span className="font-semibold italic text-accent">together</span>.
+        </p>
+      </div>
     </div>
   )
 }

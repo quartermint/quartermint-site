@@ -5,7 +5,7 @@ import { trackEvent } from '@/lib/tracking'
 
 export function FeaturedSystems() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       {featuredSystems.map((system) => {
         const isExternal = system.url?.startsWith('http')
 
@@ -16,14 +16,21 @@ export function FeaturedSystems() {
           >
             {/* Problem (left column) */}
             <div className="sm:w-1/2">
-              <p className="font-body text-[16px] leading-[1.7] text-text-muted">
+              <span className="font-body text-[12px] font-semibold uppercase tracking-wider text-text-faint">
+                The problem
+              </span>
+              <p className="font-body text-[16px] leading-[1.7] text-text-muted mt-2">
                 {system.problem}
               </p>
+              {/* Image placeholder — future update */}
             </div>
 
-            {/* System name + solution (right column) */}
+            {/* Solution (right column) */}
             <div className="sm:w-1/2 border-l-[3px] border-accent pl-6">
-              <h3 className="font-display text-[20px] leading-[1.3] text-text">
+              <span className="font-body text-[12px] font-semibold uppercase tracking-wider text-accent">
+                What I built
+              </span>
+              <h3 className="font-display text-[20px] leading-[1.3] text-text mt-2">
                 {system.url ? (
                   <a
                     href={system.url}

@@ -36,7 +36,7 @@ export function ContactInvestor() {
       </div>
       <div className="mt-6">
         <span className="font-body text-[14px] text-text-faint block mb-3">
-          Or follow the work
+          Or follow the work:
         </span>
         <div className="flex items-center gap-4">
           <a

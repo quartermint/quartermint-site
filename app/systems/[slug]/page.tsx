@@ -16,17 +16,17 @@ export async function generateMetadata({
   const system = systems.find((s) => s.slug === slug)
   if (!system) return {}
   return {
-    title: `${system.name} -- Ryan Stern`,
+    title: `${system.name} -- Quartermint`,
     description: system.oneLiner,
     openGraph: {
-      title: `${system.name} -- Ryan Stern`,
+      title: `${system.name} -- Quartermint`,
       description: system.oneLiner,
       url: `https://quartermint.com/systems/${slug}`,
       type: 'website',
     },
     twitter: {
       card: 'summary',
-      title: `${system.name} -- Ryan Stern`,
+      title: `${system.name} -- Quartermint`,
       description: system.oneLiner,
     },
     alternates: {
@@ -75,9 +75,6 @@ export default async function SystemPage({
           ))}
 
           <div className="mt-12">
-            <p className="font-body text-[16px] text-text-muted mb-4">
-              If this sounds like your world, let&apos;s talk.
-            </p>
             <a
               href="https://calendar.app.google/kQD52ja6x24rATbM8"
               target="_blank"

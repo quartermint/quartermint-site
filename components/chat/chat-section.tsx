@@ -18,7 +18,8 @@ export function ChatSection() {
             This is how I think about your problem:
           </h2>
           <p className="font-body text-[14px] text-text-muted mt-2">
-            We have to discover it together.
+            We have to discover it{' '}
+            <span className="font-semibold italic text-accent">together</span>.
           </p>
           <p className="font-body text-[14px] text-text-muted mt-4">
             Tap &ldquo;Talk to my AI&rdquo; at the top to start chatting.
