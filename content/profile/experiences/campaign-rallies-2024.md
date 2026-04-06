@@ -22,7 +22,7 @@ The 2024 general election cycle crystallized every operational failure Ryan had 
 
 Fall 2024 general election. Multiple 10K+ rallies running concurrently. Systems breaking because everything was tracked in Google Sheets, intake through Google Forms, people accessing information in ways it was never meant to be used. The advance team needs the venue layout. The field team needs the volunteer assignments. The principal's office needs the crowd estimates. All pulling from the same brittle spreadsheet that was built for thirty people and is now serving three hundred. The tools weren't built for this scale, but they were the only tools anyone had.
 
-## Bill Clinton Event Committee Growth
+## Event Committee Growth
 
 Had to give the same trip presentation six times in one day because each person added to the call wouldn't take authority. Started with three people on the planning call. By the afternoon, twelve people needed the briefing. None of them would make the decision, so each escalation meant starting the presentation from the top. Information routing failure in real time: the same data, delivered to the wrong people, in the wrong sequence, because the committee grew instead of delegating.
 

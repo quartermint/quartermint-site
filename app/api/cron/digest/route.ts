@@ -30,7 +30,9 @@ export async function GET(request: NextRequest) {
       from: 'quartermint.com <chat@quartermint.com>',
       to: ['ryan@quartermint.com'],
       subject: `quartermint.com -- Week of ${stats.weekOf}`,
-      react: WeeklyDigestEmail(stats),
+      react: WeeklyDigestEmail({
+        ...stats,
+      }),
     })
 
     return Response.json({ success: true, sessions: stats.totalSessions })

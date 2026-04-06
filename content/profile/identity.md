@@ -5,7 +5,7 @@ email: ryan@quartermint.com
 location: Relocating to San Francisco / Oakland, CA
 education: CSU Chico, Communications Design (option in Media Arts, focus in Broadcast Management and Production)
 current_role: Forward-deployed engineer for campaigns, public advocacy, and nonprofits
-active_entities: [poliops-llc, quartermint]
+active_entities: [quartermint]
 completeness: full
 source: mixed (conversation 2026-02, transcript 2026-03-20)
 source_date: "2026-03-20"
@@ -27,7 +27,7 @@ Forward-deployed engineer who has the lived pain of campaign operations AND the 
 
 ## Background Arc
 
-Started in political field organizing (Obama 2008), moved through advance work and campaign management, then shifted toward the operations/finance/compliance side through roles as Chief of Staff (Jim Johnson 2017), COO/CFO-scope work (New Deal Strategies), and C4 treasurer positions (Battle Born Collective, Searchlight Institute). The through-line is building systems that work, whether that's event logistics, campaign operations, financial compliance, or software.
+Started in political field organizing (Obama 2008), moved through advance work and campaign management, then shifted toward the operations/finance/compliance side through roles as Chief of Staff on a gubernatorial campaign (2017), COO/CFO-scope work at a national political consulting firm, and C4 treasurer positions. The through-line is building systems that work, whether that's event logistics, campaign operations, financial compliance, or software.
 
 ## Education
 

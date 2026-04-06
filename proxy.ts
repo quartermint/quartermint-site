@@ -25,11 +25,17 @@ export function proxy(request: NextRequest) {
     })
   }
 
-  // Track /invest page views for weekly digest (OPS-01)
-  if (request.nextUrl.pathname === '/invest') {
-    const weekKey = getISOWeekKey()
-    // Fire-and-forget: don't await, don't block response
-    redis.incr(`stats:invest_views:${weekKey}`).catch(() => {})
+  // Track page views for weekly digest
+  const pathname = request.nextUrl.pathname
+  const weekKey = getISOWeekKey()
+  if (pathname === '/work-with-me') {
+    redis.incr(`stats:page_views:work-with-me:${weekKey}`).catch(() => {})
+  } else if (pathname.startsWith('/systems/') && pathname !== '/systems/') {
+    const slug = pathname.replace('/systems/', '')
+    redis.incr(`stats:page_views:system:${slug}:${weekKey}`).catch(() => {})
+    redis.incr(`stats:page_views:systems_total:${weekKey}`).catch(() => {})
+  } else if (pathname === '/' || pathname === '') {
+    redis.incr(`stats:page_views:home:${weekKey}`).catch(() => {})
   }
 
   return response

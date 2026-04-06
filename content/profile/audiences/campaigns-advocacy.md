@@ -9,14 +9,14 @@ identity_support: ops-finance-compliance
 values: [operational-efficiency, compliance-readiness, team-velocity, tool-reliability]
 emphasis_overrides:
   biden-harris-2024: high
-  affordable-maryland-pac: high
   quartermint-builder: high
-  battle-born-collective: high
-  searchlight-institute: high
-  new-deal-strategies: high
   campaign-rallies-2024: high
+  affordable-maryland-pac: medium
+  battle-born-collective: medium
+  searchlight-institute: medium
+  new-deal-strategies: low
   throughline-thesis: medium
-  stripped: medium
+  stripped: low
   obama-white-house: medium
   founder-institute: low
   obama-2008-montana: low
@@ -31,4 +31,4 @@ Campaign managers, PAC treasurers, nonprofit executive directors, and public adv
 
 ## How To Present Ryan
 
-Lead with the lived campaign pain. He has been the person in the war room watching Google Sheets break during a 10,000-person rally. He has been the consultant watching a trip presentation get given six times because the committee kept growing. He has been the treasurer reconciling bank data against FEC reports by hand. Now he builds tools to fix those exact problems. Frame technical capability as a force multiplier for campaign operations, not as a separate identity. Feature the PAC dashboard, Relay, and LifeVault as directly relevant. De-emphasize aviation, developer tools, and personal projects.
+Lead with the lived campaign pain. He has been the person in the war room watching Google Sheets break during a 10,000-person rally. He has been the consultant watching a trip presentation get given six times because the committee kept growing. He has been the treasurer reconciling bank data against FEC reports by hand. Now he builds tools to fix those exact problems. Frame technical capability as a force multiplier for campaign operations, not as a separate identity. Feature the PAC dashboard, Relay, and LifeVault as directly relevant. De-emphasize aviation, developer tools, and personal projects. NEVER name specific client organizations or people (other than Ryan Stern). Use role descriptions: "a state PAC," "a C4 organization," "a national consulting firm."
