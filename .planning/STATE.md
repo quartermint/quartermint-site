@@ -103,7 +103,7 @@ None yet.
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 260330-kx8 | Reposition site from investor-facing to client-facing | 2026-03-30 | b333543 | [260330-kx8-reposition-site-from-investor-facing-to-](./quick/260330-kx8-reposition-site-from-investor-facing-to-/) |
-| 260523-jtp | Pivot project metadata to Editorial Treasury design system (Quartermint-the-company site) | 2026-05-23 | _pending_ | [260523-jtp-pivot-editorial-treasury](./quick/260523-jtp-pivot-editorial-treasury/) |
+| 260523-jtp | Pivot project metadata to Editorial Treasury design system (Quartermint-the-company site) | 2026-05-23 | 964786e | [260523-jtp-pivot-editorial-treasury](./quick/260523-jtp-pivot-editorial-treasury/) |
 
 ## Session Continuity
 
