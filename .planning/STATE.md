@@ -20,8 +20,8 @@ progress:
 
 See: .planning/PROJECT.md (updated 2026-03-26)
 
-**Core value:** A visitor with no context understands what Ryan builds and why within 60 seconds -- and can interact with the site to get answers in real time via the embedded chat.
-**Current focus:** Phase 05 — operations-go-live
+**Core value:** A YC partner, banker at Amalgamated, or political-ops director landing on quartermint.com understands within 30 seconds that Quartermint is the serious, modern treasury platform built for the four legal entity types political organizations actually use — and leaves with the takeaway *"this is what political ops should have had 20 years ago — finally modern."*
+**Current focus:** v1.0 shipped under prior "Cathedral Hybrid Narrative" direction. 2026-05-23 pivot: site reframed as Quartermint-the-company under Editorial Treasury design system (`DESIGN.md`). Engineering restyle is a separate forthcoming milestone.
 
 ## Current Position
 
@@ -103,6 +103,7 @@ None yet.
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 260330-kx8 | Reposition site from investor-facing to client-facing | 2026-03-30 | b333543 | [260330-kx8-reposition-site-from-investor-facing-to-](./quick/260330-kx8-reposition-site-from-investor-facing-to-/) |
+| 260523-jtp | Pivot project metadata to Editorial Treasury design system (Quartermint-the-company site) | 2026-05-23 | _pending_ | [260523-jtp-pivot-editorial-treasury](./quick/260523-jtp-pivot-editorial-treasury/) |
 
 ## Session Continuity
 

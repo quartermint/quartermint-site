@@ -1,22 +1,31 @@
 <!-- GSD:project-start source:PROJECT.md -->
 ## Project
 
-**quartermint.com — Cathedral Hybrid Narrative**
+**quartermint.com — Quartermint Company Site (Editorial Treasury)**
 
-A personal founder site for Ryan Stern at quartermint.com that tells the story of a builder-operator with a thesis and a body of work. Replaces the current consultant-positioning landing page with a narrative-driven site featuring an embedded AI chat interface (ported from Stripped/Relay), empathy-first system showcases, an investor-facing /invest route, and a visual design system rooted in editorial typography and mint color palette. The site itself demonstrates the thesis: information routed to the right person, in the right form, at the right time.
+The marketing site for **Quartermint**, the multi-entity financial infrastructure platform for political organizations ("Brex for Public Affairs" — YC S26 pitch). Lives at quartermint.com and shares its visual identity with the product app (`~/quartermint`). Built on the **Editorial Treasury** design system: Fraunces + Geist typography, Ledger Green + Parchment + Ink palette, and the four-mark **entity-geometry** brand signature (● ◉ ▲ ■) encoding the legal entity types Quartermint serves — campaigns, coalition PACs, JFCs, and 501(c)(3)/(c)(4)s. Old-money typographic gravity executed with modern fintech rigor.
 
-**Core Value:** A visitor with no context understands what Ryan builds and why within 60 seconds — and can interact with the site to get answers in real time via the embedded chat.
+> **Pivot 2026-05-23:** This site was previously a personal founder site for Ryan Stern under the "Cathedral Hybrid Narrative" direction (Instrument Serif + DM Sans, mint palette, embedded AI chat). That direction is archived at `DESIGN-ARCHIVE-2026-05-cathedral-mint.md` and is no longer active. The canonical visual spec is now `DESIGN.md`. The v1.0 codebase shipped under the prior direction; restyling to Editorial Treasury is tracked as a separate engineering milestone.
+
+**Core Value:** A YC partner, banker at Amalgamated, or political-ops director landing on quartermint.com understands within 30 seconds that Quartermint is the serious, modern treasury platform built for the four legal entity types political organizations actually use — and leaves with the takeaway "*this is what political ops should have had 20 years ago — finally modern.*"
+
+**Audiences (priority order):**
+1. YC partners reviewing the S26 application
+2. Amalgamated Bank distribution conversations
+3. Political ops directors / treasurers
+4. Compliance counsel and auditors
 
 ### Constraints
 
 - **Solo builder**: Must ship and maintain without a team
-- **Hosting**: Vercel for v1 (chat streaming + KV out of the box). Fresh project on existing Vercel account. Cloudflare owns DNS only.
-- **Timeline**: Build immediately — not gated on May 4 YC deadline, ship as fast as possible
-- **Chat dependency**: Requires ANTHROPIC_API_KEY (existing, same key as Stripped deployment)
-- **Email dependency**: Requires Resend account for conversation export and weekly digest (chat@quartermint.com sender)
-- **Carry-over assets**: Google Calendar booking link, email address, headshot (assets/images/hero/ryan-160.png from current site)
-- **Copy quality**: Hero copy is a PRE-BUILD BLOCKER — locked in the design doc, must not ship with placeholder text
-- **Design system**: Visual system fully specified in design doc — Instrument Serif + DM Sans, mint palette, CSS custom properties only
+- **Hosting**: Vercel (existing project, chat streaming + KV out of the box). Cloudflare owns DNS only.
+- **Canonical design doc**: `DESIGN.md` (Editorial Treasury). Prior direction preserved at `DESIGN-ARCHIVE-2026-05-cathedral-mint.md`.
+- **Visual ground-truth:** `~/.gstack/projects/quartermint/designs/design-system-20260523/round3-/variant-A.png` (approved 10/10 dashboard mockup applying the Editorial Treasury system)
+- **Brand signature (non-negotiable):** Entity-geometry marks (● ◉ ▲ ■) must appear in lockup, hero proof element, section dividers, favicon, and OG images
+- **Typography**: Fraunces (display serif) + Geist (sans body), self-hosted via `next/font/google`
+- **Anti-patterns (forbidden):** purple gradients, 3-column-icon SaaS feature grids, bubble border-radius, partisan red/blue as primary, Capitol/dome/shield illustration, Inter/Roboto as primary type
+- **Chat dependency**: ANTHROPIC_API_KEY (existing, same key as Stripped deployment) — the embedded chat capability ships from v1.0 and remains
+- **Email dependency**: Resend account for conversation export and weekly digest (chat@quartermint.com sender)
 <!-- GSD:project-end -->
 
 <!-- GSD:stack-start source:research/STACK.md -->

@@ -1,12 +1,21 @@
-# quartermint.com — Cathedral Hybrid Narrative
+# quartermint.com — Quartermint Company Site (Editorial Treasury)
 
 ## What This Is
 
-A personal founder site live at quartermint.com that tells the story of a builder-operator with a thesis and a body of work. Features an embedded AI chat interface (streaming via Claude Sonnet 4.6), empathy-first system showcases, an investor-facing /invest route, per-system detail pages, and a visual design system rooted in editorial typography and mint color palette. The site demonstrates the thesis: information routed to the right person, in the right form, at the right time.
+The marketing site for **Quartermint**, multi-entity financial infrastructure for political organizations ("Brex for Public Affairs" — YC S26 pitch). Lives at quartermint.com and shares its visual identity with the product app (`~/quartermint`). Built on the **Editorial Treasury** design system: Fraunces + Geist typography, Ledger Green + Parchment + Ink palette, and the four-mark **entity-geometry** brand signature (● ◉ ▲ ■) encoding the legal entity types Quartermint serves — campaigns, coalition PACs, JFCs, and 501(c)(3)/(c)(4)s. Old-money typographic gravity executed with modern fintech rigor.
+
+> **Pivot 2026-05-23:** This site was previously a personal founder site for Ryan Stern under the "Cathedral Hybrid Narrative" direction (Instrument Serif + DM Sans, mint palette, embedded AI chat). That direction is archived at `DESIGN-ARCHIVE-2026-05-cathedral-mint.md` and is no longer active. The canonical visual spec is now `DESIGN.md`. The v1.0 codebase shipped under the prior direction; restyling to Editorial Treasury is tracked as a separate engineering milestone.
 
 ## Core Value
 
-A visitor with no context understands what Ryan builds and why within 60 seconds — and can interact with the site to get answers in real time via the embedded chat.
+A YC partner, banker at Amalgamated, or political-ops director landing on quartermint.com understands within 30 seconds that Quartermint is the serious, modern treasury platform built for the four legal entity types political organizations actually use — and leaves with the takeaway *"this is what political ops should have had 20 years ago — finally modern."*
+
+## Audiences (priority order)
+
+1. YC partners reviewing the S26 application
+2. Amalgamated Bank distribution conversations
+3. Political ops directors / treasurers
+4. Compliance counsel and auditors
 
 ## Requirements
 
@@ -52,21 +61,22 @@ A visitor with no context understands what Ryan builds and why within 60 seconds
 
 ## Context
 
-- **Current state:** quartermint.com is live on Vercel. Next.js 16, AI SDK v6, Upstash Redis, Resend email. 5,870 LOC TypeScript, 356 tests, 107 commits. All routes: /, /invest, /privacy, /systems/[slug].
+- **Current state:** quartermint.com is live on Vercel under the prior (Cathedral Hybrid Narrative) v1.0 codebase. Next.js 16, AI SDK v6, Upstash Redis, Resend email. 5,870 LOC TypeScript, 356 tests, 107 commits. All routes: /, /invest, /privacy, /systems/[slug]. The Editorial Treasury restyle and Quartermint-the-company information architecture is a separate engineering milestone, not yet executed.
 - **Stack:** Next.js 16.2 (Turbopack), React 19, Tailwind CSS v4, AI SDK v6, @ai-sdk/anthropic, @upstash/redis + @upstash/ratelimit, Resend, React Email
 - **Infrastructure:** Vercel (hosting + cron), Cloudflare (DNS only), Upstash Redis (rate limiting + visitor state + chat logs), Resend (export + digest emails)
-- **Audiences:** (1) People who need systems Ryan builds — engaging with builder. (2) Investors/accelerators evaluating Ryan as founder via /invest route.
+- **Canonical design doc:** `DESIGN.md` (Editorial Treasury). Prior direction at `DESIGN-ARCHIVE-2026-05-cathedral-mint.md`.
 
 ## Constraints
 
 - **Solo builder**: Must ship and maintain without a team
-- **Hosting**: Vercel for v1 (chat streaming + KV out of the box). Fresh project on existing Vercel account. Cloudflare owns DNS only.
-- **Timeline**: Build immediately — not gated on May 4 YC deadline, ship as fast as possible
-- **Chat dependency**: Requires ANTHROPIC_API_KEY (existing, same key as Stripped deployment)
-- **Email dependency**: Requires Resend account for conversation export and weekly digest (chat@quartermint.com sender)
-- **Carry-over assets**: Google Calendar booking link, email address, headshot (assets/images/hero/ryan-160.png from current site)
-- **Copy quality**: Hero copy is a PRE-BUILD BLOCKER — locked in the design doc, must not ship with placeholder text
-- **Design system**: Visual system fully specified in design doc — Instrument Serif + DM Sans, mint palette, CSS custom properties only
+- **Hosting**: Vercel (existing project, chat streaming + KV out of the box). Cloudflare owns DNS only.
+- **Canonical design doc**: `DESIGN.md` (Editorial Treasury). Prior direction preserved at `DESIGN-ARCHIVE-2026-05-cathedral-mint.md`.
+- **Visual ground-truth:** `~/.gstack/projects/quartermint/designs/design-system-20260523/round3-/variant-A.png` (approved 10/10 dashboard mockup applying the Editorial Treasury system)
+- **Brand signature (non-negotiable):** Entity-geometry marks (● ◉ ▲ ■) must appear in lockup, hero proof element, section dividers, favicon, and OG images
+- **Typography**: Fraunces (display serif) + Geist (sans body), self-hosted via `next/font/google`
+- **Anti-patterns (forbidden):** purple gradients, 3-column-icon SaaS feature grids, bubble border-radius, partisan red/blue as primary, Capitol/dome/shield illustration, Inter/Roboto as primary type
+- **Chat dependency**: ANTHROPIC_API_KEY (existing, same key as Stripped deployment) — the embedded chat capability ships from v1.0 and remains
+- **Email dependency**: Resend account for conversation export and weekly digest (chat@quartermint.com sender)
 
 ## Key Decisions
 
@@ -82,6 +92,7 @@ A visitor with no context understands what Ryan builds and why within 60 seconds
 | Upstash Redis direct (not Vercel KV) | @vercel/kv deprecated, Upstash free tier no card needed | ✓ Good |
 | Lazy Resend client initialization | Avoids build crash when RESEND_API_KEY not in build env | ✓ Good |
 | proxy.ts export name `proxy` not `middleware` | Next.js 16 requirement — Turbopack rejects `middleware` export | ✓ Good |
+| **Pivot to Quartermint company site (Editorial Treasury)** — 2026-05-23 | quartermint.com is the natural home for the Quartermint-the-company brand (YC S26 pitch); founder-narrative direction outlived its purpose | Active — canonical design at `DESIGN.md`, prior direction preserved at `DESIGN-ARCHIVE-2026-05-cathedral-mint.md`; restyle is a separate engineering milestone |
 
 ## Evolution
 
@@ -101,4 +112,6 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-28 after v1.0 milestone*
+*Last updated: 2026-05-23 — pivot from "Cathedral Hybrid Narrative" personal founder site to Quartermint-the-company site under Editorial Treasury design system. Prior content (v1.0 milestone, validated requirements, key decisions) preserved above for historical record.*
+
+*Previously updated: 2026-03-28 after v1.0 milestone*

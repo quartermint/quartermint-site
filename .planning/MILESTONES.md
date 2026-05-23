@@ -1,6 +1,8 @@
 # Milestones
 
-## v1.0 Cathedral Hybrid Narrative (Shipped: 2026-03-28)
+> **Direction pivot 2026-05-23:** quartermint.com pivoted from a personal founder site (Cathedral Hybrid Narrative) to the company site for Quartermint-the-treasury-platform under the **Editorial Treasury** design system. Canonical design: `DESIGN.md`. Prior direction preserved at `DESIGN-ARCHIVE-2026-05-cathedral-mint.md`. The v1.0 milestone below shipped under the prior direction; an Editorial Treasury restyle is a separate forthcoming milestone.
+
+## v1.0 Cathedral Hybrid Narrative — PRIOR DIRECTION (Shipped: 2026-03-28, archived 2026-05-23)
 
 **Phases completed:** 5 phases, 18 plans, 25 tasks
 
