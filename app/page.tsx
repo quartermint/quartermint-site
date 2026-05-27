@@ -219,10 +219,10 @@ export default function Home() {
           <div className="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-9 lg:gap-14 items-center">
             <div className="lg:col-span-7 rounded-md overflow-hidden border border-[var(--color-rule-strong)] bg-surface">
               <Image
-                src="/images/dashboard-hero.png"
-                alt="Quartermint dashboard detail: cash position across four entities, approvals pending, recent activity with FEC transaction IDs and settlement status"
-                width={1536}
-                height={1024}
+                src="/images/recent-activity-detail.png"
+                alt="Recent Activity ledger detail: each transaction shows its entity mark, FEC transaction ID, amount in tabular numerals (italic Fraunces for negative deltas), and a hairline status tag"
+                width={920}
+                height={510}
                 className="block w-full h-auto"
               />
             </div>
