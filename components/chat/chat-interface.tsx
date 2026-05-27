@@ -240,9 +240,9 @@ export function ChatInterface() {
       {/* Subtext: privacy left, tagline right */}
       <div className="mt-3 flex items-baseline justify-between">
         <p className="font-body text-[14px] leading-[1.4] text-text-faint">
-          Messages are logged.{' '}
-          <a href="/privacy" className="underline">
-            Privacy policy
+          For questions about how messages are handled, contact{' '}
+          <a href="mailto:hello@quartermint.com" className="underline">
+            hello@quartermint.com
           </a>
         </p>
         <p className="font-body text-[14px] text-text-muted">
