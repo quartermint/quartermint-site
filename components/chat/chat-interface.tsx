@@ -74,9 +74,14 @@ export function ChatInterface() {
     if (el) el.scrollTop = el.scrollHeight
   }, [messages])
 
-  // Return focus to input when streaming completes
+  // Return focus to input when streaming completes — but NOT on initial mount
+  // (mount status is 'ready', and focusing a mid-page input scrolls the page
+  // straight to the chat section, skipping the hero).
+  const hasStreamed = useRef(false)
   useEffect(() => {
-    if (status === 'ready') {
+    if (status === 'streaming' || status === 'submitted') {
+      hasStreamed.current = true
+    } else if (status === 'ready' && hasStreamed.current) {
       inputRef.current?.focus()
     }
   }, [status])
