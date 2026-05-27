@@ -18,7 +18,7 @@ export function MessageBubble({ message }: MessageBubbleProps) {
           ? 'ml-auto max-w-[80%] bg-text text-bg font-body text-[16px] font-normal leading-[1.7] px-4 py-3 rounded-[16px_16px_4px_16px]'
           : 'mr-auto max-w-[80%] bg-surface text-text font-body text-[16px] font-normal leading-[1.7] px-4 py-3 rounded-[16px_16px_16px_4px]'
       }
-      aria-label={isUser ? 'Your message' : "Ryan's AI response"}
+      aria-label={isUser ? 'Your message' : 'Quartermint assistant response'}
     >
       {message.parts.map((part, i) => {
         if (part.type === 'text') {

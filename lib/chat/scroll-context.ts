@@ -1,5 +1,5 @@
 /**
- * Section-to-context mappings for scroll-aware chat.
+ * Section-to-context mappings for scroll-aware chat on quartermint.com v2.
  *
  * Maps IntersectionObserver section IDs to:
  * - Prompt context labels (injected into system prompt at request time)
@@ -9,10 +9,10 @@
 /** All tracked section IDs on the main page */
 export const SECTION_IDS = [
   'hero-section',
-  'featured-systems',
+  'what-is-quartermint',
+  'product-proof',
+  'distribution',
   'chat-section',
-  'origin-story',
-  'contact-section',
 ] as const
 
 /** Section context mapping: label for system prompt, chips for starter suggestions */
@@ -21,35 +21,47 @@ export const SECTION_CONTEXT_MAP: Record<
   { label: string; chips: [string, string] }
 > = {
   'hero-section': {
-    label: 'the hero introduction',
-    chips: ['How would you fix our campaign ops?', 'What have you built for PACs?'],
+    label: 'the hero with the entity-geometry proof strip',
+    chips: [
+      'What does Quartermint do?',
+      'Why entity-geometry as a brand?',
+    ],
   },
-  'featured-systems': {
-    label: 'the featured tools: Relay, Campaign Finance Dashboard, LifeVault, and whatamivotingon',
-    chips: ['Tell me about the PAC dashboard', 'How does Relay help teams?'],
+  'what-is-quartermint': {
+    label: 'the product summary covering multi-entity treasury and FEC compliance',
+    chips: [
+      'How does multi-entity treasury work?',
+      'What FEC reports are tracked?',
+    ],
+  },
+  'product-proof': {
+    label: 'the unified treasury dashboard mockup',
+    chips: [
+      'Walk me through the dashboard',
+      'How do approvals flow across entities?',
+    ],
+  },
+  'distribution': {
+    label: 'the distribution section about validation customers and bank partnerships',
+    chips: [
+      'Who is using Quartermint today?',
+      'How does the Amalgamated partnership work?',
+    ],
   },
   'chat-section': {
     label: '',
     chips: [
-      'What are you building?',
-      'How would you approach our operations challenge?',
+      'What is the YC pitch in one line?',
+      'How is Quartermint different from Mercury or NGP VAN?',
     ],
-  },
-  'origin-story': {
-    label: 'the origin story about building infrastructure',
-    chips: ["What's your campaign experience?", 'Why did you start building?'],
-  },
-  'contact-section': {
-    label: 'the contact section',
-    chips: ['How do we start working together?', 'What does an engagement look like?'],
   },
 }
 
-/** Static default chips -- campaign/advocacy focused */
+/** Static default chips */
 export const STATIC_DEFAULT_CHIPS = [
-  'How would you fix our campaign ops?',
-  'What have you built for PACs?',
-  "What's your campaign experience?",
+  'What does Quartermint do?',
+  'Who is it for?',
+  'How does the FEC compliance layer work?',
 ]
 
 /**
@@ -72,8 +84,6 @@ export function getScrollChips(section: string | null): string[] {
 
 /**
  * Get system prompt context injection for a scroll section.
- * Returns a string to append to the system prompt, or empty string
- * when no injection is appropriate.
  */
 export function getSectionPromptContext(section: string | null): string {
   if (section === null || !(section in SECTION_CONTEXT_MAP)) {
@@ -85,5 +95,5 @@ export function getSectionPromptContext(section: string | null): string {
     return ''
   }
 
-  return `\n\n[CURRENT SECTION]\nThe visitor is currently viewing ${label}. If relevant to their question, you can reference what they're looking at. Do not force it -- only mention if naturally relevant.\n[/CURRENT SECTION]`
+  return `\n\n[CURRENT SECTION]\nThe visitor is currently viewing ${label}. If relevant to their question, reference what they are looking at. Do not force it; only mention if naturally relevant.\n[/CURRENT SECTION]`
 }

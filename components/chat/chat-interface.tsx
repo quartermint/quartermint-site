@@ -101,7 +101,7 @@ export function ChatInterface() {
     <div
       className="relative mx-auto max-w-[720px] min-h-[200px] bg-bg rounded-[8px] shadow-[0_2px_8px_rgba(0,0,0,0.06)] p-4 sm:p-6"
       role="complementary"
-      aria-label="Chat with Ryan"
+      aria-label="Chat with the Quartermint assistant"
     >
       {/* Envelope icon: export conversation via email (after 3 user messages) */}
       {userMessageCount >= 3 && (
@@ -145,8 +145,11 @@ export function ChatInterface() {
       {!hasMessages && (
         <>
           <h2 className="font-display text-[24px] leading-[1.2] text-text text-center">
-            This is how I think about your problem:
+            Ask the Quartermint assistant.
           </h2>
+          <p className="font-body text-[14px] text-text-muted mt-2 text-center">
+            Product depth, FEC compliance posture, the pitch. No marketing fluff.
+          </p>
           <ReturningVisitorGreeting
             onChipsReady={setReturningVisitorChips}
           />
@@ -214,7 +217,7 @@ export function ChatInterface() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={
-            isRateLimited ? 'Message limit reached' : 'Ask about campaigns, advocacy tools, or operations...'
+            isRateLimited ? 'Message limit reached' : 'Ask about the product, entities, or FEC compliance...'
           }
           aria-label="Type your message"
           disabled={isStreaming || isRateLimited}
@@ -243,8 +246,7 @@ export function ChatInterface() {
           </a>
         </p>
         <p className="font-body text-[14px] text-text-muted">
-          We have to discover it{' '}
-          <span className="font-semibold italic text-accent">together</span>.
+          Quartermint assistant. <span className="font-semibold italic text-accent">Claude Sonnet.</span>
         </p>
       </div>
     </div>

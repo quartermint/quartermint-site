@@ -22,9 +22,25 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://quartermint.com'),
   title: 'Quartermint — Multi-Entity Treasury for Political Organizations',
   description:
-    'Brex for Public Affairs. Unified treasury operations across campaigns, PACs, JFCs, and 501(c)s — with FEC compliance built in.',
+    'Multi-entity financial infrastructure for political organizations. One ledger across campaigns, coalition PACs, JFCs, and 501(c)s, with FEC compliance built in.',
+  openGraph: {
+    title: 'Quartermint',
+    description:
+      'Multi-entity financial infrastructure for political organizations. One ledger across campaigns, coalition PACs, JFCs, and 501(c)s.',
+    url: 'https://quartermint.com',
+    siteName: 'Quartermint',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Quartermint',
+    description:
+      'Multi-entity financial infrastructure for political organizations.',
+  },
+  alternates: { canonical: 'https://quartermint.com' },
   robots: { index: false, follow: false },
 }
 
