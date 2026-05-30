@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cross-Race Cockpit — built from public FEC filings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1714; --ink-soft:#5b5249; --line:#e4ddd2; --cream:#f6f1e7; --paper:#fbf8f2;
+    --accent:#7a1f1a; --toss:#9a6a12; --good:#3a5a2c; --lean:#5b5249;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink);
+    font-family:Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; line-height:1.5; }
+  .wrap { max-width:1080px; margin:0 auto; padding:48px 28px 64px; }
+  .eyebrow { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 10px; }
+  h1 { font-family:Fraunces,serif; font-weight:600; font-size:clamp(30px,4vw,46px); line-height:1.05;
+    margin:0 0 14px; letter-spacing:-.01em; }
+  h1 em { font-style:italic; font-weight:400; }
+  .frame { font-family:Fraunces,serif; font-style:italic; font-size:18px; color:var(--ink-soft);
+    max-width:60ch; margin:0 0 6px; }
+  .frame b { color:var(--ink); font-style:normal; font-weight:600; }
+  .sources { display:flex; align-items:baseline; gap:12px; margin-top:14px; max-width:74ch; }
+  .src-lab { flex:none; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);
+    width:118px; padding-top:1px; }
+  .src-chips { font-size:13px; color:var(--ink); line-height:1.5; }
+  .sources-next { margin-top:8px; }
+  .sources-next .src-chips { color:var(--ink-soft); font-style:italic; font-family:Fraunces,serif; }
+  .rule { height:1px; background:var(--line); margin:26px 0; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px; }
+  .card { background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:22px 22px 20px;
+    box-shadow:0 1px 0 rgba(0,0,0,.02); display:flex; flex-direction:column; }
+  .card-closed { background:var(--cream); opacity:.92; }
+  .card-opp { background:#faf7f1; border-color:#e0d8ca; }
+  .card-opp .race, .card-opp .m-val { color:#4a443c; }
+  .card-opp .spark-line { stroke:#9a8f7a; }
+  .card-opp .spark-fill { fill:#9a8f7a; }
+  .card-opp .spark-dot { fill:#9a8f7a; }
+  .card-opp .fr-big { color:#8a7f6a; }
+  .card-opp .fr-fill { background:#9a8f7a; }
+  .card-opp .read { color:var(--ink-soft); }
+  .faces { font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:#9a8f7a; margin-bottom:6px; font-weight:600; }
+  .tag-opp { color:#9a8f7a; }
+  .aisle { margin:46px 0 4px; }
+  .aisle-eyebrow { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 8px; }
+  .aisle-h { font-family:Fraunces,serif; font-weight:600; font-size:26px; margin:0 0 8px; letter-spacing:-.01em; }
+  .aisle-h em { font-style:italic; font-weight:400; }
+  .aisle-sub { font-family:Fraunces,serif; font-style:italic; font-size:15px; color:var(--ink-soft); max-width:62ch; margin:0 0 22px; }
+  .card-head { display:flex; align-items:center; justify-content:space-between; }
+  .race { font-family:Fraunces,serif; font-weight:600; font-size:26px; letter-spacing:.01em; }
+  .tag { font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    padding:4px 9px; border-radius:999px; border:1px solid currentColor; }
+  .tag-toss { color:var(--toss); } .tag-lean { color:var(--lean); } .tag-closed { color:var(--ink-soft); }
+  .cand { color:var(--ink-soft); font-size:14px; margin:2px 0 16px; }
+  .metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+  .metric { display:flex; flex-direction:column; gap:3px; }
+  .m-val { font-family:Fraunces,serif; font-weight:600; font-size:22px; line-height:1; }
+  .m-val small { font-size:12px; color:var(--ink-soft); font-weight:400; }
+  .m-val.runway { font-size:14px; }
+  .m-lab { font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); }
+  .h2h { margin:14px 0 6px; padding:12px 13px; background:var(--cream); border-radius:10px; }
+  .h2h-head { font-size:11px; letter-spacing:.04em; color:var(--ink-soft); display:flex;
+    align-items:center; gap:6px; margin-bottom:9px; text-transform:uppercase; }
+  .h2h-head span { text-transform:none; letter-spacing:0; }
+  .h2h-tag { margin-left:auto; font-size:11px; font-weight:600; padding:2px 8px; border-radius:999px;
+    letter-spacing:.02em; text-transform:none; }
+  .tone-good { background:rgba(58,90,44,.13); color:var(--good); }
+  .tone-mid { background:rgba(154,106,18,.14); color:var(--toss); }
+  .tone-warn { background:rgba(122,31,26,.12); color:var(--accent); }
+  .h2h-row { display:flex; align-items:center; gap:9px; margin:4px 0; }
+  .h2h-lab { width:64px; font-size:12px; color:var(--ink); flex:none; }
+  .h2h-track { flex:1; height:9px; background:rgba(0,0,0,.05); border-radius:5px; overflow:hidden; }
+  .h2h-fill { display:block; height:100%; border-radius:5px; }
+  .h2h-fill.mine { background:var(--accent); }
+  .h2h-fill.opp { background:#b9ad99; }
+  .h2h-val { width:58px; text-align:right; font-family:Fraunces,serif; font-weight:600; font-size:13px; flex:none; }
+  .spark { width:100%; height:52px; display:block; margin-top:4px; }
+  .spark-line { fill:none; stroke:var(--accent); stroke-width:2; vector-effect:non-scaling-stroke; }
+  .spark-fill { fill:var(--accent); opacity:.08; }
+  .spark-dot { fill:var(--accent); }
+  .spark-axis { display:flex; justify-content:space-between; font-size:10px; color:var(--ink-soft);
+    letter-spacing:.04em; margin-top:2px; }
+  .fund { margin-top:16px; padding-top:14px; border-top:1px solid var(--line); }
+  .fr-grass { display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto auto;
+    column-gap:12px; align-items:center; margin-bottom:14px; }
+  .fr-big { grid-row:1 / span 2; font-family:Fraunces,serif; font-weight:600; font-size:38px; line-height:.9; color:var(--accent); }
+  .fr-glab { font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft); line-height:1.2; align-self:end; }
+  .fr-meter { grid-column:2; height:5px; border-radius:3px; background:var(--line); overflow:hidden; align-self:start; margin-top:3px; }
+  .fr-fill { display:block; height:100%; background:var(--accent); }
+  .fr-gsub { grid-column:1 / span 2; font-size:11.5px; color:var(--ink-soft); margin-top:8px; }
+  .fr-block { margin-bottom:12px; }
+  .fr-head { font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);
+    display:flex; justify-content:space-between; margin-bottom:6px; }
+  .fr-head span { font-style:italic; text-transform:none; letter-spacing:0; opacity:.8; }
+  .fr-cap { font-family:Fraunces,serif; font-weight:600; font-size:20px; margin-bottom:8px; }
+  .fr-cap small { font-family:Inter,sans-serif; font-weight:400; font-size:11.5px; color:var(--ink-soft); }
+  .fr-list { list-style:none; margin:0; padding:0; }
+  .fr-list li { display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+    padding:4px 0; border-bottom:1px dotted var(--line); }
+  .fr-list li:last-child { border-bottom:none; }
+  .d-who { display:flex; flex-direction:column; gap:1px; min-width:0; }
+  .d-name { font-weight:500; font-size:13px; color:var(--ink); }
+  .d-where { font-size:10.5px; color:var(--ink-soft); }
+  .fr-amt { font-size:12px; color:var(--ink-soft); white-space:nowrap; align-self:center; }
+  .fr-amt b { color:var(--accent); font-weight:600; }
+  .fr-geo { font-size:12px; color:var(--ink-soft); margin-top:10px; line-height:1.45; }
+  .fr-geo b { color:var(--ink); font-weight:600; }
+  .fr-gap { font-family:Fraunces,serif; font-style:italic; font-size:12.5px; color:var(--ink-soft);
+    margin-top:10px; padding-top:10px; border-top:1px dotted var(--line); line-height:1.45; }
+  .read { font-family:Fraunces,serif; font-style:italic; font-size:15px; line-height:1.5;
+    color:var(--ink); margin:16px 0 0; padding-top:14px; border-top:1px solid var(--line); }
+  .rollup { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:24px;
+    padding:20px 22px; background:var(--ink); border-radius:14px; }
+  .ru-cell { display:flex; flex-direction:column; gap:5px; }
+  .ru-cell + .ru-cell { border-left:1px solid rgba(255,255,255,.12); padding-left:18px; }
+  .ru-val { font-family:Fraunces,serif; font-weight:600; font-size:27px; line-height:1; color:var(--paper); letter-spacing:-.01em; }
+  .ru-lab { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:rgba(246,241,231,.6); }
+  .family { margin-top:48px; }
+  .fam-eyebrow { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 8px; }
+  .fam-h { font-family:Fraunces,serif; font-weight:600; font-size:24px; margin:0 0 20px; letter-spacing:-.01em; }
+  .fam-h a { color:var(--accent); text-decoration:none; border-bottom:2px solid rgba(122,31,26,.25); }
+  .fam-h a:hover { border-bottom-color:var(--accent); }
+  .fam-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+  .fam { display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto; column-gap:14px;
+    align-items:start; padding:18px; border:1px solid var(--line); border-radius:12px; background:var(--paper); }
+  .fam-this { background:var(--cream); border-style:dashed; }
+  .fam-mark { grid-row:1 / span 2; font-size:22px; color:var(--accent); line-height:1; padding-top:2px; }
+  .fam-name { font-family:Fraunces,serif; font-weight:600; font-size:16px; }
+  .fam-blurb { font-size:12.5px; color:var(--ink-soft); line-height:1.5; margin:4px 0 0; }
+  .fam-link { grid-column:2; justify-self:start; margin-top:10px; font-size:12.5px; font-weight:600;
+    color:var(--accent); text-decoration:none; }
+  .fam-link:hover { text-decoration:underline; }
+  .fam-here { grid-column:2; margin-top:10px; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-soft); }
+  footer { margin-top:44px; color:var(--ink-soft); font-size:13px; border-top:1px solid var(--line); padding-top:20px; }
+  footer .pitch { font-family:Fraunces,serif; font-style:italic; font-size:17px; color:var(--ink); margin:0 0 10px; }
+</style></head>
+<body><div class="wrap">
+  <p class="eyebrow">Multi-Candidate Strategist · Quartermint</p>
+  <h1>Your races, <em>in one view</em>.</h1>
+  <p class="frame">Every number here lives somewhere else today — a different filing, a different tab, a different tool you'd have to open and read. This pulls what's public into one calm screen. <b>The point isn't the data — it's not having to go get it.</b></p>
+  <div class="sources">
+    <span class="src-lab">Consolidated here</span>
+    <span class="src-chips">Cash &amp; burn · Opponent filings · Funding mix · Donor geography · Race ratings — all public sources.</span>
+  </div>
+  <div class="sources sources-next">
+    <span class="src-lab">Once I'm inside</span>
+    <span class="src-chips">your ActBlue &amp; email · ad platforms · polling · field &amp; vote goals · the news environment — the rest of the flood, same calm screen.</span>
+  </div>
+  
+  <div class="rollup">
+    <div class="ru-cell"><span class="ru-val">2</span><span class="ru-lab">races you advise</span></div>
+    <div class="ru-cell"><span class="ru-val">$2.42M</span><span class="ru-lab">combined cash on hand</span></div>
+    <div class="ru-cell"><span class="ru-val">1 competitive · 1 in triage</span><span class="ru-lab">competitive posture</span></div>
+  </div>
+  <div class="rule"></div>
+  <div class="grid">
+    
+    <article class="card ">
+      <header class="card-head">
+        <div class="race">VA-02</div>
+        <span class="tag tag-lean">Lean R</span>
+      </header>
+      
+      <div class="cand">Matt Strickler for Congress</div>
+      <div class="metrics">
+        <div class="metric"><span class="m-val">$167K</span><span class="m-lab">cash on hand</span></div>
+        <div class="metric"><span class="m-val">$23K<small>/mo</small></span><span class="m-lab">burn rate</span></div>
+        <div class="metric"><span class="m-val runway">7 mo · covers to Nov '26</span><span class="m-lab">runway</span></div>
+      </div>
+      
+      <div class="h2h">
+        <div class="h2h-head">vs Kiggans <span>(R · incumbent)</span>
+          <b class="h2h-tag tone-warn">18:1 behind</b></div>
+        <div class="h2h-row"><span class="h2h-lab">Strickler</span>
+          <span class="h2h-track"><span class="h2h-fill mine" style="width:6%"></span></span>
+          <span class="h2h-val">$167K</span></div>
+        <div class="h2h-row"><span class="h2h-lab">Kiggans</span>
+          <span class="h2h-track"><span class="h2h-fill opp" style="width:100%"></span></span>
+          <span class="h2h-val">$3.03M</span></div>
+      </div>
+      <svg viewBox="0 0 240 52" class="spark" preserveAspectRatio="none"><polygon points="6,46 6.0,46.0 234.0,6.0 234,46" class="spark-fill"/><polyline points="6.0,46.0 234.0,6.0" class="spark-line"/><circle cx="234.0" cy="6.0" r="3" class="spark-dot"/></svg>
+      <div class="spark-axis"><span>2025-12-31</span><span>cash trajectory</span><span>2026-03-31</span></div>
+      <div class="fund">
+      <div class="fr-grass">
+        <span class="fr-big">13%</span>
+        <span class="fr-glab">grassroots<br>small-dollar</span>
+        <span class="fr-meter"><span class="fr-fill" style="width:13%"></span></span>
+        <span class="fr-gsub">$38K small-dollar · $260K large-dollar (87%)</span>
+      </div>
+
+      <div class="fr-block">
+        <div class="fr-head">Refresh capacity<span>still has room</span></div>
+        <div class="fr-cap">$2.08M <small>unused across 334 donors not yet maxed</small></div>
+        <ul class="fr-list"><li><span class="d-who"><span class="d-name">Marni Salmon</span><span class="d-where">Lakewood, CO</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Eben Burnham Snyder</span><span class="d-where">Washington, DC</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Kurt Thimas</span><span class="d-where">Sacramento, CA</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Michael Strickler</span><span class="d-where">Lexington, VA</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li></ul>
+      </div>
+<div class="fr-geo"><b>Where it concentrates:</b> VA 44% · DC 21% · MD 7% &nbsp;|&nbsp; in-district (VA) 44%</div>
+<div class="fr-gap">Channel attribution (ads · lists · organic) and donor capacity scoring need your platform data — that's the live upgrade.</div></div>
+      <p class="read">VA-02 (Matt): $167K COH, burning ~$23K/mo, ~7 months runway — at current burn, cash carries through Election Day — room to fund a fall TV push without a cash crunch.</p>
+    </article>
+
+    <article class="card ">
+      <header class="card-head">
+        <div class="race">PA-08</div>
+        <span class="tag tag-toss">Toss-up</span>
+      </header>
+      
+      <div class="cand">Paige Cognetti for Congress</div>
+      <div class="metrics">
+        <div class="metric"><span class="m-val">$2.25M</span><span class="m-lab">cash on hand</span></div>
+        <div class="metric"><span class="m-val">$116K<small>/mo</small></span><span class="m-lab">burn rate</span></div>
+        <div class="metric"><span class="m-val runway">19 mo · covers to Nov '26</span><span class="m-lab">runway</span></div>
+      </div>
+      
+      <div class="h2h">
+        <div class="h2h-head">vs Bresnahan <span>(R · incumbent)</span>
+          <b class="h2h-tag tone-good">Dead even</b></div>
+        <div class="h2h-row"><span class="h2h-lab">Cognetti</span>
+          <span class="h2h-track"><span class="h2h-fill mine" style="width:99%"></span></span>
+          <span class="h2h-val">$2.25M</span></div>
+        <div class="h2h-row"><span class="h2h-lab">Bresnahan</span>
+          <span class="h2h-track"><span class="h2h-fill opp" style="width:100%"></span></span>
+          <span class="h2h-val">$2.27M</span></div>
+      </div>
+      <svg viewBox="0 0 240 52" class="spark" preserveAspectRatio="none"><polygon points="6,46 6.0,46.0 82.0,37.9 158.0,13.2 234.0,6.0 234,46" class="spark-fill"/><polyline points="6.0,46.0 82.0,37.9 158.0,13.2 234.0,6.0" class="spark-line"/><circle cx="234.0" cy="6.0" r="3" class="spark-dot"/></svg>
+      <div class="spark-axis"><span>2025-09-30</span><span>cash trajectory</span><span>2026-04-29</span></div>
+      <div class="fund">
+      <div class="fr-grass">
+        <span class="fr-big">15%</span>
+        <span class="fr-glab">grassroots<br>small-dollar</span>
+        <span class="fr-meter"><span class="fr-fill" style="width:15%"></span></span>
+        <span class="fr-gsub">$400K small-dollar · $2.26M large-dollar (85%)</span>
+      </div>
+
+      <div class="fr-block">
+        <div class="fr-head">Refresh capacity<span>still has room</span></div>
+        <div class="fr-cap">$6.72M <small>unused across 1,142 donors not yet maxed</small></div>
+        <ul class="fr-list"><li><span class="d-who"><span class="d-name">Prudence Beidler</span><span class="d-where">Lake Forest, IL</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Francis Beidler</span><span class="d-where">Chicago, IL</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Michelle Kimberly Mercer</span><span class="d-where">San Francisco, CA</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Bruce Golden</span><span class="d-where">San Francisco, CA</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li></ul>
+      </div>
+<div class="fr-geo"><b>Where it concentrates:</b> CA 24% · PA 20% · NY 16% &nbsp;|&nbsp; in-district (PA) 20%</div>
+<div class="fr-gap">Channel attribution (ads · lists · organic) and donor capacity scoring need your platform data — that's the live upgrade.</div></div>
+      <p class="read">PA-08 (Paige): $2.25M COH, burning ~$116K/mo, ~19 months runway — at current burn, cash carries through Election Day — room to fund a fall TV push without a cash crunch.</p>
+    </article>
+
+    <article class="card card-closed">
+      <header class="card-head">
+        <div class="race">TN-07</div>
+        <span class="tag tag-closed">Special — closed</span>
+      </header>
+      
+      <div class="cand">UNRIGGED (Aftyn Behn)</div>
+      <div class="metrics">
+        <div class="metric"><span class="m-val">$227K</span><span class="m-lab">cash on hand</span></div>
+        <div class="metric"><span class="m-val">$478K<small>/mo</small></span><span class="m-lab">burn rate</span></div>
+        <div class="metric"><span class="m-val runway">—</span><span class="m-lab">runway</span></div>
+      </div>
+      
+      <svg viewBox="0 0 240 52" class="spark" preserveAspectRatio="none"><polygon points="6,46 6.0,44.0 51.6,46.0 97.2,6.0 142.8,21.0 188.4,24.8 234.0,29.5 234,46" class="spark-fill"/><polyline points="6.0,44.0 51.6,46.0 97.2,6.0 142.8,21.0 188.4,24.8 234.0,29.5" class="spark-line"/><circle cx="234.0" cy="29.5" r="3" class="spark-dot"/></svg>
+      <div class="spark-axis"><span>2025-09-17</span><span>cash trajectory</span><span>2026-03-31</span></div>
+      
+      <p class="read">Race closed — committee winding down with $227K residual cash. A look-back on how the money moved.</p>
+    </article>
+  </div>
+  
+  <div class="aisle">
+    <p class="aisle-eyebrow">Across the aisle</p>
+    <h2 class="aisle-h">The same read, <em>on their opponents</em>.</h2>
+    <p class="aisle-sub">Every opponent's public filings, side by side — so the competitive picture is the whole board, not just your side of it.</p>
+  </div>
+  <div class="grid">
+    
+    <article class="card card-opp">
+      <header class="card-head">
+        <div class="race">VA-02</div>
+        <span class="tag tag-opp">R · Incumbent</span>
+      </header>
+      <div class="faces">▲ opponent — faces Strickler</div>
+      <div class="cand">Jen Kiggans for Congress</div>
+      <div class="metrics">
+        <div class="metric"><span class="m-val">$3.03M</span><span class="m-lab">cash on hand</span></div>
+        <div class="metric"><span class="m-val">$120K<small>/mo</small></span><span class="m-lab">burn rate</span></div>
+        <div class="metric"><span class="m-val runway">25 mo · covers to Nov '26</span><span class="m-lab">runway</span></div>
+      </div>
+      
+      <svg viewBox="0 0 240 52" class="spark" preserveAspectRatio="none"><polygon points="6,46 6.0,46.0 63.0,37.5 120.0,28.1 177.0,20.2 234.0,6.0 234,46" class="spark-fill"/><polyline points="6.0,46.0 63.0,37.5 120.0,28.1 177.0,20.2 234.0,6.0" class="spark-line"/><circle cx="234.0" cy="6.0" r="3" class="spark-dot"/></svg>
+      <div class="spark-axis"><span>2025-03-31</span><span>cash trajectory</span><span>2026-03-31</span></div>
+      <div class="fund">
+      <div class="fr-grass">
+        <span class="fr-big">29%</span>
+        <span class="fr-glab">grassroots<br>small-dollar</span>
+        <span class="fr-meter"><span class="fr-fill" style="width:29%"></span></span>
+        <span class="fr-gsub">$649K small-dollar · $1.62M large-dollar (71%)</span>
+      </div>
+
+      <div class="fr-block">
+        <div class="fr-head">Refresh capacity<span>still has room</span></div>
+        <div class="fr-cap">$3.87M <small>unused across 777 donors not yet maxed</small></div>
+        <ul class="fr-list"><li><span class="d-who"><span class="d-name">Kelly J. Mrs. Veit</span><span class="d-where">Rogers, MN</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Thomas J. Rosen</span><span class="d-where">Fairmont, MN</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Daniel Setzman</span><span class="d-where">New York, NY</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Nicole Luckey</span><span class="d-where">Costa Mesa, CA</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li></ul>
+      </div>
+<div class="fr-geo"><b>Where it concentrates:</b> VA 37% · FL 13% · TX 12% &nbsp;|&nbsp; in-district (VA) 37%</div>
+<div class="fr-gap">Channel attribution (ads · lists · organic) and donor capacity scoring need your platform data — that's the live upgrade.</div></div>
+      <p class="read">VA-02 (Jen): $3.03M COH, burning ~$120K/mo, ~25 months runway — at current burn, cash carries through Election Day — room to fund a fall TV push without a cash crunch.</p>
+    </article>
+
+    <article class="card card-opp">
+      <header class="card-head">
+        <div class="race">PA-08</div>
+        <span class="tag tag-opp">R · Incumbent</span>
+      </header>
+      <div class="faces">▲ opponent — faces Cognetti</div>
+      <div class="cand">Rob Bresnahan for Congress</div>
+      <div class="metrics">
+        <div class="metric"><span class="m-val">$2.27M</span><span class="m-lab">cash on hand</span></div>
+        <div class="metric"><span class="m-val">$146K<small>/mo</small></span><span class="m-lab">burn rate</span></div>
+        <div class="metric"><span class="m-val runway">16 mo · covers to Nov '26</span><span class="m-lab">runway</span></div>
+      </div>
+      
+      <svg viewBox="0 0 240 52" class="spark" preserveAspectRatio="none"><polygon points="6,46 6.0,46.0 51.6,42.2 97.2,36.8 142.8,27.5 188.4,7.5 234.0,6.0 234,46" class="spark-fill"/><polyline points="6.0,46.0 51.6,42.2 97.2,36.8 142.8,27.5 188.4,7.5 234.0,6.0" class="spark-line"/><circle cx="234.0" cy="6.0" r="3" class="spark-dot"/></svg>
+      <div class="spark-axis"><span>2025-03-31</span><span>cash trajectory</span><span>2026-04-29</span></div>
+      <div class="fund">
+      <div class="fr-grass">
+        <span class="fr-big">32%</span>
+        <span class="fr-glab">grassroots<br>small-dollar</span>
+        <span class="fr-meter"><span class="fr-fill" style="width:32%"></span></span>
+        <span class="fr-gsub">$557K small-dollar · $1.17M large-dollar (68%)</span>
+      </div>
+
+      <div class="fr-block">
+        <div class="fr-head">Refresh capacity<span>still has room</span></div>
+        <div class="fr-cap">$4.21M <small>unused across 829 donors not yet maxed</small></div>
+        <ul class="fr-list"><li><span class="d-who"><span class="d-name">John L. Iii Kemmerer</span><span class="d-where">Jackson, WY</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Thomas J. Rosen</span><span class="d-where">Fairmont, MN</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Kelly J. Veit</span><span class="d-where">Rogers, MN</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li>
+<li><span class="d-who"><span class="d-name">Fred Young</span><span class="d-where">Pittsburgh, PA</span></span><span class="fr-amt">gave $3,500 · <b>room $3,500</b></span></li></ul>
+      </div>
+<div class="fr-geo"><b>Where it concentrates:</b> PA 30% · FL 15% · TX 12% &nbsp;|&nbsp; in-district (PA) 30%</div>
+<div class="fr-gap">Channel attribution (ads · lists · organic) and donor capacity scoring need your platform data — that's the live upgrade.</div></div>
+      <p class="read">PA-08 (Rob): $2.27M COH, burning ~$146K/mo, ~16 months runway — at current burn, cash carries through Election Day — room to fund a fall TV push without a cash crunch.</p>
+    </article>
+  </div>
+  
+  <section class="family">
+    <p class="fam-eyebrow">One surface of four — the rest are live</p>
+    <h2 class="fam-h">See where this goes →
+      <a href="https://demos.quartermint.com" target="_blank" rel="noopener">demos.quartermint.com</a></h2>
+    <div class="fam-grid">
+      <div class="fam fam-this">
+        <span class="fam-mark">■</span>
+        <div class="fam-body"><div class="fam-name">Multi-Candidate Strategist</div>
+          <p class="fam-blurb">You're looking at the preview — the cross-race lens over your whole book.</p></div>
+        <span class="fam-here">you are here</span>
+      </div>
+      <div class="fam ">
+        <span class="fam-mark">●</span>
+        <div class="fam-body"><div class="fam-name">PAC Ops</div>
+          <p class="fam-blurb">Treasury + compliance for a committee — the surface a PAC like the one behind your TN-07 IE runs on.</p></div>
+        <a class="fam-link" href="https://pac.demos.quartermint.com" target="_blank" rel="noopener">view live →</a>
+      </div>
+      <div class="fam ">
+        <span class="fam-mark">◉</span>
+        <div class="fam-body"><div class="fam-name">Campaign Manager Ops</div>
+          <p class="fam-blurb">Finance &amp; budget ops for a single campaign. I'd love to run this for your candidates as design partners.</p></div>
+        <a class="fam-link" href="https://candidate.demos.quartermint.com" target="_blank" rel="noopener">view live →</a>
+      </div>
+      <div class="fam ">
+        <span class="fam-mark">▲</span>
+        <div class="fam-body"><div class="fam-name">Compliance Ops</div>
+          <p class="fam-blurb">What changed across every account, in one place — for the compliance side.</p></div>
+        <a class="fam-link" href="https://compliance.demos.quartermint.com" target="_blank" rel="noopener">view live →</a>
+      </div></div>
+  </section>
+  <footer>
+    <p class="pitch">This is a sliver — public filings only. Imagine your own sources flowing into the same view: the whole flood, one screen, under control.</p>
+    <p>Source: U.S. FEC — OpenFEC API (api.open.fec.gov), public filings only. Latest filings through 2026-04-29. Generated 2026-05-30.</p>
+  </footer>
+</div></body></html>
