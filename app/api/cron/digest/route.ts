@@ -25,11 +25,18 @@ export async function GET(req: Request) {
     return Response.json({ ok: false, error: 'RESEND_API_KEY not set' }, { status: 500 })
   }
 
-  try {
-    const data = await aggregateWeeklyStats()
-    const resend = new Resend(apiKey)
+  const msg = (err: unknown) => (err instanceof Error ? err.message : String(err))
 
-    const { error } = await resend.emails.send({
+  let data
+  try {
+    data = await aggregateWeeklyStats()
+  } catch (err) {
+    return Response.json({ ok: false, stage: 'aggregate', error: msg(err) }, { status: 500 })
+  }
+
+  try {
+    const resend = new Resend(apiKey)
+    const { data: sent, error } = await resend.emails.send({
       from: 'Quartermint <chat@quartermint.com>',
       to: RYAN_EMAIL,
       subject: `Quartermint weekly digest — ${data.weekOf}`,
@@ -37,11 +44,10 @@ export async function GET(req: Request) {
     })
 
     if (error) {
-      return Response.json({ ok: false, error: error.message }, { status: 502 })
+      return Response.json({ ok: false, stage: 'send', error: error.message }, { status: 502 })
     }
-    return Response.json({ ok: true, weekOf: data.weekOf, sessions: data.totalSessions })
+    return Response.json({ ok: true, id: sent?.id, weekOf: data.weekOf, sessions: data.totalSessions })
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'digest failed'
-    return Response.json({ ok: false, error: message }, { status: 500 })
+    return Response.json({ ok: false, stage: 'send', error: msg(err) }, { status: 500 })
   }
 }
