@@ -57,6 +57,22 @@ header Vercel attaches, aggregates the week via `lib/digest/aggregate.ts`, rende
 `chat@quartermint.com`). Requires `CRON_SECRET` + `RESEND_API_KEY` env vars (both in the
 Vercel project). To test locally:
 `curl -H "Authorization: Bearer $CRON_SECRET" localhost:3000/api/cron/digest`.
+To smoke-test prod: pull `CRON_SECRET` and curl `https://quartermint.com/api/cron/digest`
+with the bearer — a `{"ok":true,...}` response means aggregate + Resend send both worked.
+
+## Infra dependency — Upstash Redis (chat + digest)
+
+Both the chat widget and the digest read Redis via `Redis.fromEnv()` (`lib/chat/redis.ts`),
+which requires **`UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`**. Chat is **fail-closed**
+(`rate-limit.ts` D-09): if Redis is unreachable, chat 503s and the digest cron 500s at the
+aggregate stage.
+
+> **Gotcha (bit us 2026-05-31):** the prior Upstash DB was deleted, so those vars resolved to
+> a dead host (NXDOMAIN) — chat and digest both down. Re-provisioning via
+> `vercel integration add upstash/upstash-kv` writes **`KV_*`-prefixed** env vars
+> (`KV_REST_API_URL`, `KV_REST_API_TOKEN`), NOT `UPSTASH_REDIS_REST_*`. After provisioning you
+> MUST copy those values into `UPSTASH_REDIS_REST_URL`/`_TOKEN` (what the app reads) and
+> redeploy — env changes only apply to new deployments. Current DB: `prompt-adder-140422`.
 <!-- GSD:project-end -->
 
 <!-- GSD:conventions-start source:CONVENTIONS.md -->
