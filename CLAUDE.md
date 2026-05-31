@@ -48,12 +48,15 @@ Brand signature: italic Fraunces accent + the four-mark entity geometry (● ◉
 SVG in `components/brand/entity-mark.tsx` (not unicode glyphs). Palette: Ledger Green
 `#0F3D2E` / Parchment `#FAF7EF` / Ink (dark) / Aged Gold `#B8893A`.
 
-## Known issue
+## Weekly digest cron
 
-`vercel.json` declares a weekly cron `/api/cron/digest` (Mon 09:00 UTC), but that route does
-NOT exist (`app/api/` has only `chat/` and `lm/`) — the cron currently 404s. Either build
-`app/api/cron/digest/route.ts` or remove the cron from `vercel.json`. The digest *library*
-code exists at `lib/digest/`.
+`vercel.json` declares a weekly cron `/api/cron/digest` (Mon 09:00 UTC). The route
+(`app/api/cron/digest/route.ts`) authenticates the `Authorization: Bearer ${CRON_SECRET}`
+header Vercel attaches, aggregates the week via `lib/digest/aggregate.ts`, renders
+`lib/email/digest-template.tsx`, and sends to `ryan@quartermint.com` via Resend (sender
+`chat@quartermint.com`). Requires `CRON_SECRET` + `RESEND_API_KEY` env vars (both in the
+Vercel project). To test locally:
+`curl -H "Authorization: Bearer $CRON_SECRET" localhost:3000/api/cron/digest`.
 <!-- GSD:project-end -->
 
 <!-- GSD:conventions-start source:CONVENTIONS.md -->

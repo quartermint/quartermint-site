@@ -62,5 +62,8 @@ Hosted on **Vercel**, project `quartermint-site` under the **qm-r** team (orgId
 `team_EaQ0BFmeVJnHqxocLMsFfCeX` — **not** the `ryan-5143-stripe` team). Cloudflare owns DNS
 only. Pushes to `main` deploy via the Vercel Git integration.
 
-`vercel.json` declares a weekly digest cron (`/api/cron/digest`, Mondays 09:00 UTC).
-> ⚠ The `/api/cron/digest` route is **not currently implemented** — the cron 404s until built.
+`vercel.json` declares a weekly digest cron (`/api/cron/digest`, Mondays 09:00 UTC). The
+route (`app/api/cron/digest/route.ts`) aggregates the week's analytics and emails the digest
+to `ryan@quartermint.com` via Resend. It requires the `CRON_SECRET` and `RESEND_API_KEY` env
+vars (both already set in the Vercel project) — Vercel attaches the bearer token automatically
+on cron invocations.
