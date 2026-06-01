@@ -1,26 +1,34 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// Password gate for the /lm strategist preview (shared with Bella for copy review).
-// No username — a single shared password validated by /api/lm, which sets this cookie.
-const COOKIE = 'lm_access'
-const TOKEN = 'granted'
+// Password gates for private previews. Each gate has its own cookie and its own
+// gate page (which renders the password form and is always reachable).
+//   /lm  -> strategist preview (shared with Bella for copy review)
+//   /fi  -> FI Epic Sprint deck
+const GATES: { prefix: string; cookie: string; token: string }[] = [
+  { prefix: '/lm', cookie: 'lm_access', token: 'granted' },
+  { prefix: '/fi', cookie: 'fi_access', token: 'granted' },
+]
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
 
-  // The gate page itself is always reachable (it renders the password form).
-  if (pathname === '/lm') return NextResponse.next()
+  for (const gate of GATES) {
+    // The gate page itself is always reachable (it renders the password form).
+    if (pathname === gate.prefix) return NextResponse.next()
+    // Protected assets under the prefix require the cookie.
+    if (pathname.startsWith(gate.prefix + '/')) {
+      if (req.cookies.get(gate.cookie)?.value === gate.token) return NextResponse.next()
+      const url = req.nextUrl.clone()
+      url.pathname = gate.prefix
+      url.search = ''
+      return NextResponse.redirect(url)
+    }
+  }
 
-  // Protected assets under /lm/* (the demo HTML) require the cookie.
-  if (req.cookies.get(COOKIE)?.value === TOKEN) return NextResponse.next()
-
-  const url = req.nextUrl.clone()
-  url.pathname = '/lm'
-  url.search = ''
-  return NextResponse.redirect(url)
+  return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/lm/:path*'],
+  matcher: ['/lm/:path*', '/fi/:path*'],
 }
