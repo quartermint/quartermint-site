@@ -227,8 +227,9 @@ const SLIDES = [
   left:'Solution', right:'Competition',
   count:'4 / 8',
   render:`<div class="s-pad">
-    <div class="s-kicker">Solution &nbsp;·&nbsp; Competition</div>
-    <div class="s-title">One login, every entity, filing baked in. And a bank will not build this.</div>
+    <div class="s-kicker">Solution &nbsp;·&nbsp; The landscape</div>
+
+    <div class="s-title">One login, every entity, filing baked in. Treasury-first, where no one else is.</div>
     <div class="s-cols">
       <div class="s-col"><div class="col-label">The solution</div>
         <ul class="s-list">
@@ -237,11 +238,11 @@ const SLIDES = [
           <li><b>Compliance engine.</b> FEC, 50-state, IRS.</li>
         </ul>
       </div>
-      <div class="s-col"><div class="col-label">Why not a bank</div>
+      <div class="s-col"><div class="col-label">The landscape</div>
         <ul class="s-list">
-          <li>Banks avoid the regulated niche.</li>
-          <li>We are the layer on top. No charter needed.</li>
-          <li class="dim">CapCom: a clunky monopoly.</li>
+          <li>Filing tools exist, all fundraising-CRM-first with compliance bolted on.</li>
+          <li><b>None is treasury-first.</b> None starts at the bank.</li>
+          <li class="dim">And none comes through the bank or the operator who picks the stack.</li>
         </ul>
       </div>
     </div>
@@ -249,9 +250,9 @@ const SLIDES = [
   </div>`,
   time:'1:05',
   notes:{
-    points:[`One login, every entity, filing baked in`,`A bank will not build this, and here is why`,`We do not need a charter, we are the layer on top`],
-    script:`The solution is one login across every entity, with filing baked in. It is an overlay that sits on top of the bank and the bookkeeping, gives you inbound alerts and real-time balances, reconciles across affiliated entities, and runs the FEC, fifty-state, and IRS rules for you. Now the question I always get: why would a bank not just build this. Brex and Mercury are software peddlers partnered with a small bank. None of them will build regulated filing software for a political niche they avoid for liability reasons. And we do not need a banking charter, because we are the software layer on top, which is how we move fast where they cannot. The only real incumbent, CapCom, is a clunky monopoly that has not innovated in years.`,
-    source:`"Brex is software... software peddlers that partner with some local little bank": Ryan verbatim (voice memo 20260330 201330:127-159). "Why not a bank" = #1 mentor objection (MIR). CapCom = clunky monopoly: operator call 20260530 121804.`
+    points:[`One login, every entity, filing baked in`,`Filing tools exist; all are fundraising-first`,`We are the only treasury-first, bank-distributed one`],
+    script:`The solution is one login across every entity, with filing baked in. It sits on top of the bank, gives you inbound alerts and real-time balances, reconciles across affiliated entities, and runs the FEC, fifty-state, and IRS rules for you. I want to be honest about the landscape, because there are real tools here. The incumbents file. But every one of them is a fundraising CRM with compliance bolted on. None of them starts at the bank, the way we do, and none of them comes through the two channels that actually decide what a committee uses: the deposit bank, and the operator who picks the stack. That is the lane no one is in.`,
+    source:`Competitive scan (Jun 1) + Lora confirmation: ISPolitical, NGP/Bonterra, Campaign Deputy all file; all fundraising-CRM-first; none bank-distributed or treasury-first. Anonymized per voice rule. Replaces the earlier (incorrect) "no real competitor / banks won't build it" framing.`
   }
 },
 {
@@ -268,6 +269,7 @@ const SLIDES = [
           <li><b>3. It reconciles.</b> Flags real mismatches.</li>
           <li><b>4. It drafts.</b> A human signs.</li>
         </ul>
+        <div class="pull" style="margin-top:auto">One filing went from 30+ hours across three tools and a handoff, to minutes.</div>
       </div>
       <div class="s-col"><div class="col-label">Team</div>
         <ul class="s-list">
@@ -281,8 +283,8 @@ const SLIDES = [
   </div>`,
   time:'1:10',
   notes:{
-    points:[`Walk the four steps as one real flow`,`Enriches and reconciles on its own, privately`,`A human always signs the actual filing`],
-    script:`Here is how it works in the wild, in four steps. Money lands. A check or a wire or an ACH hits the account, and the operator gets an alert. The system enriches it. It reads the check and looks up the missing donor address against state registries, and it does that on the operator's own machine so the financial data never leaves. It reconciles. It matches every transaction against the operator's own records and flags the real mismatches. And it drafts the filing, record by record, the way you would type it yourself, so a human can review and sign. On the team: I have spent my career inside political operations, and this product was shaped by running real filings, not by imagining a roadmap. The honest gap I am closing is turning what I run into something that runs without me.`,
+    script:`Here is how it works in the wild, in four steps. Money lands, the operator gets an alert. The system enriches it, reading the check and looking up the missing donor address against state registries, on the operator's own machine so the data never leaves. It reconciles against the operator's own records and flags the real mismatches. And it drafts the filing, record by record, so a human reviews and signs. Here is why anyone switches: today that one filing is thirty to forty hours across three tools that each do one piece and won't touch the others, plus a handoff to a specialist. We collapse it to minutes. When a design partner saw her own thirty-hour filing become minutes, that was the moment she got it. On the team: I have spent my career inside political operations, and this was shaped by running real filings, not a roadmap. The honest gap I am closing is making it run without me.`,
+    points:[`Walk the four steps as one real flow`,`Why switch: 30+ hours becomes minutes`,`A human always signs the actual filing`],
     source:`4-step flow: JR live screen-share (voice memo 5/13) - check vs wire metadata, on-device OCR/registry lookup, auto-reconciliation flagging Bernstein/Southern Mgmt. Human-gated submit: YC update. Founder-market fit, no year-counts: voice rule.`
   }
 },
@@ -291,14 +293,14 @@ const SLIDES = [
   count:'6 / 8',
   render:`<div class="s-pad">
     <div class="s-kicker">Market size &nbsp;·&nbsp; Advisors</div>
-    <div class="s-title">25,000 entities rebuild this every cycle. We have a credible path to $50M ARR.</div>
+    <div class="s-title">25,000 entities rebuild this every cycle. The recurring revenue compounds with incumbency.</div>
     <div class="s-cols">
       <div class="s-col"><div class="col-label">Market (bottoms-up)</div>
         <ul class="s-list">
           <li><b>8,000</b> FEC committees</li>
           <li><b>12,000</b> state and local PACs</li>
           <li><b>5,000</b> advocacy entities</li>
-          <li class="dim">25,000 total. $50M ARR at ~16% (estimate).</li>
+          <li class="dim">Campaigns are run-rate; winners recur (reelection + JFC + leadership PAC). ~$50M at ~16% (estimate).</li>
         </ul>
       </div>
       <div class="s-col"><div class="col-label">Advisors</div>
@@ -312,8 +314,8 @@ const SLIDES = [
   </div>`,
   time:'0:55',
   notes:{
-    points:[`Bottoms-up: 25,000 entities`,`$50M ARR is an estimate, said honestly`,`Advisor bench is in progress`],
-    script:`The market, bottoms-up: about eight thousand FEC committees, twelve thousand state and local PACs, and five thousand advocacy entities. Call it twenty-five thousand organizations, and that is before the 2028 cycle expands the count. At roughly sixteen percent penetration that is a fifty-million-dollar revenue path, and I want to be clear that is an estimate, not a promise. On advisors, I am building the bench deliberately, four seats: fintech and compliance, banking distribution, growth, and fundraising. I am converting working design partners into formal advisors this quarter.`,
+    points:[`Bottoms-up: 25,000 entities`,`Run-rate from campaigns, recurring from winners`,`Advisor bench is in progress`],
+    script:`The market, bottoms-up: about eight thousand FEC committees, twelve thousand state and local PACs, and five thousand advocacy entities. Twenty-five thousand organizations, before 2028 expands the count. One honest distinction on revenue: a campaign is run-rate, it ends on election day. The recurring revenue starts when they win, because an incumbent keeps a reelection committee, a joint-fundraising committee, and a leadership PAC, and the more complex they get the more they pay. With a ninety-nine percent incumbency rate, the winners compound. At roughly sixteen percent penetration that is a fifty-million-dollar path, and that is an estimate, not a promise. On advisors, I am building the bench deliberately and converting design partners into formal advisors this quarter.`,
     source:`TAM math: MIR deck slide 6 (mark as estimate). Advisor buckets: MIR/AeroForge advisor framing. Keep humble per voice rule.`
   }
 },
@@ -441,9 +443,9 @@ const SLIDES = [
     <div class="s-title" style="font-size:2.3vw;margin-bottom:.6em">Every objection from MIR and mentors, addressed.</div>
     <div class="fb-grid">
       <div class="fb"><span class="o">"Most opaque presentation. I didn't know what the product was until pricing."</span> <span class="a">Cover now leads with live production proof; pricing is explicit on slide 8.</span></div>
-      <div class="fb"><span class="o">"Why wouldn't a bank just build this?"</span> <span class="a">Answered head-on, slide 4: banks avoid regulated niche filing and its liability.</span></div>
+      <div class="fb"><span class="o">"Who actually competes / why won't incumbents win?"</span> <span class="a">Answered head-on, slide 4: real tools exist but all are fundraising-first; none is treasury-first or bank-distributed.</span></div>
       <div class="fb"><span class="o">"Who is the actual customer?"</span> <span class="a">Named: the compliance operator and the committee. Bank is distribution, not buyer.</span></div>
-      <div class="fb"><span class="o">"How does pricing work?"</span> <span class="a">Per committee, per month, at incumbent parity. Grounded in a real operator's economics.</span></div>
+      <div class="fb"><span class="o">"How does pricing work?"</span> <span class="a">$1,000 per committee per month, a deliberate undercut of the $2,500 retainer. Grounded in a real operator's economics.</span></div>
       <div class="fb"><span class="o">Jeni: "This is a service-to-product transition."</span> <span class="a">Embraced: we lead with production usage and the honest operator-to-product gap.</span></div>
       <div class="fb"><span class="o">"Strip the jargon; show it in the wild."</span> <span class="a">Slide 5 is a four-step plain-language walkthrough of a real filing.</span></div>
       <div class="fb"><span class="o">Lucas: "Thin wrapper is dead; you have ~6 months."</span> <span class="a">Why-now is a land grab; the moat is filing history, slide 7.</span></div>
