@@ -4,10 +4,9 @@ import type { NextRequest } from 'next/server'
 // Password gates for private previews. Each gate has its own cookie and its own
 // gate page (which renders the password form and is always reachable).
 //   /lm  -> strategist preview (shared with Bella for copy review)
-//   /fi  -> FI Epic Sprint deck
+// (/fi gate removed 2026-06-01 — FI Epic Sprint deck is now public/shareable.)
 const GATES: { prefix: string; cookie: string; token: string }[] = [
   { prefix: '/lm', cookie: 'lm_access', token: 'granted' },
-  { prefix: '/fi', cookie: 'fi_access', token: 'granted' },
 ]
 
 export function middleware(req: NextRequest) {
@@ -30,5 +29,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/lm/:path*', '/fi/:path*'],
+  matcher: ['/lm/:path*'],
 }
