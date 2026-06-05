@@ -30,7 +30,7 @@ Quartermint encodes legal entity types as a four-mark geometric system. **This i
 | Mark | Entity type | Notes |
 |------|-------------|-------|
 | ● | Campaign | Filled circle |
-| ◉ | Coalition PAC | Concentric circles (two rings) |
+| ◆ | Coalition PAC | Filled diamond (four distinct shapes — no two in the same family) |
 | ▲ | JFC (Joint Fundraising Committee) | Filled triangle |
 | ■ | 501(c)(3) / 501(c)(4) | Filled square |
 
@@ -171,7 +171,7 @@ xl   32px    Section padding
 - **Max content width:** 1200px outer
 - **Reading column:** 680px for body text (editorial reading width)
 - **Vertical rhythm:** 32 / 48 / 64 / 96 between sections
-- **Hero:** massive Fraunces headline (opsz-144 if it's a number, opsz-72 if it's a phrase) + Geist subhead + the entity-geometry strip (● ◉ ▲ ■) prominently displayed as proof of breadth
+- **Hero:** massive Fraunces headline (opsz-144 if it's a number, opsz-72 if it's a phrase) + Geist subhead + the entity-geometry strip (● ◆ ▲ ■) prominently displayed as proof of breadth
 - **Hero photography:** the product dashboard mockup IS the hero. Use `~/.gstack/projects/quartermint/designs/design-system-20260523/round3-/variant-A.png` until a current rebuild ships. No stock photography. No generated illustrations.
 - **Section heads:** Fraunces with the decorative serif dot-rule beneath
 - **Border radius:** `sm:2px` (inputs/tags), `md:4px` (cards/buttons), `lg:6px` (modals). **Never bubble radius.**
@@ -251,6 +251,6 @@ The previous direction is preserved in `DESIGN-ARCHIVE-2026-05-cathedral-mint.md
 |------|----------|-----------|
 | 2026-05-23 | Editorial Treasury direction locked for the company site | Unclaimed aesthetic space between fintech (Mercury/Brex/Ramp) and political tech (ActBlue/WinRed/NGP VAN). Bipartisan by construction. Calibrated for YC / Amalgamated / political-ops audiences. |
 | 2026-05-23 | Cathedral Hybrid Narrative + mint palette retired | Archived in `DESIGN-ARCHIVE-2026-05-cathedral-mint.md`. May resurface if a separate personal site is spun out to its own domain. |
-| 2026-05-23 | Entity-geometry mark system ● ◉ ▲ ■ adopted as brand signature | The brand the way Mercury's weight-420 is theirs. Propagates everywhere. |
+| 2026-05-23 | Entity-geometry mark system ● ◆ ▲ ■ adopted as brand signature | The brand the way Mercury's weight-420 is theirs. Propagates everywhere. |
 | 2026-05-23 | Italic-Fraunces for negative deltas | Signature move. Solves loss-vs-gain readability with type, not color. |
 | 2026-05-23 | Visual ground-truth approved: round3-A | `~/.gstack/projects/quartermint/designs/design-system-20260523/round3-/variant-A.png` |

@@ -44,7 +44,8 @@ Full stack-selection rationale (alternatives, migration notes, sources) is archi
 
 `DESIGN.md` is canonical. The prior "Cathedral mint" direction (Instrument Serif + DM Sans +
 mint) is archived in `DESIGN-ARCHIVE-2026-05-cathedral-mint.md` and must not be reintroduced.
-Brand signature: italic Fraunces accent + the four-mark entity geometry (● ◉ ▲ ■) rendered as
+Brand signature: italic Fraunces accent + the four-mark entity geometry (● ◆ ▲ ■ —
+Campaign / Coalition PAC / JFC / 501c, four distinct shapes) rendered as
 SVG in `components/brand/entity-mark.tsx` (not unicode glyphs). Palette: Ledger Green
 `#0F3D2E` / Parchment `#FAF7EF` / Ink (dark) / Aged Gold `#B8893A`.
 

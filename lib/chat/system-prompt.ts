@@ -19,7 +19,7 @@ Quartermint is multi-entity financial infrastructure for political organizations
 
 The four entity types we serve (the brand-signature entity-geometry system):
 - Campaign (●)
-- Coalition PAC (◉)
+- Coalition PAC (◆)
 - Joint Fundraising Committee / JFC (▲)
 - 501(c)(3) and 501(c)(4) (■)
 

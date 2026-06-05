@@ -39,10 +39,9 @@ export default function OpenGraphImage() {
             <svg width="28" height="28" viewBox="0 0 16 16">
               <circle cx="8" cy="8" r="5.5" fill={PRIMARY} />
             </svg>
-            {/* ◉ Coalition PAC */}
+            {/* ◆ Coalition PAC */}
             <svg width="28" height="28" viewBox="0 0 16 16">
-              <circle cx="8" cy="8" r="6.25" fill="none" stroke={PRIMARY} strokeWidth="1.5" />
-              <circle cx="8" cy="8" r="2.75" fill={PRIMARY} />
+              <polygon points="8,1.75 14.25,8 8,14.25 1.75,8" fill={PRIMARY} />
             </svg>
             {/* ▲ JFC */}
             <svg width="28" height="28" viewBox="0 0 16 16">

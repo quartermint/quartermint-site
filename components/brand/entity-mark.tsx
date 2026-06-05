@@ -29,9 +29,12 @@ const TYPE_LABEL: Record<EntityType, string> = {
  * EntityMark — the brand-signature geometric mark for an entity type.
  *
  *   ●  Campaign            (filled circle)
- *   ◉  Coalition PAC       (concentric circles)
+ *   ◆  Coalition PAC       (filled diamond)
  *   ▲  JFC                 (filled triangle)
  *   ■  501(c)(3) / (c)(4)  (filled square)
+ *
+ * Four distinct shapes — no two marks share a family (Coalition PAC was formerly a
+ * concentric-circle ◉, too close to Campaign's ● at small sizes).
  *
  * Rendered as an SVG (not a unicode glyph) so weight, alignment, and
  * optical size stay consistent across fonts and platforms.
@@ -66,17 +69,7 @@ export function EntityMark({
         <circle cx="8" cy="8" r="5.5" fill="currentColor" />
       )}
       {type === 'coalition-pac' && (
-        <>
-          <circle
-            cx="8"
-            cy="8"
-            r="6.25"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.25"
-          />
-          <circle cx="8" cy="8" r="2.75" fill="currentColor" />
-        </>
+        <polygon points="8,1.75 14.25,8 8,14.25 1.75,8" fill="currentColor" />
       )}
       {type === 'jfc' && (
         <polygon points="8,1.75 14.25,13 1.75,13" fill="currentColor" />
