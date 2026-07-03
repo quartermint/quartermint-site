@@ -46,23 +46,18 @@ export default function Home() {
           Treasury and reconciliation software for campaigns, advocacy
           organizations, and the money that moves around them.
         </p>
-
-        <div className="mt-[52px] h-px w-full max-w-[640px] bg-[var(--color-rule)]" />
-        <a
-          href="mailto:hello@quartermint.com"
-          className="mt-7 self-start font-mono text-[14px] text-primary border-b border-[var(--color-rule-strong)] pb-0.5 transition-colors hover:border-[var(--color-accent)]"
-        >
-          hello@quartermint.com
-        </a>
       </main>
 
       <footer className="mx-auto w-full max-w-[1200px] px-7 sm:px-12 lg:px-[120px] py-[22px] flex items-center justify-between gap-4 border-t border-[var(--color-rule)]">
         <span className="font-display font-medium text-[15px] text-primary">
           Quartermint
         </span>
-        <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-text-faint">
+        <a
+          href="mailto:hello@quartermint.com"
+          className="font-mono text-[11px] tracking-[0.18em] uppercase text-text-faint no-underline transition-colors hover:text-text"
+        >
           Available by introduction
-        </span>
+        </a>
       </footer>
     </div>
   )
