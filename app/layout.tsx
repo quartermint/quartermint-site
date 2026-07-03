@@ -21,24 +21,24 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 })
 
+const SITE_DESCRIPTION =
+  'Treasury and reconciliation software for campaigns, advocacy organizations, and the money that moves around them.'
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://quartermint.com'),
-  title: 'Quartermint — Multi-Entity Treasury for Public Affairs',
-  description:
-    'Cashflow infrastructure for the applications political pros actually run. One ledger across campaigns, coalition PACs, joint fundraising committees, and 501(c)s, with donor enrichment and filings built in.',
+  title: 'Quartermint',
+  description: SITE_DESCRIPTION,
   openGraph: {
-    title: 'Quartermint — Multi-Entity Treasury for Public Affairs',
-    description:
-      'Cashflow infrastructure for the applications political pros actually run. One ledger across campaigns, coalition PACs, JFCs, and 501(c)s.',
+    title: 'Quartermint',
+    description: SITE_DESCRIPTION,
     url: 'https://quartermint.com',
     siteName: 'Quartermint',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Quartermint — Multi-Entity Treasury for Public Affairs',
-    description:
-      'Cashflow infrastructure for the applications political pros actually run.',
+    title: 'Quartermint',
+    description: SITE_DESCRIPTION,
   },
   alternates: { canonical: 'https://quartermint.com' },
   robots: { index: false, follow: false },

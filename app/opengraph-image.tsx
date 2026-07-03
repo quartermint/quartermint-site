@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Quartermint — Multi-Entity Treasury for Political Organizations'
+export const alt = 'Quartermint'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -89,7 +89,8 @@ export default function OpenGraphImage() {
               maxWidth: 920,
             }}
           >
-            Multi-entity financial infrastructure for political organizations.
+            Treasury and reconciliation software for campaigns, advocacy
+            organizations, and the money that moves around them.
           </div>
         </div>
 
@@ -106,7 +107,7 @@ export default function OpenGraphImage() {
             fontFamily: 'sans-serif',
           }}
         >
-          <div>Campaign · Coalition PAC · JFC · 501(c)</div>
+          <div>By introduction</div>
           <div style={{ color: TEXT }}>quartermint.com</div>
         </div>
       </div>
