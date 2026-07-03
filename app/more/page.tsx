@@ -215,10 +215,10 @@ export default function More() {
           </h2>
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-9 lg:gap-20">
             <p className="font-body text-[17px] leading-[1.7] text-text">
-              The first customer is the compliance consultant running a book of clients. Win one, and you reach the twenty committees they carry. The second is the solo operator running a PAC without a back office.
+              Quartermint is for the compliance consultant carrying a book of committees, and for the solo operator running a PAC without a back office. Both already do this work by hand, and do it well.
             </p>
             <p className="font-body text-[17px] leading-[1.7] text-text">
-              These are not people who want to learn new software. They are people who have perfected a twenty-year process on a bank portal, a spreadsheet, and a filing tool. Quartermint is that process, digitized. You are the market, digitizing yourself.
+              Neither of them wants to learn new software. They have perfected a twenty-year process on a bank portal, a spreadsheet, and a filing tool. Quartermint is that process, digitized. You are the market, digitizing yourself.
             </p>
           </div>
         </div>
