@@ -232,7 +232,7 @@ export default function More() {
             Why now.
           </h2>
           <p className="mt-10 font-body text-[17px] leading-[1.7] text-text max-w-[62ch]">
-            The tool most of the field was built on has changed hands. When NGP VAN was acquired, the incumbent that political infrastructure quietly depended on became something operators no longer trust by default. They are running searches for a replacement, and money is moving to fund one. Everyone is racing to rebuild the fundraising CRM. Quartermint is building the treasury layer underneath it, which nobody else is doing.
+            The tool most of the field was built on has changed hands. When NGP VAN was acquired, the incumbent that political infrastructure quietly depended on became something operators no longer trust by default. They are running searches for a replacement, and money is moving to fund one. Everyone is racing to rebuild the fundraising CRM. Quartermint is building the treasury layer underneath it.
           </p>
         </div>
       </section>
