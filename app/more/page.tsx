@@ -48,16 +48,16 @@ const CASCADE = [
 ]
 
 const PROOF = [
-  'A statewide committee has run treasury and compliance in production for months: one quarterly and three 48-hour reports this cycle, each drafted automatically and submitted by a human.',
+  'A state independent expenditure committee has run treasury and compliance to reconcile and file nearly a dozen reports this cycle, each drafted automatically and submitted by a human.',
   'On a live congressional campaign, the pre-filing review surfaced fourteen issues before the report opened, including one donor over the contribution limit. Each flag was resolved from a queue, on real bank data.',
   'About ten hours of manual work per filing, compressed to roughly one.',
-  'Quartermint found and reported a bug in a state’s new filing system. Their own IT team confirmed it.',
+  'Quartermint found and reported a bug in a state’s new filing system. Their own IT team confirmed it, and is working with Quartermint to find and solve their problem.',
 ]
 
 const DIFF = [
-  { k: 'Fundraising CRMs', v: 'NGP VAN and its successor start from the donor database. The books and the filing are bolted on. The money position is never the first thing you see.' },
-  { k: 'Treasury tools', v: 'Warchest is the closest on treasury, but it depends on manual double entry. The moment one number changes somewhere else, the whole picture is wrong.' },
-  { k: 'Managed services', v: 'Compliance firms will do the filing for you, by hand, for a retainer. That is the work Quartermint automates, for the firms themselves.' },
+  { k: 'Fundraising-first software', v: 'Most committee tools start from the donor database. The books and the filing are bolted on afterward, and the money position is never the first thing you see.' },
+  { k: 'Treasury and budgeting tools', v: 'The tools that do touch treasury depend on manual double entry. The moment one number changes somewhere else, the whole picture is quietly wrong.' },
+  { k: 'The people who do it by hand', v: 'The best compliance operators already do all of this manually, and do it well. Quartermint is their leverage: the same judgment, running across thirty committees instead of three.' },
 ]
 
 export default function More() {
@@ -111,7 +111,7 @@ export default function More() {
               The bank, the fundraising platform, the books, and the filing tool. Each one holds a piece of the truth, and none of them agree. Reconciling them is a person&rsquo;s job, and that person is usually a consultant at 11pm before a deadline, stitching it together by hand.
             </p>
             <p className="font-body text-[17px] leading-[1.7] text-text">
-              We call it the midnight spreadsheet. It does not scale, it breaks when the person who built it is busy, and the penalty for getting it wrong can land on a treasurer personally, years after the committee has spent its last dollar.
+              We call it the midnight spreadsheet scramble. It does not scale, it breaks when the person holding the receipt is out with the candidate, and the penalty for getting it wrong can land on a treasurer personally, years after the committee has spent its last dollar.
             </p>
           </div>
         </div>
@@ -121,15 +121,15 @@ export default function More() {
       <section className="border-b border-[var(--color-rule)]">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-16 lg:py-24">
           <DotRule />
-          <h2 className="mt-4 font-display font-medium text-[32px] sm:text-[40px] lg:text-[46px] leading-[1.06] tracking-[-0.014em] text-text max-w-[16ch]">
-            It is an automation, not AI.
+          <h2 className="mt-4 font-display font-medium text-[32px] sm:text-[40px] lg:text-[46px] leading-[1.06] tracking-[-0.014em] text-text">
+            It is an automation,<br /><span className="whitespace-nowrap">not AI.</span>
           </h2>
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-9 lg:gap-20">
             <p className="font-body text-[17px] leading-[1.7] text-text">
-              Dollar in, dollar reported. Quartermint reconciles every transaction deterministically and drafts the filing underneath it. No model deciding what your numbers are, and nothing you cannot audit line by line.
+              Dollar in, dollar out, dollar reported. Quartermint reconciles every transaction deterministically and drafts the filing underneath it. No model deciding what your numbers are, and nothing you cannot audit line by line.
             </p>
             <p className="font-body text-[17px] leading-[1.7] text-text">
-              The hero number is the true zero: cash on hand, minus the money that is segregated or already committed, plus the inbound you can trust. It answers the only question an operator asks on a Monday morning, which is how much can I actually spend. There is a natural-language layer on top if you want to ask questions, but the crux is the automation.
+              The hero number is the true zero: not the bank balance, but what you can safely commit once the timing is sequenced. What is coming in, what is going out, and when. You can spend on a Friday because the money you are counting on lands before next Friday&rsquo;s bills are due. It is the answer to the only question an operator asks on a Monday: how much can I actually spend. There is a natural-language layer on top if you want to ask questions, but the crux is the automation.
             </p>
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function More() {
               When a coalition PAC drops <em className="font-display italic">$10,000</em> on an independent expenditure in Maryland, the filing it triggers is not just that $10,000. It is every other transaction the committee has run since the last report. The IE is the headline. The supporting cast is the work.
             </p>
             <p className="font-body text-[17px] leading-[1.7] text-text">
-              Today that supporting cast gets built at 11pm by a treasurer making chase calls for an employer and a ZIP code. Quartermint finds the data before the trigger fires, so when the report opens, the filing is already underneath it.
+              Today that supporting cast gets built at 11pm by a treasurer making chase calls for an employer and an address. Quartermint finds the data before the trigger fires, so when the report opens, the filing is already underneath it.
             </p>
           </div>
 
