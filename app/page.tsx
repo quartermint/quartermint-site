@@ -30,17 +30,12 @@ export default function Home() {
   return (
     <div style={PARCHMENT} className="min-h-screen flex flex-col bg-bg text-text">
       <main className="flex-1 flex flex-col justify-center mx-auto w-full max-w-[1200px] px-7 sm:px-12 lg:px-[120px]">
-        {/* Eyebrow: entity marks as quiet visual texture + wordmark */}
-        <div className="flex items-center gap-3 mb-14">
-          <div className="flex items-center gap-3" aria-hidden="true">
-            <EntityMark type="campaign" size={15} tone="primary" />
-            <EntityMark type="coalition-pac" size={15} tone="primary" />
-            <EntityMark type="jfc" size={15} tone="primary" />
-            <EntityMark type="501c" size={15} tone="primary" />
-          </div>
-          <span className="ml-1.5 font-mono text-[12px] tracking-[0.28em] uppercase text-text-muted">
-            Quartermint
-          </span>
+        {/* Eyebrow: entity marks only — the wordmark lives once, in the footer */}
+        <div className="flex items-center gap-3 mb-14" aria-hidden="true">
+          <EntityMark type="campaign" size={15} tone="primary" />
+          <EntityMark type="coalition-pac" size={15} tone="primary" />
+          <EntityMark type="jfc" size={15} tone="primary" />
+          <EntityMark type="501c" size={15} tone="primary" />
         </div>
 
         <h1 className="font-display text-[40px] sm:text-[64px] lg:text-[82px] leading-[1.02] tracking-[-0.015em] text-primary max-w-[16ch]">
