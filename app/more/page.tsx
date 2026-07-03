@@ -218,7 +218,7 @@ export default function More() {
               Quartermint is for the compliance consultant carrying a book of committees, and for the solo operator running a PAC without a back office. Both already do this work by hand, and do it well.
             </p>
             <p className="font-body text-[17px] leading-[1.7] text-text">
-              Neither of them wants to learn new software. They have perfected a twenty-year process on a bank portal, a spreadsheet, and a filing tool. Quartermint is that process, digitized. You are the market, digitizing yourself.
+              Neither of them wants to learn new software. They have perfected over decades a process on a bank portal, a spreadsheet, and a filing tool. Quartermint is that process, digitized.
             </p>
           </div>
         </div>
