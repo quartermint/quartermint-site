@@ -53,17 +53,12 @@ export default function Home() {
         </p>
 
         <div className="mt-[52px] h-px w-full max-w-[640px] bg-[var(--color-rule)]" />
-        <div className="mt-7 flex flex-wrap items-baseline gap-x-10 gap-y-2">
-          <span className="font-mono text-[11.5px] tracking-[0.16em] uppercase text-text-faint">
-            By introduction
-          </span>
-          <a
-            href="mailto:hello@quartermint.com"
-            className="font-mono text-[14px] text-primary border-b border-[var(--color-rule-strong)] pb-0.5 transition-colors hover:border-[var(--color-accent)]"
-          >
-            hello@quartermint.com
-          </a>
-        </div>
+        <a
+          href="mailto:hello@quartermint.com"
+          className="mt-7 self-start font-mono text-[14px] text-primary border-b border-[var(--color-rule-strong)] pb-0.5 transition-colors hover:border-[var(--color-accent)]"
+        >
+          hello@quartermint.com
+        </a>
       </main>
 
       <footer className="mx-auto w-full max-w-[1200px] px-7 sm:px-12 lg:px-[120px] py-[22px] flex items-center justify-between gap-4 border-t border-[var(--color-rule)]">
@@ -71,7 +66,7 @@ export default function Home() {
           Quartermint
         </span>
         <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-text-faint">
-          Est. 2026
+          Available by introduction
         </span>
       </footer>
     </div>

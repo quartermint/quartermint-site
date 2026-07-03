@@ -10,7 +10,12 @@ export const contentType = 'image/png'
  * Editorial Treasury palette: Parchment background, Ledger Green marks,
  * Ink text.
  */
-export default function OpenGraphImage() {
+export default async function OpenGraphImage() {
+  // Fraunces (display) for the wordmark — satori needs TTF/OTF/WOFF, not woff2.
+  const fraunces = await fetch(
+    new URL('./_fonts/Fraunces-500.woff', import.meta.url)
+  ).then((r) => r.arrayBuffer())
+
   // Editorial Treasury tokens (kept inline -- ImageResponse cannot read CSS vars)
   const BG = '#FAF7EF'
   const PRIMARY = '#0F3D2E'
@@ -73,7 +78,7 @@ export default function OpenGraphImage() {
               lineHeight: 1.0,
               color: TEXT,
               letterSpacing: '-0.02em',
-              fontFamily: 'serif',
+              fontFamily: 'Fraunces',
               fontWeight: 500,
             }}
           >
@@ -112,6 +117,9 @@ export default function OpenGraphImage() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [{ name: 'Fraunces', data: fraunces, style: 'normal', weight: 500 }],
+    }
   )
 }
