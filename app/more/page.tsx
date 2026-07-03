@@ -73,7 +73,7 @@ export default function More() {
               <EntityMark type="jfc" size={14} tone="primary" />
               <EntityMark type="501c" size={14} tone="primary" />
             </div>
-            <a href="/" className="font-mono text-[11px] tracking-[0.16em] uppercase text-text-faint no-underline transition-colors hover:text-text">
+            <a href="/" className="font-display font-medium text-[15px] text-primary no-underline transition-colors hover:text-[var(--color-accent)]">
               Quartermint
             </a>
           </div>
@@ -287,12 +287,9 @@ export default function More() {
       {/* ===== FOOTER ===== */}
       <footer className="mx-auto w-full max-w-[1200px] px-6 lg:px-10 py-[22px] flex items-center justify-between gap-4">
         <a href="/" className="font-display font-medium text-[15px] text-primary no-underline">Quartermint</a>
-        <a
-          href="mailto:hello@quartermint.com"
-          className="font-mono text-[11px] tracking-[0.18em] uppercase text-text-faint no-underline transition-colors hover:text-text"
-        >
-          Available by introduction
-        </a>
+        <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-text-faint">
+          The first of several
+        </span>
       </footer>
     </div>
   )
